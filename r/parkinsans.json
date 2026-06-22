@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "name": "parkinsans",
+  "displayName": "Parkinsans",
+  "cssFamily": "Zelto Parkinsans",
+  "version": "1.0",
+  "category": "sans",
+  "designer": "Red Stone",
+  "license": {
+    "type": "OFL-1.1",
+    "url": "/r/fonts/parkinsans/files/OFL.txt"
+  },
+  "source": "https://github.com/redstonedesign/parkinsans",
+  "variable": true,
+  "axes": {
+    "wght": [
+      300,
+      800
+    ]
+  },
+  "weights": [
+    300,
+    400,
+    500,
+    600,
+    700,
+    800
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Accessible type with human energy.",
+  "description": "A geometric sans-serif designed for Parkinson's UK, balancing energetic display character with accessible short-form reading.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "files": []
+}

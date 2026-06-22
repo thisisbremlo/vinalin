@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "name": "clash-grotesk",
+  "displayName": "Clash Grotesk",
+  "cssFamily": "Zelto Clash Grotesk",
+  "version": "2.0",
+  "category": "sans",
+  "designer": "Indian Type Foundry",
+  "license": {
+    "type": "Fontshare Free Font License",
+    "url": "/r/fonts/clash-grotesk/files/OFL.txt"
+  },
+  "source": "https://www.fontshare.com/fonts/clash-grotesk",
+  "variable": true,
+  "axes": {
+    "wght": [
+      200,
+      700
+    ]
+  },
+  "weights": [
+    200,
+    300,
+    400,
+    500,
+    600,
+    700
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Confident type with a modern edge.",
+  "description": "A contemporary grotesque sans-serif with sturdy, slightly condensed letterforms, built for bold headlines and clean interface text.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "files": []
+}

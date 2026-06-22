@@ -1,0 +1,25 @@
+{
+  "name": "fontlr",
+  "version": "0.1.0",
+  "description": "A curated open font library and CLI for installing self-hosted font files.",
+  "private": false,
+  "bin": {
+    "fontlr": "./bin/fontlr.js"
+  },
+  "scripts": {
+    "mirror:fonts": "node scripts/mirror-font-files.js",
+    "build:registry": "node scripts/build-registry.js",
+    "validate:registry": "node scripts/validate-registry.js",
+    "check": "npm run build:registry && node --check app.js && node --check bin/fontlr.js && node scripts/validate-registry.js"
+  },
+  "keywords": [
+    "fonts",
+    "typography",
+    "self-hosted",
+    "cli"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

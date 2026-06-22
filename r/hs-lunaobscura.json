@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "name": "hs-lunaobscura",
+  "displayName": "HS LunaObscura",
+  "cssFamily": "Zelto HS LunaObscura",
+  "version": "1.0",
+  "category": "display",
+  "designer": "Headspace Agency",
+  "license": {
+    "type": "OFL-1.1",
+    "url": "/r/fonts/hs-lunaobscura/files/OFL.txt"
+  },
+  "source": "https://lunaobscura.headspace.ru",
+  "variable": false,
+  "axes": {},
+  "weights": [
+    400
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Signal found beyond the interface.",
+  "description": "An industrial display typeface for sci-fi, cyberpunk, dystopian interfaces, posters, navigation, and UI mockups.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "files": []
+}

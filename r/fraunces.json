@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "name": "fraunces",
+  "displayName": "Fraunces",
+  "cssFamily": "Zelto Fraunces",
+  "version": "1.0",
+  "category": "serif",
+  "designer": "Undercase Type",
+  "license": {
+    "type": "OFL-1.1",
+    "url": "/r/fonts/fraunces/files/OFL.txt"
+  },
+  "source": "https://github.com/undercasetype/Fraunces",
+  "variable": true,
+  "axes": {
+    "wght": [
+      400,
+      900
+    ]
+  },
+  "weights": [
+    400,
+    500,
+    600,
+    700,
+    900
+  ],
+  "styles": [
+    "normal",
+    "italic"
+  ],
+  "fallback": "serif",
+  "previewText": "A wonky, old-style soft serif.",
+  "description": "A display serif inspired by early 20th century typefaces, with optical sizing, softness, and wonk axes.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "files": []
+}

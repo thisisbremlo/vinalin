@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "name": "tanker",
+  "displayName": "Tanker",
+  "cssFamily": "Zelto Tanker",
+  "version": "1.0",
+  "category": "display",
+  "designer": "Indian Type Foundry",
+  "license": {
+    "type": "Fontshare Free Font License",
+    "url": "/r/fonts/tanker/files/OFL.txt"
+  },
+  "source": "https://www.fontshare.com/fonts/tanker",
+  "variable": false,
+  "axes": {},
+  "weights": [
+    400
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Bold headlines that demand attention.",
+  "description": "A high-contrast, ultra-bold display sans-serif with tightly packed letterforms, built for impactful headlines and posters.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "files": []
+}

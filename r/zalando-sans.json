@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "name": "zalando-sans",
+  "displayName": "Zalando Sans",
+  "cssFamily": "Zelto Zalando Sans",
+  "version": "1.0",
+  "category": "sans",
+  "designer": "Jakob Ekelund / KH Type",
+  "license": {
+    "type": "OFL-1.1",
+    "url": "/r/fonts/zalando-sans/files/OFL.txt"
+  },
+  "source": "https://github.com/zalando/sans",
+  "variable": true,
+  "axes": {
+    "wght": [
+      200,
+      900
+    ]
+  },
+  "weights": [
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Bold systems can still feel welcoming.",
+  "description": "A flexible grotesque sans-serif developed for Zalando, combining clarity, expressive range, and brand personality through variable axes.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "files": []
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "name": "neutral-sans",
+  "displayName": "Neutral Sans",
+  "cssFamily": "Zelto Neutral Sans",
+  "version": "1.1",
+  "category": "sans",
+  "designer": "Barry Shawn",
+  "license": {
+    "type": "OFL-1.1",
+    "url": "/r/fonts/neutral-sans/files/OFL.txt"
+  },
+  "source": "https://github.com/BesignLab/Neutral-Sans",
+  "variable": true,
+  "axes": {
+    "wght": [
+      400,
+      900
+    ]
+  },
+  "weights": [
+    400,
+    500,
+    700,
+    900
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Warm clarity for modern interfaces.",
+  "description": "A modern humanist sans-serif with rounded details, strong readability, variable weight support, and multilingual coverage.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "files": []
+}

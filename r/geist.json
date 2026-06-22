@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "name": "geist",
+  "displayName": "Geist",
+  "cssFamily": "Zelto Geist",
+  "version": "1.7.2",
+  "category": "sans",
+  "designer": "Geist Type",
+  "license": {
+    "type": "OFL-1.1",
+    "url": "/r/fonts/geist/files/OFL.txt"
+  },
+  "source": "https://github.com",
+  "variable": true,
+  "axes": {
+    "wght": [
+      400,
+      700
+    ]
+  },
+  "weights": [
+    400,
+    500,
+    600,
+    700
+  ],
+  "styles": [
+    "normal",
+    "italic"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Design is the silent ambassador of your brand.",
+  "description": "A Swiss-inspired sans-serif built for legibility and precision for the modern web.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "files": []
+}

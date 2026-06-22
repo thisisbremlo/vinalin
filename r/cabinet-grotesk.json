@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "name": "cabinet-grotesk",
+  "displayName": "Cabinet Grotesk",
+  "cssFamily": "Zelto Cabinet Grotesk",
+  "version": "2.0",
+  "category": "sans",
+  "designer": "Indian Type Foundry",
+  "license": {
+    "type": "Fontshare Free Font License",
+    "url": "/r/fonts/cabinet-grotesk/files/OFL.txt"
+  },
+  "source": "https://www.fontshare.com/fonts/cabinet-grotesk",
+  "variable": true,
+  "axes": {
+    "wght": [
+      100,
+      900
+    ]
+  },
+  "weights": [
+    100,
+    200,
+    300,
+    400,
+    500,
+    700,
+    800,
+    900
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "A versatile grotesque for every weight.",
+  "description": "A clean, geometric grotesque sans-serif spanning Thin to Black, suited to both expressive headlines and functional body text.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "files": []
+}

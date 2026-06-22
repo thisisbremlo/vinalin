@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fontlr.app/registry/schema.json",
+  "title": "fontlr font manifest",
+  "type": "object",
+  "required": [
+    "name",
+    "displayName",
+    "version",
+    "category",
+    "designer",
+    "license",
+    "source",
+    "variable",
+    "weights",
+    "styles",
+    "fallback",
+    "previewText",
+    "description",
+    "submittedBy",
+    "files"
+  ],
+  "properties": {
+    "name": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "displayName": { "type": "string" },
+    "version": { "type": "string" },
+    "category": { "enum": ["sans", "serif", "mono", "display", "handwriting"] },
+    "designer": { "type": "string" },
+    "license": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "source": { "type": "string" },
+    "variable": { "type": "boolean" },
+    "axes": { "type": "object" },
+    "weights": { "type": "array", "items": { "type": "number" }, "minItems": 1 },
+    "styles": { "type": "array", "items": { "enum": ["normal", "italic"] }, "minItems": 1 },
+    "fallback": { "type": "string" },
+    "previewText": { "type": "string" },
+    "description": { "type": "string" },
+    "submittedBy": {
+      "type": "object",
+      "required": ["github"],
+      "properties": {
+        "github": { "type": "string" }
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "weight", "style"],
+        "properties": {
+          "path": { "type": "string" },
+          "weight": { "type": "string" },
+          "style": { "enum": ["normal", "italic"] }
+        }
+      }
+    }
+  }
+}

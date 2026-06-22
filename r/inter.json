@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "name": "inter",
+  "displayName": "Inter",
+  "cssFamily": "Zelto Inter",
+  "version": "4.1",
+  "category": "sans",
+  "designer": "Rasmus Andersson",
+  "license": {
+    "type": "OFL-1.1",
+    "url": "/r/fonts/inter/files/OFL.txt"
+  },
+  "source": "https://github.com/rsms/inter",
+  "variable": true,
+  "axes": {
+    "wght": [
+      400,
+      700
+    ]
+  },
+  "weights": [
+    400,
+    500,
+    600,
+    700
+  ],
+  "styles": [
+    "normal",
+    "italic"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Sphinx of black quartz, judge my vow.",
+  "description": "A typeface carefully crafted and designed for computer screens. The de-facto standard for product interfaces.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "files": []
+}

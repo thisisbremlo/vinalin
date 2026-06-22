@@ -1,0 +1,620 @@
+{
+  "name": "fontlr registry",
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-22T00:19:13.385Z",
+  "fonts": [
+    {
+      "schemaVersion": 1,
+      "name": "cabinet-grotesk",
+      "displayName": "Cabinet Grotesk",
+      "cssFamily": "Zelto Cabinet Grotesk",
+      "version": "2.0",
+      "category": "sans",
+      "designer": "Indian Type Foundry",
+      "license": {
+        "type": "Fontshare Free Font License",
+        "url": "/r/fonts/cabinet-grotesk/files/OFL.txt"
+      },
+      "source": "https://www.fontshare.com/fonts/cabinet-grotesk",
+      "variable": true,
+      "axes": {
+        "wght": [
+          100,
+          900
+        ]
+      },
+      "weights": [
+        100,
+        200,
+        300,
+        400,
+        500,
+        700,
+        800,
+        900
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "A versatile grotesque for every weight.",
+      "description": "A clean, geometric grotesque sans-serif spanning Thin to Black, suited to both expressive headlines and functional body text.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "clash-grotesk",
+      "displayName": "Clash Grotesk",
+      "cssFamily": "Zelto Clash Grotesk",
+      "version": "2.0",
+      "category": "sans",
+      "designer": "Indian Type Foundry",
+      "license": {
+        "type": "Fontshare Free Font License",
+        "url": "/r/fonts/clash-grotesk/files/OFL.txt"
+      },
+      "source": "https://www.fontshare.com/fonts/clash-grotesk",
+      "variable": true,
+      "axes": {
+        "wght": [
+          200,
+          700
+        ]
+      },
+      "weights": [
+        200,
+        300,
+        400,
+        500,
+        600,
+        700
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "Confident type with a modern edge.",
+      "description": "A contemporary grotesque sans-serif with sturdy, slightly condensed letterforms, built for bold headlines and clean interface text.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "departure-mono",
+      "displayName": "Departure Mono",
+      "cssFamily": "Zelto Departure Mono",
+      "version": "1.350",
+      "category": "mono",
+      "designer": "Helena Zhang",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/departure-mono/files/OFL.txt"
+      },
+      "source": "https://departuremono.com",
+      "variable": false,
+      "axes": {},
+      "weights": [
+        400
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "monospace",
+      "previewText": "Pixel-perfect type for quiet systems.",
+      "description": "A pixel-conscious monospace typeface with support for Latin, Greek, small caps, old-style numerals, fractions, and selected symbols.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "fraunces",
+      "displayName": "Fraunces",
+      "cssFamily": "Zelto Fraunces",
+      "version": "1.0",
+      "category": "serif",
+      "designer": "Undercase Type",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/fraunces/files/OFL.txt"
+      },
+      "source": "https://github.com/undercasetype/Fraunces",
+      "variable": true,
+      "axes": {
+        "wght": [
+          400,
+          900
+        ]
+      },
+      "weights": [
+        400,
+        500,
+        600,
+        700,
+        900
+      ],
+      "styles": [
+        "normal",
+        "italic"
+      ],
+      "fallback": "serif",
+      "previewText": "A wonky, old-style soft serif.",
+      "description": "A display serif inspired by early 20th century typefaces, with optical sizing, softness, and wonk axes.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "geist",
+      "displayName": "Geist",
+      "cssFamily": "Zelto Geist",
+      "version": "1.7.2",
+      "category": "sans",
+      "designer": "Geist Type",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/geist/files/OFL.txt"
+      },
+      "source": "https://github.com",
+      "variable": true,
+      "axes": {
+        "wght": [
+          400,
+          700
+        ]
+      },
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ],
+      "styles": [
+        "normal",
+        "italic"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "Design is the silent ambassador of your brand.",
+      "description": "A Swiss-inspired sans-serif built for legibility and precision for the modern web.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "geist-mono",
+      "displayName": "Geist Mono",
+      "cssFamily": "Zelto Geist Mono",
+      "version": "1.7.2",
+      "category": "mono",
+      "designer": "Geist Type",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/geist-mono/files/OFL.txt"
+      },
+      "source": "https://github.com",
+      "variable": true,
+      "axes": {
+        "wght": [
+          400,
+          700
+        ]
+      },
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ],
+      "styles": [
+        "normal",
+        "italic"
+      ],
+      "fallback": "monospace",
+      "previewText": "const font = await fontlr.add(\"geist-mono\")",
+      "description": "The monospace companion to Geist. Clean, precise, and made for code.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "hs-lunaobscura",
+      "displayName": "HS LunaObscura",
+      "cssFamily": "Zelto HS LunaObscura",
+      "version": "1.0",
+      "category": "display",
+      "designer": "Headspace Agency",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/hs-lunaobscura/files/OFL.txt"
+      },
+      "source": "https://lunaobscura.headspace.ru",
+      "variable": false,
+      "axes": {},
+      "weights": [
+        400
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "Signal found beyond the interface.",
+      "description": "An industrial display typeface for sci-fi, cyberpunk, dystopian interfaces, posters, navigation, and UI mockups.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "inter",
+      "displayName": "Inter",
+      "cssFamily": "Zelto Inter",
+      "version": "4.1",
+      "category": "sans",
+      "designer": "Rasmus Andersson",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/inter/files/OFL.txt"
+      },
+      "source": "https://github.com/rsms/inter",
+      "variable": true,
+      "axes": {
+        "wght": [
+          400,
+          700
+        ]
+      },
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ],
+      "styles": [
+        "normal",
+        "italic"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "Sphinx of black quartz, judge my vow.",
+      "description": "A typeface carefully crafted and designed for computer screens. The de-facto standard for product interfaces.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "jetbrains-mono",
+      "displayName": "JetBrains Mono",
+      "cssFamily": "Zelto JetBrains Mono",
+      "version": "2.304",
+      "category": "mono",
+      "designer": "JetBrains",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/jetbrains-mono/files/OFL.txt"
+      },
+      "source": "https://github.com/JetBrains/JetBrainsMono",
+      "variable": true,
+      "axes": {
+        "wght": [
+          400,
+          800
+        ]
+      },
+      "weights": [
+        400,
+        500,
+        700,
+        800
+      ],
+      "styles": [
+        "normal",
+        "italic"
+      ],
+      "fallback": "monospace",
+      "previewText": "() => ({ ligatures: true, zero: \"0O\" })",
+      "description": "A typeface for developers. Increased x-height, code ligatures, and 145 languages supported.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "manrope",
+      "displayName": "Manrope",
+      "cssFamily": "Zelto Manrope",
+      "version": "3.0",
+      "category": "sans",
+      "designer": "Mikhail Sharanda",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/manrope/files/OFL.txt"
+      },
+      "source": "https://github.com/davelab6/manrope",
+      "variable": false,
+      "axes": {},
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "Modern, open, geometric grotesque.",
+      "description": "An open-source modern sans-serif. Geometric yet warm, great for both display and body text.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "momo-signature",
+      "displayName": "Momo Signature",
+      "cssFamily": "Zelto Momo Signature",
+      "version": "1.0",
+      "category": "handwriting",
+      "designer": "M - N Associates",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/momo-signature/files/OFL.txt"
+      },
+      "source": "https://momo.vn",
+      "variable": false,
+      "axes": {},
+      "weights": [
+        400
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "cursive",
+      "previewText": "A personal mark inside digital trust.",
+      "description": "A handwritten signature-inspired typeface designed to add a personal, trusted, and individual tone.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "neutral-sans",
+      "displayName": "Neutral Sans",
+      "cssFamily": "Zelto Neutral Sans",
+      "version": "1.1",
+      "category": "sans",
+      "designer": "Barry Shawn",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/neutral-sans/files/OFL.txt"
+      },
+      "source": "https://github.com/BesignLab/Neutral-Sans",
+      "variable": true,
+      "axes": {
+        "wght": [
+          400,
+          900
+        ]
+      },
+      "weights": [
+        400,
+        500,
+        700,
+        900
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "Warm clarity for modern interfaces.",
+      "description": "A modern humanist sans-serif with rounded details, strong readability, variable weight support, and multilingual coverage.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "parkinsans",
+      "displayName": "Parkinsans",
+      "cssFamily": "Zelto Parkinsans",
+      "version": "1.0",
+      "category": "sans",
+      "designer": "Red Stone",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/parkinsans/files/OFL.txt"
+      },
+      "source": "https://github.com/redstonedesign/parkinsans",
+      "variable": true,
+      "axes": {
+        "wght": [
+          300,
+          800
+        ]
+      },
+      "weights": [
+        300,
+        400,
+        500,
+        600,
+        700,
+        800
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "Accessible type with human energy.",
+      "description": "A geometric sans-serif designed for Parkinson's UK, balancing energetic display character with accessible short-form reading.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "space-grotesk",
+      "displayName": "Space Grotesk",
+      "cssFamily": "Zelto Space Grotesk",
+      "version": "2.0.0",
+      "category": "display",
+      "designer": "Florian Karsten",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/space-grotesk/files/OFL.txt"
+      },
+      "source": "https://github.com/floriankarsten/space-grotesk",
+      "variable": true,
+      "axes": {
+        "wght": [
+          300,
+          700
+        ]
+      },
+      "weights": [
+        300,
+        400,
+        500,
+        600,
+        700
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "Space is big. Really big.",
+      "description": "A proportional sans-serif derived from Space Mono, with retro-futuristic details that shine at display sizes.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "tanker",
+      "displayName": "Tanker",
+      "cssFamily": "Zelto Tanker",
+      "version": "1.0",
+      "category": "display",
+      "designer": "Indian Type Foundry",
+      "license": {
+        "type": "Fontshare Free Font License",
+        "url": "/r/fonts/tanker/files/OFL.txt"
+      },
+      "source": "https://www.fontshare.com/fonts/tanker",
+      "variable": false,
+      "axes": {},
+      "weights": [
+        400
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "Bold headlines that demand attention.",
+      "description": "A high-contrast, ultra-bold display sans-serif with tightly packed letterforms, built for impactful headlines and posters.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "tiktok-sans",
+      "displayName": "TikTok Sans",
+      "cssFamily": "Zelto TikTok Sans",
+      "version": "1.0",
+      "category": "sans",
+      "designer": "TikTok Inc.",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/tiktok-sans/files/OFL.txt"
+      },
+      "source": "https://github.com/tiktok/TikTokSans",
+      "variable": true,
+      "axes": {
+        "wght": [
+          400,
+          900
+        ]
+      },
+      "weights": [
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "A social rhythm for product type.",
+      "description": "A modern sans-serif typeface from TikTok, built for clear brand expression across digital interfaces and communication.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    },
+    {
+      "schemaVersion": 1,
+      "name": "zalando-sans",
+      "displayName": "Zalando Sans",
+      "cssFamily": "Zelto Zalando Sans",
+      "version": "1.0",
+      "category": "sans",
+      "designer": "Jakob Ekelund / KH Type",
+      "license": {
+        "type": "OFL-1.1",
+        "url": "/r/fonts/zalando-sans/files/OFL.txt"
+      },
+      "source": "https://github.com/zalando/sans",
+      "variable": true,
+      "axes": {
+        "wght": [
+          200,
+          900
+        ]
+      },
+      "weights": [
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "styles": [
+        "normal"
+      ],
+      "fallback": "sans-serif",
+      "previewText": "Bold systems can still feel welcoming.",
+      "description": "A flexible grotesque sans-serif developed for Zalando, combining clarity, expressive range, and brand personality through variable axes.",
+      "submittedBy": {
+        "github": "thisisbremlo"
+      },
+      "files": []
+    }
+  ]
+}
