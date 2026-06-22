@@ -1144,7 +1144,7 @@ function renderDonor() {
     </section>`;
 }
 
-function renderImpressum() {
+function renderLegalNotice() {
   setTitle("Legal Notice");
   setPage("inner");
   app.innerHTML = `
@@ -1401,9 +1401,8 @@ function route() {
   if (path === "/submit") return renderSubmit();
   if (path === "/donor") return renderDonor();
   if (path === "/donors") return renderDonor();
-  if (path === "/impressum") return renderImpressum();
+  if (path === "/legal-notice") return renderLegalNotice();
   if (path === "/privacy") return renderPrivacy();
-  if (path === "/datenschutz") return renderPrivacy();
   const match = path.match(/^\/fonts\/([^/]+)$/);
   if (match) {
     const font = fonts.find((item) => item.name === match[1]);

@@ -51,9 +51,8 @@ The footer appears on every page and includes:
 
 The site includes placeholder legal pages for launch preparation:
 
-- `/impressum` renders a Legal Notice page with a large placeholder text field.
+- `/legal-notice` renders a Legal Notice page with a large placeholder text field.
 - `/privacy` renders a Privacy Policy page with a large placeholder text field.
-- `/datenschutz` routes to the same Privacy Policy page.
 
 The placeholder content must be replaced before publishing.
 
