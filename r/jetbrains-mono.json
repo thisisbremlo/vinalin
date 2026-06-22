@@ -8,7 +8,7 @@
   "designer": "JetBrains",
   "license": {
     "type": "OFL-1.1",
-    "url": "/r/fonts/jetbrains-mono/files/OFL.txt"
+    "url": "/r/fonts/jetbrains-mono/OFL.txt"
   },
   "source": "https://github.com/JetBrains/JetBrainsMono",
   "variable": true,
@@ -34,5 +34,16 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/jetbrains-mono/jetbrains-mono-100-800-italic.woff2",
+      "weight": "100 800",
+      "style": "italic"
+    },
+    {
+      "path": "/r/fonts/jetbrains-mono/jetbrains-mono-100-800.woff2",
+      "weight": "100 800",
+      "style": "normal"
+    }
+  ]
 }

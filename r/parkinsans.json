@@ -8,7 +8,7 @@
   "designer": "Red Stone",
   "license": {
     "type": "OFL-1.1",
-    "url": "/r/fonts/parkinsans/files/OFL.txt"
+    "url": "/r/fonts/parkinsans/OFL.txt"
   },
   "source": "https://github.com/redstonedesign/parkinsans",
   "variable": true,
@@ -35,5 +35,11 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/parkinsans/parkinsans-300-800.woff2",
+      "weight": "300 800",
+      "style": "normal"
+    }
+  ]
 }

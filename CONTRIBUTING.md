@@ -19,6 +19,8 @@ npm run mirror:fonts
 npm run build:registry
 ```
 
+The mirror task also retrieves the license text for each maintained catalog family. New submissions must still include and verify their own license file.
+
 ## Manifest
 
 Use this shape:

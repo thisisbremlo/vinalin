@@ -8,7 +8,7 @@
   "designer": "Undercase Type",
   "license": {
     "type": "OFL-1.1",
-    "url": "/r/fonts/fraunces/files/OFL.txt"
+    "url": "/r/fonts/fraunces/OFL.txt"
   },
   "source": "https://github.com/undercasetype/Fraunces",
   "variable": true,
@@ -35,5 +35,16 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/fraunces/fraunces-100-900-italic.woff2",
+      "weight": "100 900",
+      "style": "italic"
+    },
+    {
+      "path": "/r/fonts/fraunces/fraunces-100-900.woff2",
+      "weight": "100 900",
+      "style": "normal"
+    }
+  ]
 }

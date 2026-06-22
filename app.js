@@ -73,6 +73,10 @@ const downloadSeed = {
   "momo-signature": 174000,
 };
 const trackingStorageKey = "fontlr:font-tracking";
+const downloadCountsStorageKey = "fontlr:download-counts";
+let remoteDownloadCounts = readRemoteDownloadCounts();
+let remoteDownloadCountsLoaded = false;
+let downloadCountsRequest = null;
 let codeBlockCount = 0;
 const intentProfiles = [
   { id: "saas", label: "SaaS dashboard", copy: "Clear UI text, data labels, and calm hierarchy.", prefer: ["sans"], avoid: ["display", "handwriting"], weights: { sans: 6, mono: 2, variable: 3, italics: 1 } },
@@ -132,6 +136,23 @@ function writeFontTracking(data) {
   }
 }
 
+function readRemoteDownloadCounts() {
+  try {
+    const value = localStorage.getItem(downloadCountsStorageKey);
+    return value ? JSON.parse(value) : {};
+  } catch {
+    return {};
+  }
+}
+
+function writeRemoteDownloadCounts(data) {
+  try {
+    localStorage.setItem(downloadCountsStorageKey, JSON.stringify(data));
+  } catch {
+    // Remote counts are progressive enhancement only.
+  }
+}
+
 function trackingScore(font, data = readFontTracking()) {
   const stats = data[font.name] || {};
   return (popularitySeed[font.name] || 0) + ((stats.views || 0) * 12) + ((stats.clicks || 0) * 5) + ((stats.downloads || 0) * 18);
@@ -163,6 +184,11 @@ function licenseValue(font) {
   return licenseLabel(font).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+function licenseUrlFor(font) {
+  const fileName = font.license.includes("Fontshare") ? "LICENSE.txt" : "OFL.txt";
+  return `/r/fonts/${font.name}/${fileName}`;
+}
+
 function formatCount(value) {
   if (value >= 1000000) return `${(value / 1000000).toFixed(value >= 10000000 ? 0 : 1)}M`;
   if (value >= 1000) return `${Math.round(value / 1000)}K`;
@@ -170,6 +196,7 @@ function formatCount(value) {
 }
 
 function downloadCount(font, data = readFontTracking()) {
+  if (remoteDownloadCountsLoaded) return remoteDownloadCounts[font.name] || 0;
   const stats = data[font.name] || {};
   return (downloadSeed[font.name] || 0) + (stats.downloads || 0);
 }
@@ -179,6 +206,29 @@ function supabaseTrackingConfig() {
   const key = window.FONTLR_SUPABASE_ANON_KEY || document.querySelector('meta[name="fontlr:supabase-anon-key"]')?.content;
   if (!url || !key || url.includes("YOUR_PROJECT") || key.includes("YOUR_PUBLIC_ANON_KEY")) return null;
   return url && key ? { url: url.replace(/\/$/, ""), key } : null;
+}
+
+function hydrateDownloadCounts() {
+  const config = supabaseTrackingConfig();
+  if (!config || downloadCountsRequest) return downloadCountsRequest;
+  downloadCountsRequest = fetch(`${config.url}/rest/v1/font_download_counts?select=font_slug,downloads`, {
+    headers: {
+      apikey: config.key,
+      Authorization: `Bearer ${config.key}`,
+    },
+  })
+    .then((response) => (response.ok ? response.json() : Promise.reject(response)))
+    .then((rows) => {
+      remoteDownloadCounts = Object.fromEntries((rows || []).map((row) => [row.font_slug, Number(row.downloads) || 0]));
+      remoteDownloadCountsLoaded = true;
+      writeRemoteDownloadCounts(remoteDownloadCounts);
+      if (document.body.dataset.page === "home") route();
+    })
+    .catch(() => {})
+    .finally(() => {
+      downloadCountsRequest = null;
+    });
+  return downloadCountsRequest;
 }
 
 function trackFontEvent(slug, eventType = "click") {
@@ -212,7 +262,18 @@ function trackFontEvent(slug, eventType = "click") {
       created_at: new Date().toISOString(),
     }),
     keepalive: true,
-  }).catch(() => {});
+  })
+    .then((response) => {
+      if (!response.ok) throw response;
+      remoteDownloadCountsLoaded = true;
+      remoteDownloadCounts = {
+        ...remoteDownloadCounts,
+        [slug]: (remoteDownloadCounts[slug] || 0) + 1,
+      };
+      writeRemoteDownloadCounts(remoteDownloadCounts);
+      if (document.body.dataset.page === "home") route();
+    })
+    .catch(() => {});
 }
 
 function axisDefaults(font) {
@@ -378,7 +439,11 @@ function fontCard(font) {
       <a class="font-card-media" href="/fonts/${font.name}" data-local-link data-track-font="${font.name}" data-track-event="click" aria-label="View ${font.displayName}">
         <span class="sample sample-main" style="font-family: ${fontStack(font)};">${font.displayName}</span>
         <span class="sample sample-side" style="font-family: ${fontStack(font)};">${font.previewText}</span>
-        <span class="sample sample-mark" style="font-family: ${fontStack(font)};">A</span>
+        <span class="sample sample-mark" style="font-family: ${fontStack(font)};">
+          <small>Case + figures</small>
+          <strong>Aa</strong>
+          <em>0123456789</em>
+        </span>
       </a>
       <div class="font-card-info">
         <div class="font-card-header">
@@ -626,7 +691,13 @@ function pairSelect(role, selected) {
 }
 
 function pairPreview(pair) {
+  const previewClasses = [
+    pair.headline.category === "display" ? "has-display-headline" : "",
+    pair.body.category === "display" ? "has-display-body" : "",
+    pair.accent.category === "display" ? "has-display-accent" : "",
+  ].filter(Boolean).join(" ");
   return `
+    <div class="pair-preview-content ${previewClasses}">
     <div class="pair-specimen">
       <p style="font-family: ${fontStack(pair.accent)};">Product Brief</p>
       <h4 style="font-family: ${fontStack(pair.headline)};">Quiet systems for loud ideas</h4>
@@ -653,6 +724,7 @@ function pairPreview(pair) {
         <h5 style="font-family: ${fontStack(pair.headline)};">A shortlist for founders, designers, and developers.</h5>
         <span style="font-family: ${fontStack(pair.body)};">Render real copy, check the license, copy the install command, and keep the decision moving.</span>
       </article>
+    </div>
     </div>`;
 }
 
@@ -735,7 +807,10 @@ function bindPairingPage() {
       });
     });
 
-    select.addEventListener("change", sync);
+    select.addEventListener("change", () => {
+      sync();
+      updatePairing(false);
+    });
     sync();
     pairSelectSyncers.push(sync);
   }
@@ -967,94 +1042,62 @@ function renderDocs() {
       <div class="container doc-layout">
         <aside class="doc-nav">
           <a href="#quick-start">Quick start</a>
-          <a href="#next">Next.js</a>
-          <a href="#react">React / Vite</a>
+          <a href="#find-font">Find a font name</a>
+          <a href="#font-names">All font names</a>
           <a href="#cli">CLI reference</a>
-          <a href="#registry">Registry API</a>
-          <a href="#github">GitHub setup</a>
-          <a href="#self-hosting">Self-hosting</a>
-          <a href="#tracking">Download tracking</a>
+          <a href="#output">Where files go</a>
+          <a href="#use-font">Use the font</a>
           <a href="#licenses">Licenses</a>
+          <a href="#troubleshooting">Troubleshooting</a>
         </aside>
         <article class="prose">
           <h2 id="quick-start">Quick start</h2>
-          <p>Pick a font from the <a href="/#fonts" data-local-link>catalog</a> and run the add command in your project root:</p>
+          <p>Open your project folder in a terminal, pick a family from the <a href="/#fonts" data-local-link>fontlr catalog</a>, and run its install command:</p>
           ${codeBlock(`npx fontlr add inter`)}
           ${renderInstallBox()}
-          <p>The CLI reads <code>/r/registry.json</code>, downloads the registered <code>.woff2</code> files, and generates ready-to-use code. No runtime font CDN, no package dependency in your app - you own the files. A font can only install after its files are merged into <code>registry/fonts/&lt;name&gt;/files/</code>.</p>
-          <h2 id="next">Next.js (App Router)</h2>
-          <p>Font files land in <code>app/fonts/&lt;name&gt;/</code> and a module is generated at <code>app/fonts/&lt;name&gt;.ts</code> using <code>next/font/local</code>:</p>
+          <p>The CLI downloads the registered <code>.woff2</code> files, includes the license, and creates ready-to-use font code inside your project. The files are self-hosted by your app; fontlr is not required at runtime.</p>
+          <h2 id="find-font">Find a font name</h2>
+          <p>The install name is the short slug shown in each command on fontlr. For example, <strong>JetBrains Mono</strong> uses <code>jetbrains-mono</code>:</p>
+          ${codeBlock(`npx fontlr list
+npx fontlr add jetbrains-mono`)}
+          <h2 id="font-names">All font names</h2>
+          <p>Use the slug beside each family in the CLI command. These are all fonts currently available on fontlr:</p>
+          <div class="doc-font-list">
+            ${fonts.map((font) => `
+              <a href="/fonts/${font.name}" data-local-link>
+                <span><strong>${font.displayName}</strong><code>${font.name}</code></span>
+                <code>npx fontlr add ${font.name}</code>
+              </a>`).join("")}
+          </div>
+          <h2 id="cli">CLI reference</h2>
+          ${codeBlock(`npx fontlr add &lt;name&gt;          install a font
+npx fontlr list                list available fonts
+
+--force                        overwrite existing files
+--dir &lt;path&gt;                   choose the font files directory
+--registry &lt;url&gt;               use a compatible registry mirror`)}
+          <h2 id="output">Where files go</h2>
+          <p>fontlr detects common project structures and puts each family in a predictable local folder:</p>
+          ${codeBlock(`Next.js:     app/fonts/&lt;name&gt;/
+React/Vite: public/fonts/&lt;name&gt;/
+Other:       fonts/&lt;name&gt;/`)}
+          <p>You can choose another destination with <code>--dir</code>. Re-run with <code>--force</code> only when you intentionally want to replace an existing installation.</p>
+          <h2 id="use-font">Use the installed font</h2>
+          <p>In a Next.js App Router project, import the generated local-font module:</p>
           ${codeBlock(`import { inter } from "./fonts/inter";
 
 // app/layout.tsx
 &lt;html className={inter.variable}&gt;`)}
-          <p>Then wire it into Tailwind v4 in <code>globals.css</code>:</p>
-          ${codeBlock(`@theme inline {
-  --font-sans: var(--font-inter);
-}`)}
-          <h2 id="react">React / Vite</h2>
-          <p>Files land in <code>public/fonts/&lt;name&gt;/</code> with an <code>@font-face</code> stylesheet at <code>src/styles/fonts/&lt;name&gt;.css</code>:</p>
+          <p>In React or Vite, import the generated stylesheet:</p>
           ${codeBlock(`// src/main.tsx
 import "./styles/fonts/inter.css";
 
 /* anywhere in CSS */
 font-family: var(--font-inter);`)}
-          <h2 id="cli">CLI reference</h2>
-          ${codeBlock(`npx fontlr add &lt;name&gt;          install a font
---force                        overwrite existing files
---dir &lt;path&gt;                   override the font files directory
---registry &lt;url&gt;               use a different registry
-
-npx fontlr list                list all available fonts`)}
-          <h2 id="registry">Registry API</h2>
-          <p>The registry is plain static JSON generated from the GitHub repository. The CLI and the site both read the same files:</p>
-          ${codeBlock(`GET /r/registry.json                         full catalog
-GET /r/&lt;name&gt;.json                           single font
-GET /r/fonts/&lt;name&gt;/*                        woff2 files + license
-GET https://raw.githubusercontent.com/thisisbremlo/fontlr/main/r/registry.json`)}
-          <h2 id="github">GitHub setup</h2>
-          <p>The repository owns submissions, validation, and releases. Contributors open pull requests; GitHub Actions rebuilds and validates the registry.</p>
-          ${codeBlock(`git init
-git add .
-git commit -m "Initial fontlr registry"
-git branch -M main
-git remote add origin https://github.com/thisisbremlo/fontlr.git
-git push -u origin main
-
-npm run mirror:fonts
-npm run build:registry
-npm run validate:registry`)}
-          <h2 id="self-hosting">Self-hosting</h2>
-          <p>Point the CLI at your own mirror with <code>--registry</code> or the <code>FONTLR_REGISTRY_URL</code> environment variable. File URLs in the registry JSON are relative, so a full mirror is just a copy of <code>/r</code>.</p>
-          <h2 id="tracking">Download tracking</h2>
-          <p>The frontend only sends anonymous <code>download</code> events to Supabase. Views and clicks can still update local interface counts in the visitor's browser, but they are not posted remotely. For production, connect a small Supabase table and expose only aggregate counts.</p>
-          ${codeBlock(`<!-- in index.html, after creating the Supabase project.
-     Use the public anon key only, never the service-role key. -->
-<meta name="fontlr:supabase-url" content="https://YOUR_PROJECT.supabase.co">
-<meta name="fontlr:supabase-anon-key" content="YOUR_PUBLIC_ANON_KEY">`)}
-          ${codeBlock(`create table font_events (
-  id bigserial primary key,
-  font_slug text not null,
-  event_type text not null check (event_type = 'download'),
-  path text,
-  created_at timestamptz not null default now()
-);
-
-alter table font_events enable row level security;
-
-create policy "public download inserts only"
-on font_events for insert
-to anon
-with check (event_type = 'download');
-
-create view font_download_counts as
-select font_slug, count(*)::bigint as downloads
-from font_events
-where event_type = 'download'
-group by font_slug;`)}
-          <p>Best practice for Germany: keep this event schema minimal, avoid cookies and user IDs, do not store IP addresses or user agents in the analytics table, and explain that only anonymous download events are counted before launch.</p>
           <h2 id="licenses">Licenses</h2>
-          <p>Every font in the registry uses the SIL Open Font License (or equivalent). The license text is downloaded next to the font files - keep it there; the OFL requires it to accompany the fonts.</p>
+          <p>The exact license text is installed beside every family. Keep that file with the fonts, and check the family's <a href="/licenses" data-local-link>license page</a> before shipping.</p>
+          <h2 id="troubleshooting">Troubleshooting</h2>
+          <p>If a folder already exists, use <code>--force</code> only if replacing it is safe. If the CLI cannot identify your app structure, provide the destination explicitly with <code>--dir</code>. Run <code>npx fontlr list</code> to confirm the family slug before retrying.</p>
         </article>
       </div>
     </section>`;
@@ -1137,11 +1180,37 @@ function renderDonor() {
         </article>
         <article class="donor-card supporters-card">
           <div class="section-head"><h2>Supporters</h2></div>
-          <p>No supporters listed yet - be the first to chip in.</p>
-          <a class="mini-link" href="https://ko-fi.com/bremlo" target="_blank" rel="noreferrer">Be the first</a>
+          <div class="supporter-list" id="supporterList" aria-live="polite">
+            <p>Loading supporters...</p>
+          </div>
         </article>
       </div>
     </section>`;
+  bindSupporters();
+}
+
+async function bindSupporters() {
+  const list = document.querySelector("#supporterList");
+  if (!list) return;
+  try {
+    const response = await fetch("/data/supporters.json");
+    if (!response.ok) throw new Error(`Supporters returned ${response.status}`);
+    const data = await response.json();
+    const supporters = Array.isArray(data.supporters) ? data.supporters : [];
+    if (!supporters.length) {
+      list.innerHTML = `<p>No supporters listed yet - be the first to chip in.</p><a class="mini-link" href="https://ko-fi.com/bremlo" target="_blank" rel="noreferrer">Be the first</a>`;
+      return;
+    }
+    list.innerHTML = supporters.map((supporter) => {
+      const name = String(supporter.name || "Anonymous supporter");
+      const amount = Number(supporter.amount || 0);
+      const currency = String(supporter.currency || data.currency || "EUR");
+      const formatted = new Intl.NumberFormat("en", { style: "currency", currency }).format(amount);
+      return `<div class="supporter-row"><strong>${escapeHtml(name)}</strong><span>${formatted}</span></div>`;
+    }).join("");
+  } catch {
+    list.innerHTML = `<p>Supporters could not be loaded right now.</p>`;
+  }
 }
 
 function renderLegalNotice() {
@@ -1155,11 +1224,25 @@ function renderLegalNotice() {
       </div>
     </section>
     <section class="legal-page">
-      <div class="container legal-placeholder">
-        <label>
-          <span>Legal notice</span>
-          <textarea placeholder="[insert legal notice]" spellcheck="true"></textarea>
-        </label>
+      <div class="container legal-document">
+        <div class="legal-document-intro">
+          <div>
+            <p class="eyebrow">Updated June 2026</p>
+            <h2>Operator and legal information</h2>
+            <p>The complete legal notice covers the website operator, responsibility for content, font licensing, third-party links, copyright, and dispute resolution.</p>
+          </div>
+          <div class="legal-data">
+            <div><span>Website operator</span><strong>Benjamin Michael Bremer</strong></div>
+            <div><span>Contact</span><strong><a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></strong></div>
+          </div>
+          <div class="legal-document-actions">
+            <a class="primary-link" href="/legal-notice/fontlr-legal-notice.pdf" target="_blank" rel="noreferrer">Open legal notice PDF</a>
+            <a class="mini-link" href="/legal-notice/fontlr-legal-notice.pdf" download>Download PDF</a>
+          </div>
+        </div>
+        <object class="legal-pdf" data="/legal-notice/fontlr-legal-notice.pdf" type="application/pdf" aria-label="fontlr legal notice PDF">
+          <p>Your browser cannot display the PDF. <a href="/legal-notice/fontlr-legal-notice.pdf">Open the legal notice</a>.</p>
+        </object>
       </div>
     </section>`;
 }
@@ -1175,14 +1258,108 @@ function renderPrivacy() {
       </div>
     </section>
     <section class="legal-page">
-      <div class="container legal-placeholder">
-        <p>fontlr is prepared to count anonymous font downloads only. The app sends the font slug, event type, current path, and timestamp to Supabase when a visitor clicks a download action; views and normal link clicks are not sent remotely.</p>
-        <label>
-          <span>Privacy policy</span>
-          <textarea placeholder="[insert privacy policy]" spellcheck="true"></textarea>
-        </label>
+      <div class="container legal-document">
+        <div class="legal-document-intro">
+          <div>
+            <p class="eyebrow">Updated June 2026</p>
+            <h2>How fontlr handles data</h2>
+            <p>The complete policy explains website hosting, anonymous font-download counts, GitHub-hosted project files, contributions, contact data, storage duration, and your GDPR rights.</p>
+          </div>
+          <div class="legal-data">
+            <div><span>Controller</span><strong>Benjamin Michael Bremer</strong></div>
+            <div><span>Privacy contact</span><strong><a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></strong></div>
+          </div>
+          <div class="legal-document-actions">
+            <a class="primary-link" href="/privacy/fontlr-privacy-policy.pdf" target="_blank" rel="noreferrer">Open privacy policy PDF</a>
+            <a class="mini-link" href="/privacy/fontlr-privacy-policy.pdf" download>Download PDF</a>
+          </div>
+        </div>
+        <object class="legal-pdf" data="/privacy/fontlr-privacy-policy.pdf" type="application/pdf" aria-label="fontlr privacy policy PDF">
+          <p>Your browser cannot display the PDF. <a href="/privacy/fontlr-privacy-policy.pdf">Open the privacy policy</a>.</p>
+        </object>
       </div>
     </section>`;
+}
+
+function renderLicenses() {
+  setTitle("Font Licenses");
+  setPage("inner");
+  app.innerHTML = `
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Licenses</p>
+        <h1>Clear terms, shipped with every font<span>.</span></h1>
+        <p>Open the exact license text bundled with any family. The same file is included when the CLI installs a font.</p>
+      </div>
+    </section>
+    <section class="license-page">
+      <div class="container license-list">
+        ${fonts.map((font) => `
+          <article class="license-card">
+            <div>
+              <span>${licenseLabel(font)}</span>
+              <h2>${font.displayName}</h2>
+              <p>Designed by ${font.designer}</p>
+            </div>
+            <div class="license-card-actions">
+              <a class="mini-link" href="${licenseUrlFor(font)}" target="_blank" rel="noreferrer">View license</a>
+              <a class="mini-link" href="/fonts/${font.name}" data-local-link>Open family</a>
+            </div>
+          </article>`).join("")}
+      </div>
+    </section>`;
+}
+
+function downloadFileLabel(file) {
+  const weight = String(file.weight || "400").replace(" ", "-");
+  return `${weight}${file.style && file.style !== "normal" ? ` ${file.style}` : ""}`;
+}
+
+function renderDownloadPanel(font) {
+  return `
+    <div class="font-download-panel" id="fontDownloads" aria-live="polite">
+      <div class="download-card is-loading">
+        <span>Preparing local files</span>
+        <strong>Loading downloads...</strong>
+      </div>
+    </div>`;
+}
+
+async function bindFontDownloads(font) {
+  const panel = document.querySelector("#fontDownloads");
+  if (!panel) return;
+  try {
+    const response = await fetch(`/r/${font.name}.json`);
+    if (!response.ok) throw new Error(`Registry returned ${response.status}`);
+    const manifest = await response.json();
+    const files = Array.isArray(manifest.files) ? manifest.files : [];
+    if (!files.length) throw new Error("No downloadable files in registry");
+    const primary = files.find((file) => file.style === "normal" && String(file.weight).includes(" "))
+      || files.find((file) => file.style === "normal" && String(file.weight) === "400")
+      || files[0];
+    panel.innerHTML = `
+      <a class="download-card" href="${primary.path}" download data-track-font="${font.name}" data-track-event="download">
+        <span>Ready to self-host</span>
+        <strong>Download ${font.displayName}</strong>
+        <small><span>${downloadFileLabel(primary)}</span><span>WOFF2 &darr;</span></small>
+      </a>
+      <div class="download-file-list">
+        <div class="download-file-head"><strong>Family files</strong><span>${files.length} ${files.length === 1 ? "file" : "files"}</span></div>
+        ${files.map((file) => `
+          <a href="${file.path}" download data-track-font="${font.name}" data-track-event="download">
+            <span>${downloadFileLabel(file)}</span><small>WOFF2 &darr;</small>
+          </a>`).join("")}
+        <a class="license-download-link" href="${manifest.license.url}" target="_blank" rel="noreferrer">
+          <span>${manifest.license.type}</span><small>View license &rarr;</small>
+        </a>
+      </div>`;
+  } catch {
+    panel.innerHTML = `
+      <a class="download-card" href="${font.source}" target="_blank" rel="noreferrer">
+        <span>Registry unavailable</span>
+        <strong>Open official source</strong>
+      </a>`;
+  }
 }
 
 function renderFontDetail(font) {
@@ -1223,9 +1400,7 @@ function renderFontDetail(font) {
             <p class="detail-copy">${font.description}</p>
             ${renderInstallBox(font.name)}
           </div>
-          <a class="download-card" href="${font.source}" target="_blank" rel="noreferrer" data-track-font="${font.name}" data-track-event="download">
-            <strong>Download Family</strong>
-          </a>
+          ${renderDownloadPanel(font)}
         </div>
         <section class="styles-section" id="styles">
           <div class="section-head"><h2>${weights.length} Styles</h2></div>
@@ -1270,7 +1445,7 @@ function renderFontDetail(font) {
         <section class="meta-grid" id="details">
           <div><span>Designer</span><strong>${font.designer}</strong></div>
           <div><span>Version</span><strong>${font.version}</strong></div>
-          <div id="license"><span>License</span><strong>${font.license}</strong></div>
+          <div id="license"><span>License</span><strong><a href="${licenseUrlFor(font)}" target="_blank" rel="noreferrer">${font.license} &rarr;</a></strong></div>
           <div><span>Source</span><strong>${font.source.replace(/^https?:\/\//, "")}</strong></div>
           <div><span>Styles</span><strong>${font.variable ? "Variable" : "Static"}${font.styles.includes("italic") ? " + italics" : ""}</strong></div>
           <div><span>Submitted by</span><strong>@${font.submittedBy}</strong></div>
@@ -1278,6 +1453,7 @@ function renderFontDetail(font) {
       </div>
     </section>`;
   bindTester();
+  bindFontDownloads(font);
 }
 
 function glyphGroup(label, chars, font) {
@@ -1402,6 +1578,7 @@ function route() {
   if (path === "/donors") return renderDonor();
   if (path === "/legal-notice") return renderLegalNotice();
   if (path === "/privacy") return renderPrivacy();
+  if (path === "/licenses") return renderLicenses();
   const match = path.match(/^\/fonts\/([^/]+)$/);
   if (match) {
     const font = fonts.find((item) => item.name === match[1]);
@@ -1434,6 +1611,56 @@ function setupMobileNavArrows() {
         <path d="m13 6 6 6-6 6"></path>
       </svg>`);
   });
+}
+
+function setupLicenseNavigation() {
+  const footerNav = document.querySelector(".footer-inner nav");
+  if (!footerNav || footerNav.querySelector('[href="/licenses"]')) return;
+  footerNav.insertAdjacentHTML("afterbegin", '<a href="/licenses" data-local-link>Licenses</a>');
+}
+
+function setupFooterExtras() {
+  const footer = document.querySelector(".footer-inner");
+  if (!footer || footer.querySelector(".footer-projects")) return;
+  const githubLink = footer.querySelector('a[href="https://github.com/thisisbremlo/fontlr"]');
+  if (githubLink) {
+    githubLink.classList.add("github-star-badge");
+    githubLink.setAttribute("aria-label", "Star fontlr on GitHub");
+    githubLink.innerHTML = `<span aria-hidden="true">&#9733;</span><span>GitHub</span><strong data-github-stars>--</strong>`;
+  }
+  footer.insertAdjacentHTML("beforeend", `
+    <div class="footer-projects">
+      <span>A project by <a href="https://bremlo.uk" target="_blank" rel="noreferrer">Bremlo</a></span>
+      <span class="footer-side-project">Also building <a href="https://loopa.framer.website" target="_blank" rel="noreferrer">Loopa</a></span>
+    </div>`);
+  hydrateGithubStars();
+}
+
+async function hydrateGithubStars() {
+  const output = document.querySelector("[data-github-stars]");
+  if (!output) return;
+  const cacheKey = "fontlr:github-stars";
+  try {
+    const cached = JSON.parse(localStorage.getItem(cacheKey) || "null");
+    if (cached && Date.now() - cached.updatedAt < 3600000) {
+      output.textContent = new Intl.NumberFormat("en", { notation: "compact" }).format(cached.count);
+      return;
+    }
+  } catch {
+    // A live request below can still populate the badge.
+  }
+  try {
+    const response = await fetch("https://api.github.com/repos/thisisbremlo/fontlr", {
+      headers: { Accept: "application/vnd.github+json" },
+    });
+    if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
+    const repository = await response.json();
+    const count = Number(repository.stargazers_count) || 0;
+    output.textContent = new Intl.NumberFormat("en", { notation: "compact" }).format(count);
+    localStorage.setItem(cacheKey, JSON.stringify({ count, updatedAt: Date.now() }));
+  } catch {
+    output.textContent = "0";
+  }
 }
 
 document.addEventListener("click", async (event) => {
@@ -1514,7 +1741,10 @@ window.addEventListener("popstate", () => {
 route();
 setupMenuToggleIcon();
 setupMobileNavArrows();
+setupLicenseNavigation();
+setupFooterExtras();
 scrollToHash();
+hydrateDownloadCounts();
 
 function scrollToHash() {
   if (!window.location.hash) return;

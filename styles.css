@@ -1368,6 +1368,166 @@ pre code,
   line-height: 0.9;
 }
 
+.font-download-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.download-card > span,
+.download-card > small,
+.download-file-head span,
+.download-file-list small,
+.license-card span {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.download-card::before {
+  content: none;
+}
+
+.download-card.is-loading {
+  opacity: 0.72;
+}
+
+.download-file-list {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.download-file-head,
+.download-file-list > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.download-file-list > a:last-child {
+  border-bottom: 0;
+}
+
+.download-file-list > a:hover {
+  background: var(--paper);
+}
+
+.license-download-link {
+  color: var(--accent);
+}
+
+.license-page {
+  padding: 24px 0 96px;
+}
+
+.license-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.license-card {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 190px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.license-card h2 {
+  margin: 10px 0 8px;
+  font-family: var(--serif);
+  font-size: 30px;
+}
+
+.license-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.license-card-actions {
+  display: grid;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 720px) {
+  .license-list {
+    grid-template-columns: 1fr;
+  }
+
+  .license-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+/* Download and license routes must win over the legacy detail-page overrides above. */
+body[data-page="detail"] .font-download-panel {
+  display: grid !important;
+  gap: 14px !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-card::before {
+  content: none !important;
+  display: none !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-card > span,
+body[data-page="detail"] .font-download-panel .download-card > small {
+  display: block !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  clip: auto !important;
+  overflow: visible !important;
+  white-space: normal !important;
+}
+
+body[data-page="detail"] .download-file-list {
+  display: block !important;
+}
+
+body[data-page="inner"] .license-page {
+  padding: 24px 0 96px !important;
+}
+
+body[data-page="inner"] .license-list {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+body[data-page="inner"] .license-card {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  min-height: 190px !important;
+  padding: 24px !important;
+}
+
+@media (max-width: 720px) {
+  body[data-page="inner"] .license-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  body[data-page="inner"] .license-card {
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+}
+
 .tester,
 .glyph-section,
 .weights-section,
@@ -12762,6 +12922,10 @@ body[data-page="detail"] .license a:hover {
     border-bottom: 0 !important;
   }
 
+  body[data-page="inner"] .legal-data div:last-child {
+    border-bottom: 0 !important;
+  }
+
   body[data-page="inner"] .legal-font-list a {
     gap: 8px !important;
     padding: 14px 0 !important;
@@ -12770,4 +12934,579 @@ body[data-page="detail"] .license a:hover {
   body[data-page="inner"] .legal-font-list small {
     text-align: left !important;
   }
+}
+
+/* Catalog specimen cards: tighter preview area and richer mark than a single glyph. */
+body[data-page="home"] .font-card-media {
+  min-height: clamp(252px, 29vw, 408px) !important;
+}
+
+body[data-page="home"] .font-card-media .sample {
+  padding: clamp(28px, 3.8vw, 58px) !important;
+}
+
+body[data-page="home"] .sample-mark {
+  font-size: clamp(52px, 5.8vw, 88px) !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.06em !important;
+}
+
+body[data-page="home"] #fontGrid.is-grid-view .font-card-media {
+  min-height: clamp(220px, 24vw, 320px) !important;
+}
+
+body[data-page="home"] .report-meta span:first-child {
+  border-top: 0 !important;
+}
+
+@media (max-width: 720px) {
+  body[data-page="home"] .font-card-media .sample {
+    min-height: 132px !important;
+  }
+
+  body[data-page="home"] .sample-mark {
+    min-height: 112px !important;
+    font-size: clamp(50px, 16vw, 78px) !important;
+  }
+}
+
+/* Final download and license route overrides. */
+body[data-page="detail"] .font-download-panel {
+  display: grid !important;
+  gap: 14px !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-card::before {
+  content: none !important;
+  display: none !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-card > span,
+body[data-page="detail"] .font-download-panel .download-card > small {
+  display: block !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  clip: auto !important;
+  overflow: visible !important;
+  white-space: normal !important;
+}
+
+body[data-page="detail"] .download-file-list {
+  display: block !important;
+}
+
+body[data-page="inner"] .license-page {
+  padding: 24px 0 96px !important;
+}
+
+body[data-page="inner"] .license-list {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+body[data-page="inner"] .license-card {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  min-height: 190px !important;
+  padding: 24px !important;
+}
+
+@media (max-width: 720px) {
+  body[data-page="inner"] .license-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  body[data-page="inner"] .license-card {
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+}
+
+/* Definitive useful specimen check: letter case and lining figures. */
+body[data-page="home"] .sample-mark {
+  display: grid !important;
+  align-content: space-between !important;
+  justify-items: start !important;
+  gap: 18px !important;
+  text-align: left !important;
+}
+
+body[data-page="home"] .sample-mark small {
+  font-family: var(--mono) !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+}
+
+body[data-page="home"] .sample-mark strong {
+  font: inherit !important;
+  font-size: clamp(58px, 5.8vw, 88px) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.065em !important;
+  line-height: 0.84 !important;
+}
+
+body[data-page="home"] .sample-mark em {
+  font-size: clamp(13px, 1.15vw, 17px) !important;
+  font-style: normal !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  letter-spacing: 0.055em !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 720px) {
+  body[data-page="home"] .sample-mark {
+    gap: 14px !important;
+  }
+
+  body[data-page="home"] .sample-mark strong {
+    font-size: clamp(54px, 18vw, 78px) !important;
+  }
+}
+
+/* Pairing scenarios size type against the card, not the viewport. */
+body[data-page="inner"] .pair-scenario {
+  container-type: inline-size !important;
+  overflow: hidden !important;
+}
+
+body[data-page="inner"] .pair-scenario > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+body[data-page="inner"] .pair-scenario h5 {
+  font-size: 26px !important;
+  font-size: clamp(21px, 10cqi, 29px) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.035em !important;
+  overflow-wrap: anywhere !important;
+  text-wrap: balance !important;
+}
+
+body[data-page="inner"] .pair-scenario code {
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+}
+
+/* The primary font download should look and behave like the primary action. */
+body[data-page="detail"] .font-download-panel {
+  width: min(100%, 340px) !important;
+  gap: 10px !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-card {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: auto minmax(0, 1fr) auto !important;
+  align-content: space-between !important;
+  justify-content: stretch !important;
+  justify-items: stretch !important;
+  min-height: 208px !important;
+  padding: 26px 26px 22px !important;
+  border: 1px solid var(--ink) !important;
+  border-radius: 0 !important;
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  box-shadow: none !important;
+  container-type: inline-size !important;
+  transform: none !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-card > * {
+  grid-column: 1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-card::before,
+body[data-page="detail"] .font-download-panel .download-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-card > span {
+  color: rgba(255, 255, 255, 0.64) !important;
+  font-family: var(--mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.055em !important;
+  text-transform: uppercase !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-card strong {
+  align-self: center !important;
+  justify-self: stretch !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  color: var(--paper) !important;
+  font-size: 30px !important;
+  font-size: clamp(25px, 11cqi, 34px) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.045em !important;
+  overflow-wrap: anywhere !important;
+  text-align: left !important;
+  text-wrap: balance !important;
+}
+
+/* Catalog samples use their own cell width, so wide display faces stay visible. */
+body[data-page="home"] .sample-mark {
+  container-type: inline-size !important;
+  grid-template-rows: auto minmax(0, 1fr) auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: clamp(20px, 2.4vw, 38px) !important;
+  overflow: hidden !important;
+}
+
+body[data-page="home"] .sample-mark strong {
+  align-self: center !important;
+  max-width: 100% !important;
+  font-size: clamp(42px, 30cqi, 78px) !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+body[data-page="home"] .sample-mark em {
+  max-width: 100% !important;
+  font-size: clamp(10px, 5.8cqi, 15px) !important;
+  letter-spacing: 0.025em !important;
+  white-space: nowrap !important;
+}
+
+/* Grid view is a compact card rather than a squeezed version of the list row. */
+body[data-page="home"] #fontGrid.is-grid-view .font-card-media {
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: minmax(190px, 1fr) auto !important;
+  min-height: 320px !important;
+}
+
+body[data-page="home"] #fontGrid.is-grid-view .font-card-media .sample-main {
+  min-height: 210px !important;
+  padding: clamp(24px, 3vw, 42px) !important;
+  font-size: clamp(32px, 6.2cqi, 54px) !important;
+  overflow-wrap: anywhere !important;
+}
+
+body[data-page="home"] #fontGrid.is-grid-view .sample-mark {
+  grid-template-columns: auto auto minmax(0, 1fr) !important;
+  grid-template-rows: 1fr !important;
+  align-items: center !important;
+  gap: clamp(14px, 2cqi, 22px) !important;
+  min-height: 92px !important;
+  padding: 20px 24px !important;
+}
+
+body[data-page="home"] #fontGrid.is-grid-view .sample-mark strong {
+  font-size: clamp(34px, 9cqi, 52px) !important;
+}
+
+body[data-page="home"] #fontGrid.is-grid-view .sample-mark em {
+  justify-self: end !important;
+  font-size: clamp(10px, 2.4cqi, 13px) !important;
+}
+
+body[data-page="home"] #fontGrid.is-grid-view .font-card-info {
+  gap: 12px !important;
+  padding-top: 18px !important;
+}
+
+body[data-page="home"] #fontGrid.is-grid-view .font-title h3 {
+  font-size: clamp(28px, 4.6cqi, 38px) !important;
+  line-height: 1 !important;
+  overflow-wrap: anywhere !important;
+}
+
+body[data-page="home"] #fontGrid.is-grid-view .font-card-footer {
+  grid-template-columns: minmax(0, 1fr) auto auto !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+
+body[data-page="home"] #fontGrid.is-grid-view .font-card-footer .command {
+  grid-column: auto !important;
+}
+
+/* Display faces need smaller, card-relative preview typography. */
+body[data-page="inner"] .pair-preview-content {
+  display: grid !important;
+  gap: clamp(16px, 1.6vw, 24px) !important;
+  min-width: 0 !important;
+}
+
+body[data-page="inner"] .pair-preview-content.has-display-headline .pair-specimen h4 {
+  max-width: 100% !important;
+  font-size: clamp(38px, 6vw, 76px) !important;
+  line-height: 0.98 !important;
+  overflow-wrap: anywhere !important;
+}
+
+body[data-page="inner"] .pair-preview-content.has-display-headline .pair-scenario h5 {
+  font-size: clamp(16px, 7.4cqi, 24px) !important;
+  line-height: 1.08 !important;
+}
+
+body[data-page="inner"] .pair-preview-content.has-display-body .pair-specimen > span,
+body[data-page="inner"] .pair-preview-content.has-display-body .pair-scenario > span,
+body[data-page="inner"] .pair-preview-content.has-display-body .scenario-row span {
+  font-size: clamp(11px, 4.8cqi, 14px) !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.015em !important;
+  overflow-wrap: anywhere !important;
+}
+
+body[data-page="inner"] .pair-preview-content.has-display-body .scenario-row strong {
+  font-size: clamp(34px, 16cqi, 54px) !important;
+}
+
+body[data-page="inner"] .pair-preview-content.has-display-accent .pair-scenario p,
+body[data-page="inner"] .pair-preview-content.has-display-accent .pair-scenario code {
+  font-size: 10px !important;
+  letter-spacing: 0 !important;
+}
+
+/* Donor data is rendered from data/supporters.json. */
+body[data-page="inner"] .supporter-list {
+  display: grid !important;
+  gap: 0 !important;
+  margin-top: 18px !important;
+}
+
+body[data-page="inner"] .supporter-row {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+  padding: 16px 0 !important;
+  border-top: 1px solid rgba(23, 23, 23, 0.1) !important;
+}
+
+body[data-page="inner"] .supporter-row strong {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+}
+
+body[data-page="inner"] .supporter-row span {
+  font-family: var(--mono) !important;
+  font-size: 11px !important;
+}
+
+/* CLI docs: every currently installable family in one scannable list. */
+body[data-page="inner"] .doc-font-list {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  margin: 24px 0 52px !important;
+  border-top: 1px solid rgba(23, 23, 23, 0.1) !important;
+  border-left: 1px solid rgba(23, 23, 23, 0.1) !important;
+}
+
+body[data-page="inner"] .doc-font-list a {
+  display: grid !important;
+  gap: 18px !important;
+  min-width: 0 !important;
+  padding: 20px !important;
+  border-right: 1px solid rgba(23, 23, 23, 0.1) !important;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.1) !important;
+  color: var(--ink) !important;
+  text-decoration: none !important;
+}
+
+body[data-page="inner"] .doc-font-list a:hover {
+  background: rgba(23, 23, 23, 0.035) !important;
+}
+
+body[data-page="inner"] .doc-font-list a > span {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  min-width: 0 !important;
+}
+
+body[data-page="inner"] .doc-font-list strong {
+  min-width: 0 !important;
+  font-size: clamp(18px, 2vw, 28px) !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  overflow-wrap: anywhere !important;
+}
+
+body[data-page="inner"] .doc-font-list code {
+  padding: 0 !important;
+  background: transparent !important;
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+  overflow-wrap: anywhere !important;
+}
+
+body[data-page="inner"] .doc-font-list a > code {
+  color: rgba(23, 23, 23, 0.54) !important;
+}
+
+/* Published legal documents replace the former editable placeholders. */
+body[data-page="inner"] .legal-document {
+  display: grid !important;
+  gap: clamp(28px, 4vw, 54px) !important;
+}
+
+body[data-page="inner"] .legal-document-intro {
+  display: grid !important;
+  gap: 26px !important;
+  max-width: 960px !important;
+}
+
+body[data-page="inner"] .legal-document-intro h2 {
+  margin: 8px 0 14px !important;
+  font-size: clamp(34px, 4vw, 58px) !important;
+  font-weight: 400 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.05em !important;
+}
+
+body[data-page="inner"] .legal-document-intro p:not(.eyebrow) {
+  max-width: 760px !important;
+  margin: 0 !important;
+  color: rgba(23, 23, 23, 0.62) !important;
+  font-size: clamp(16px, 1.6vw, 21px) !important;
+  line-height: 1.45 !important;
+}
+
+body[data-page="inner"] .legal-document .legal-data strong a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+body[data-page="inner"] .legal-document-actions {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 18px !important;
+}
+
+body[data-page="inner"] .legal-pdf {
+  display: block !important;
+  width: 100% !important;
+  min-height: min(920px, 86vh) !important;
+  border: 1px solid rgba(23, 23, 23, 0.12) !important;
+  background: #ffffff !important;
+}
+
+/* Footer provenance and a compact live GitHub star badge. */
+body .footer-inner .github-star-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 6px 9px !important;
+  border: 1px solid rgba(23, 23, 23, 0.14) !important;
+  color: var(--ink) !important;
+  line-height: 1 !important;
+}
+
+body .footer-inner .github-star-badge > span:first-child {
+  color: var(--accent) !important;
+  font-size: 12px !important;
+}
+
+body .footer-inner .github-star-badge strong {
+  font-family: var(--mono) !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase !important;
+}
+
+body .footer-projects {
+  grid-column: 1 / -1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  padding-top: 14px !important;
+  border-top: 1px solid rgba(23, 23, 23, 0.075) !important;
+  color: rgba(23, 23, 23, 0.48) !important;
+}
+
+body .footer-projects a {
+  color: rgba(23, 23, 23, 0.72) !important;
+  text-decoration: none !important;
+}
+
+body .footer-projects a:hover {
+  color: var(--ink) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.15em !important;
+}
+
+body .footer-side-project {
+  opacity: 0.72 !important;
+}
+
+@media (max-width: 720px) {
+  body[data-page="inner"] .doc-font-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  body[data-page="inner"] .legal-data {
+    grid-template-columns: 1fr !important;
+  }
+
+  body[data-page="inner"] .legal-data div {
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(23, 23, 23, 0.09) !important;
+  }
+
+  body[data-page="inner"] .legal-pdf {
+    min-height: 620px !important;
+  }
+
+  body .footer-projects {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  body[data-page="home"] #fontGrid.is-grid-view .sample-mark {
+    grid-template-columns: auto 1fr !important;
+  }
+
+  body[data-page="home"] #fontGrid.is-grid-view .sample-mark small {
+    grid-column: 1 / -1 !important;
+  }
+
+  body[data-page="home"] #fontGrid.is-grid-view .font-card-footer {
+    grid-template-columns: 1fr auto !important;
+  }
+
+  body[data-page="home"] #fontGrid.is-grid-view .font-card-footer .command {
+    grid-column: 1 / -1 !important;
+    justify-self: stretch !important;
+  }
+}
+
+body[data-page="detail"] .font-download-panel .download-card small {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  justify-self: stretch !important;
+  width: 100% !important;
+  gap: 16px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-card:hover,
+body[data-page="detail"] .font-download-panel .download-card:focus-visible {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--paper) !important;
+  transform: translateY(-2px) !important;
+}
+
+body[data-page="detail"] .font-download-panel .download-file-list {
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }

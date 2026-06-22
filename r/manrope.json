@@ -8,7 +8,7 @@
   "designer": "Mikhail Sharanda",
   "license": {
     "type": "OFL-1.1",
-    "url": "/r/fonts/manrope/files/OFL.txt"
+    "url": "/r/fonts/manrope/OFL.txt"
   },
   "source": "https://github.com/davelab6/manrope",
   "variable": false,
@@ -28,5 +28,11 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/manrope/manrope-200-800.woff2",
+      "weight": "200 800",
+      "style": "normal"
+    }
+  ]
 }

@@ -8,7 +8,7 @@
   "designer": "Helena Zhang",
   "license": {
     "type": "OFL-1.1",
-    "url": "/r/fonts/departure-mono/files/OFL.txt"
+    "url": "/r/fonts/departure-mono/OFL.txt"
   },
   "source": "https://departuremono.com",
   "variable": false,
@@ -25,5 +25,11 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/departure-mono/departure-mono-400.woff2",
+      "weight": "400",
+      "style": "normal"
+    }
+  ]
 }

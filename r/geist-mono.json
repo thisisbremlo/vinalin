@@ -8,7 +8,7 @@
   "designer": "Geist Type",
   "license": {
     "type": "OFL-1.1",
-    "url": "/r/fonts/geist-mono/files/OFL.txt"
+    "url": "/r/fonts/geist-mono/OFL.txt"
   },
   "source": "https://github.com",
   "variable": true,
@@ -34,5 +34,11 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/geist-mono/geist-mono-100-900.woff2",
+      "weight": "100 900",
+      "style": "normal"
+    }
+  ]
 }

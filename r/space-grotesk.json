@@ -8,7 +8,7 @@
   "designer": "Florian Karsten",
   "license": {
     "type": "OFL-1.1",
-    "url": "/r/fonts/space-grotesk/files/OFL.txt"
+    "url": "/r/fonts/space-grotesk/OFL.txt"
   },
   "source": "https://github.com/floriankarsten/space-grotesk",
   "variable": true,
@@ -34,5 +34,11 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/space-grotesk/space-grotesk-300-700.woff2",
+      "weight": "300 700",
+      "style": "normal"
+    }
+  ]
 }

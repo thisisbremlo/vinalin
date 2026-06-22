@@ -16,9 +16,11 @@ fs.mkdirSync(outDir, { recursive: true });
 
 function licenseObject(font) {
   if (typeof font.license === "object") return font.license;
+  const filesDir = path.join(root, "registry", "fonts", font.name, "files");
+  const licenseFile = ["OFL.txt", "LICENSE.txt", "LICENSE"].find((file) => fs.existsSync(path.join(filesDir, file)));
   return {
     type: font.license || "OFL-1.1",
-    url: `/r/fonts/${font.name}/files/OFL.txt`,
+    url: licenseFile ? `/r/fonts/${font.name}/${licenseFile}` : font.source,
   };
 }
 
@@ -28,11 +30,17 @@ function filesFor(font) {
   return fs.readdirSync(filesDir)
     .filter((file) => file.toLowerCase().endsWith(".woff2"))
     .sort()
-    .map((file) => ({
-      path: `/r/fonts/${font.name}/${file}`,
-      weight: font.variable ? `${Math.min(...font.weights)} ${Math.max(...font.weights)}` : String(font.weights[0] || 400),
-      style: file.toLowerCase().includes("italic") ? "italic" : "normal",
-    }));
+    .map((file) => {
+      const weightMatch = file.match(/-(\d{3})(?:-(\d{3}))?(?:-italic)?\.woff2$/i);
+      const weight = weightMatch
+        ? weightMatch[2] ? `${weightMatch[1]} ${weightMatch[2]}` : weightMatch[1]
+        : font.variable ? `${Math.min(...font.weights)} ${Math.max(...font.weights)}` : String(font.weights[0] || 400);
+      return {
+        path: `/r/fonts/${font.name}/${file}`,
+        weight,
+        style: file.toLowerCase().includes("italic") ? "italic" : "normal",
+      };
+    });
 }
 
 function registryFont(font) {

@@ -8,7 +8,7 @@
   "designer": "Barry Shawn",
   "license": {
     "type": "OFL-1.1",
-    "url": "/r/fonts/neutral-sans/files/OFL.txt"
+    "url": "/r/fonts/neutral-sans/OFL.txt"
   },
   "source": "https://github.com/BesignLab/Neutral-Sans",
   "variable": true,
@@ -33,5 +33,11 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/neutral-sans/neutral-sans-400-900.woff2",
+      "weight": "400 900",
+      "style": "normal"
+    }
+  ]
 }

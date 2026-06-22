@@ -1,0 +1,9 @@
+{
+  "currency": "EUR",
+  "supporters": [],
+  "example": {
+    "name": "Example supporter",
+    "amount": 10,
+    "currency": "EUR"
+  }
+}

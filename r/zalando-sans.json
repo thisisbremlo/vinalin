@@ -8,7 +8,7 @@
   "designer": "Jakob Ekelund / KH Type",
   "license": {
     "type": "OFL-1.1",
-    "url": "/r/fonts/zalando-sans/files/OFL.txt"
+    "url": "/r/fonts/zalando-sans/OFL.txt"
   },
   "source": "https://github.com/zalando/sans",
   "variable": true,
@@ -37,5 +37,11 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/zalando-sans/zalando-sans-200-900.woff2",
+      "weight": "200 900",
+      "style": "normal"
+    }
+  ]
 }

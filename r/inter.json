@@ -8,7 +8,7 @@
   "designer": "Rasmus Andersson",
   "license": {
     "type": "OFL-1.1",
-    "url": "/r/fonts/inter/files/OFL.txt"
+    "url": "/r/fonts/inter/OFL.txt"
   },
   "source": "https://github.com/rsms/inter",
   "variable": true,
@@ -34,5 +34,16 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/inter/inter-100-900-italic.woff2",
+      "weight": "100 900",
+      "style": "italic"
+    },
+    {
+      "path": "/r/fonts/inter/inter-100-900.woff2",
+      "weight": "100 900",
+      "style": "normal"
+    }
+  ]
 }

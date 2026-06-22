@@ -58,12 +58,13 @@ The placeholder content must be replaced before publishing.
 
 ## Download Tracking
 
-fontlr tracks local interaction counts in the browser by default. Production tracking is designed around a minimal Supabase event table:
+fontlr tracks local interaction counts in the browser by default. Production tracking is designed around a minimal Supabase download event table and a public aggregate counts table:
 
 - Store only `font_slug`, `event_type`, `path`, and `created_at`.
-- Count `download` events through an aggregate view.
+- Count `download` events through `font_download_counts`, maintained by a database trigger.
 - Do not store cookies, user IDs, fingerprints, IP addresses, or user agents in the analytics table.
 - Keep raw events private and expose only aggregate counts to the frontend.
+- Apply `supabase/migrations/202606220001_download_events.sql` before enabling the public anon key.
 - Document the setup on the privacy page before enabling it.
 
 ## Visual System

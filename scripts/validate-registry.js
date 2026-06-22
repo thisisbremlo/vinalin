@@ -40,12 +40,23 @@ if (!fs.existsSync(registryPath)) {
     if (!font.previewText) fail(scope, "previewText is required");
     if (!font.description) fail(scope, "description is required");
     if (!font.submittedBy || !font.submittedBy.github) fail(scope, "submittedBy.github is required");
-    if (!Array.isArray(font.files)) fail(scope, "files must be an array");
+    if (!Array.isArray(font.files) || !font.files.length) fail(scope, "files must contain at least one downloadable .woff2 asset");
+
+    if (!font.license.url || !font.license.url.startsWith(`/r/fonts/${font.name}/`)) {
+      fail(scope, "license.url must point to the bundled license file");
+    } else {
+      const licensePath = path.join(root, font.license.url.replace(/^\//, ""));
+      if (!fs.existsSync(licensePath)) fail(scope, `missing bundled license ${font.license.url}`);
+    }
 
     for (const file of font.files || []) {
       if (!file.path || !file.path.endsWith(".woff2")) fail(scope, `file path must point to .woff2 (${file.path || "missing"})`);
       if (!file.weight) fail(scope, `file ${file.path} needs weight`);
       if (!allowedStyles.has(file.style)) fail(scope, `file ${file.path} needs style normal or italic`);
+      if (file.path) {
+        const assetPath = path.join(root, file.path.replace(/^\//, ""));
+        if (!fs.existsSync(assetPath)) fail(scope, `missing downloadable asset ${file.path}`);
+      }
     }
 
     const singlePath = path.join(root, "r", `${font.name}.json`);

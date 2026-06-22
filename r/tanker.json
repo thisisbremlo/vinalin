@@ -8,7 +8,7 @@
   "designer": "Indian Type Foundry",
   "license": {
     "type": "Fontshare Free Font License",
-    "url": "/r/fonts/tanker/files/OFL.txt"
+    "url": "/r/fonts/tanker/LICENSE.txt"
   },
   "source": "https://www.fontshare.com/fonts/tanker",
   "variable": false,
@@ -25,5 +25,11 @@
   "submittedBy": {
     "github": "thisisbremlo"
   },
-  "files": []
+  "files": [
+    {
+      "path": "/r/fonts/tanker/tanker-400.woff2",
+      "weight": "400",
+      "style": "normal"
+    }
+  ]
 }

@@ -11,9 +11,9 @@ npm run validate:registry
 
 Serve the site with any static server from the repository root.
 
-## Mirror current font files
+## Mirror font files and licenses
 
-The website still references the existing hosted font files. To move those files into this GitHub repo, run:
+To refresh the downloadable assets from their authoritative Google Fonts, Fontshare, GitHub, and foundry sources, run:
 
 ```bash
 npm run mirror:fonts
@@ -21,7 +21,7 @@ npm run build:registry
 npm run validate:registry
 ```
 
-This creates `registry/fonts/<slug>/files/*.woff2` and copies them into the public `r/fonts/<slug>/` output during the registry build. Add the correct license text files before accepting outside submissions.
+This creates `registry/fonts/<slug>/files/*.woff2`, stores the matching license text, and copies both into the public `r/fonts/<slug>/` output during the registry build. The website and CLI use those generated local assets.
 
 ## CLI
 
@@ -39,7 +39,7 @@ Install usage:
 npx fontlr add inter
 ```
 
-Fonts must include `.woff2` files in the registry before `add` can install them.
+Every registry entry must include at least one `.woff2` file and a bundled license before validation passes.
 
 ## Submissions
 

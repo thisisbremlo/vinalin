@@ -1,7 +1,7 @@
 {
   "name": "fontlr registry",
   "schemaVersion": 1,
-  "generatedAt": "2026-06-22T00:19:13.385Z",
+  "generatedAt": "2026-06-22T16:00:56.071Z",
   "fonts": [
     {
       "schemaVersion": 1,
@@ -13,7 +13,7 @@
       "designer": "Indian Type Foundry",
       "license": {
         "type": "Fontshare Free Font License",
-        "url": "/r/fonts/cabinet-grotesk/files/OFL.txt"
+        "url": "/r/fonts/cabinet-grotesk/LICENSE.txt"
       },
       "source": "https://www.fontshare.com/fonts/cabinet-grotesk",
       "variable": true,
@@ -42,7 +42,48 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/cabinet-grotesk/cabinet-grotesk-100.woff2",
+          "weight": "100",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/cabinet-grotesk/cabinet-grotesk-200.woff2",
+          "weight": "200",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/cabinet-grotesk/cabinet-grotesk-300.woff2",
+          "weight": "300",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/cabinet-grotesk/cabinet-grotesk-400.woff2",
+          "weight": "400",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/cabinet-grotesk/cabinet-grotesk-500.woff2",
+          "weight": "500",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/cabinet-grotesk/cabinet-grotesk-700.woff2",
+          "weight": "700",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/cabinet-grotesk/cabinet-grotesk-800.woff2",
+          "weight": "800",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/cabinet-grotesk/cabinet-grotesk-900.woff2",
+          "weight": "900",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -54,7 +95,7 @@
       "designer": "Indian Type Foundry",
       "license": {
         "type": "Fontshare Free Font License",
-        "url": "/r/fonts/clash-grotesk/files/OFL.txt"
+        "url": "/r/fonts/clash-grotesk/LICENSE.txt"
       },
       "source": "https://www.fontshare.com/fonts/clash-grotesk",
       "variable": true,
@@ -81,7 +122,38 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/clash-grotesk/clash-grotesk-200.woff2",
+          "weight": "200",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/clash-grotesk/clash-grotesk-300.woff2",
+          "weight": "300",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/clash-grotesk/clash-grotesk-400.woff2",
+          "weight": "400",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/clash-grotesk/clash-grotesk-500.woff2",
+          "weight": "500",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/clash-grotesk/clash-grotesk-600.woff2",
+          "weight": "600",
+          "style": "normal"
+        },
+        {
+          "path": "/r/fonts/clash-grotesk/clash-grotesk-700.woff2",
+          "weight": "700",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -93,7 +165,7 @@
       "designer": "Helena Zhang",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/departure-mono/files/OFL.txt"
+        "url": "/r/fonts/departure-mono/OFL.txt"
       },
       "source": "https://departuremono.com",
       "variable": false,
@@ -110,7 +182,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/departure-mono/departure-mono-400.woff2",
+          "weight": "400",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -122,7 +200,7 @@
       "designer": "Undercase Type",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/fraunces/files/OFL.txt"
+        "url": "/r/fonts/fraunces/OFL.txt"
       },
       "source": "https://github.com/undercasetype/Fraunces",
       "variable": true,
@@ -149,7 +227,18 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/fraunces/fraunces-100-900-italic.woff2",
+          "weight": "100 900",
+          "style": "italic"
+        },
+        {
+          "path": "/r/fonts/fraunces/fraunces-100-900.woff2",
+          "weight": "100 900",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -161,7 +250,7 @@
       "designer": "Geist Type",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/geist/files/OFL.txt"
+        "url": "/r/fonts/geist/OFL.txt"
       },
       "source": "https://github.com",
       "variable": true,
@@ -187,7 +276,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/geist/geist-100-900.woff2",
+          "weight": "100 900",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -199,7 +294,7 @@
       "designer": "Geist Type",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/geist-mono/files/OFL.txt"
+        "url": "/r/fonts/geist-mono/OFL.txt"
       },
       "source": "https://github.com",
       "variable": true,
@@ -225,7 +320,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/geist-mono/geist-mono-100-900.woff2",
+          "weight": "100 900",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -237,7 +338,7 @@
       "designer": "Headspace Agency",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/hs-lunaobscura/files/OFL.txt"
+        "url": "/r/fonts/hs-lunaobscura/OFL.txt"
       },
       "source": "https://lunaobscura.headspace.ru",
       "variable": false,
@@ -254,7 +355,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/hs-lunaobscura/hs-lunaobscura-400.woff2",
+          "weight": "400",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -266,7 +373,7 @@
       "designer": "Rasmus Andersson",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/inter/files/OFL.txt"
+        "url": "/r/fonts/inter/OFL.txt"
       },
       "source": "https://github.com/rsms/inter",
       "variable": true,
@@ -292,7 +399,18 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/inter/inter-100-900-italic.woff2",
+          "weight": "100 900",
+          "style": "italic"
+        },
+        {
+          "path": "/r/fonts/inter/inter-100-900.woff2",
+          "weight": "100 900",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -304,7 +422,7 @@
       "designer": "JetBrains",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/jetbrains-mono/files/OFL.txt"
+        "url": "/r/fonts/jetbrains-mono/OFL.txt"
       },
       "source": "https://github.com/JetBrains/JetBrainsMono",
       "variable": true,
@@ -330,7 +448,18 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/jetbrains-mono/jetbrains-mono-100-800-italic.woff2",
+          "weight": "100 800",
+          "style": "italic"
+        },
+        {
+          "path": "/r/fonts/jetbrains-mono/jetbrains-mono-100-800.woff2",
+          "weight": "100 800",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -342,7 +471,7 @@
       "designer": "Mikhail Sharanda",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/manrope/files/OFL.txt"
+        "url": "/r/fonts/manrope/OFL.txt"
       },
       "source": "https://github.com/davelab6/manrope",
       "variable": false,
@@ -362,7 +491,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/manrope/manrope-200-800.woff2",
+          "weight": "200 800",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -374,7 +509,7 @@
       "designer": "M - N Associates",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/momo-signature/files/OFL.txt"
+        "url": "/r/fonts/momo-signature/OFL.txt"
       },
       "source": "https://momo.vn",
       "variable": false,
@@ -391,7 +526,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/momo-signature/momo-signature-400.woff2",
+          "weight": "400",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -403,7 +544,7 @@
       "designer": "Barry Shawn",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/neutral-sans/files/OFL.txt"
+        "url": "/r/fonts/neutral-sans/OFL.txt"
       },
       "source": "https://github.com/BesignLab/Neutral-Sans",
       "variable": true,
@@ -428,7 +569,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/neutral-sans/neutral-sans-400-900.woff2",
+          "weight": "400 900",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -440,7 +587,7 @@
       "designer": "Red Stone",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/parkinsans/files/OFL.txt"
+        "url": "/r/fonts/parkinsans/OFL.txt"
       },
       "source": "https://github.com/redstonedesign/parkinsans",
       "variable": true,
@@ -467,7 +614,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/parkinsans/parkinsans-300-800.woff2",
+          "weight": "300 800",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -479,7 +632,7 @@
       "designer": "Florian Karsten",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/space-grotesk/files/OFL.txt"
+        "url": "/r/fonts/space-grotesk/OFL.txt"
       },
       "source": "https://github.com/floriankarsten/space-grotesk",
       "variable": true,
@@ -505,7 +658,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/space-grotesk/space-grotesk-300-700.woff2",
+          "weight": "300 700",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -517,7 +676,7 @@
       "designer": "Indian Type Foundry",
       "license": {
         "type": "Fontshare Free Font License",
-        "url": "/r/fonts/tanker/files/OFL.txt"
+        "url": "/r/fonts/tanker/LICENSE.txt"
       },
       "source": "https://www.fontshare.com/fonts/tanker",
       "variable": false,
@@ -534,7 +693,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/tanker/tanker-400.woff2",
+          "weight": "400",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -546,7 +711,7 @@
       "designer": "TikTok Inc.",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/tiktok-sans/files/OFL.txt"
+        "url": "/r/fonts/tiktok-sans/OFL.txt"
       },
       "source": "https://github.com/tiktok/TikTokSans",
       "variable": true,
@@ -573,7 +738,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/tiktok-sans/tiktok-sans-300-900.woff2",
+          "weight": "300 900",
+          "style": "normal"
+        }
+      ]
     },
     {
       "schemaVersion": 1,
@@ -585,7 +756,7 @@
       "designer": "Jakob Ekelund / KH Type",
       "license": {
         "type": "OFL-1.1",
-        "url": "/r/fonts/zalando-sans/files/OFL.txt"
+        "url": "/r/fonts/zalando-sans/OFL.txt"
       },
       "source": "https://github.com/zalando/sans",
       "variable": true,
@@ -614,7 +785,13 @@
       "submittedBy": {
         "github": "thisisbremlo"
       },
-      "files": []
+      "files": [
+        {
+          "path": "/r/fonts/zalando-sans/zalando-sans-200-900.woff2",
+          "weight": "200 900",
+          "style": "normal"
+        }
+      ]
     }
   ]
 }
