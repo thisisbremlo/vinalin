@@ -1399,7 +1399,6 @@ function route() {
   if (path === "/pairing") return renderPairingPage();
   if (path === "/docs") return renderDocs();
   if (path === "/submit") return renderSubmit();
-  if (path === "/donor") return renderDonor();
   if (path === "/donors") return renderDonor();
   if (path === "/legal-notice") return renderLegalNotice();
   if (path === "/privacy") return renderPrivacy();

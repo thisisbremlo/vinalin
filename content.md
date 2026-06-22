@@ -28,7 +28,7 @@ The site has these main routes:
 - `/pairing` - Font pairing lab.
 - `/docs` - Installation and CLI documentation.
 - `/submit` - Contribution instructions.
-- `/donor` - Support and donor information.
+- `/donors` - Support and donor information.
 - `/fonts/<slug>` - Detail page for each font family.
 
 The header appears on every page and includes:
@@ -380,7 +380,7 @@ Primary action:
 
 ## Donor Page
 
-Route: `/donor`
+Route: `/donors`
 
 Purpose: Provide a support path for the project.
 
@@ -550,7 +550,6 @@ Main files:
 Static route folders:
 
 - `/docs/index.html`
-- `/donor/index.html`
 - `/donors/index.html`
 - `/pairing/index.html`
 - `/submit/index.html`
