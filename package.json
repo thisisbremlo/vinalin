@@ -10,7 +10,8 @@
     "mirror:fonts": "node scripts/mirror-font-files.js",
     "build:registry": "node scripts/build-registry.js",
     "validate:registry": "node scripts/validate-registry.js",
-    "check": "npm run build:registry && node --check app.js && node --check bin/fontlr.js && node scripts/validate-registry.js"
+    "check": "npm run build:registry && node --check app.js && node --check bin/fontlr.js && node scripts/validate-registry.js",
+    "health:supabase": "node scripts/supabase-health-check.js"
   },
   "keywords": [
     "fonts",

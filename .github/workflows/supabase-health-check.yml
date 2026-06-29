@@ -1,0 +1,26 @@
+name: Supabase health check
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Low-frequency daily backend availability check. This is not artificial user traffic.
+    - cron: '17 8 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run Supabase backend health check
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          HEALTH_CHECK_ID: '1'
+          HEALTH_CHECK_SOURCE: github-actions
+        run: node scripts/supabase-health-check.js
