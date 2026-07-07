@@ -5641,7 +5641,7 @@ body[data-page="detail"] .site-footer {
 }
 
 /* =========================================================
-   fontlr premium portfolio layer
+   vinalin premium portfolio layer
    Spacious, minimal, project-index inspired.
    ========================================================= */
 
@@ -6488,7 +6488,7 @@ body[data-page="detail"] .site-footer {
 }
 
 /* =========================================================
-   fontlr report redesign
+   vinalin report redesign
    Inspired by editorial report pages: stark white, orange bands,
    abstract image blocks, tight metadata, and oversized footer type.
    ========================================================= */
@@ -8632,7 +8632,7 @@ body.nav-open {
   }
 
   body .main-nav::before {
-    content: "fontlr menu";
+    content: "vinalin menu";
     align-self: start;
     margin-bottom: auto;
     color: var(--muted);
@@ -9240,7 +9240,7 @@ body[data-page="home"] .sample-mark {
   overflow: hidden !important;
 }
 
-/* Font detail pages: align with the current fontlr library system. */
+/* Font detail pages: align with the current vinalin library system. */
 body[data-page="detail"] .font-detail {
   background: var(--paper) !important;
   color: var(--ink) !important;

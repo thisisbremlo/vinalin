@@ -1,17 +1,19 @@
 {
-  "name": "fontlr",
+  "name": "vinalin",
   "version": "0.1.0",
   "description": "A curated open font library and CLI for installing self-hosted font files.",
   "private": false,
   "bin": {
-    "fontlr": "./bin/fontlr.js"
+    "vinalin": "./bin/vinalin.js"
   },
   "scripts": {
     "mirror:fonts": "node scripts/mirror-font-files.js",
     "build:registry": "node scripts/build-registry.js",
     "validate:registry": "node scripts/validate-registry.js",
-    "check": "npm run build:registry && node --check app.js && node --check bin/fontlr.js && node scripts/validate-registry.js",
-    "health:supabase": "node scripts/supabase-health-check.js"
+    "check": "npm run build:registry && node --check app.js && node --check bin/vinalin.js && node scripts/validate-registry.js",
+    "dev": "node scripts/dev-server.js",
+    "start": "node scripts/dev-server.js",
+    "health:supabase": "node --env-file=.env.local scripts/supabase-health-check.js"
   },
   "keywords": [
     "fonts",

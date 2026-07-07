@@ -77,7 +77,7 @@ function copyFontFiles(font) {
 }
 
 const registry = {
-  name: "fontlr registry",
+  name: "vinalin registry",
   schemaVersion: 1,
   generatedAt: new Date().toISOString(),
   fonts: fonts.map(registryFont),

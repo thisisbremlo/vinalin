@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://fontlr.app/registry/schema.json",
-  "title": "fontlr font manifest",
+  "$id": "https://vinalin.app/registry/schema.json",
+  "title": "vinalin font manifest",
   "type": "object",
   "required": [
     "name",

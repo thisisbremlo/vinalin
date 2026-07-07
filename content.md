@@ -1,8 +1,8 @@
-# fontlr Site Content Guide
+# vinalin Site Content Guide
 
 ## Overview
 
-fontlr is a curated library and registry of open-source typefaces. The site helps founders, designers, and developers discover high-quality fonts, inspect live specimens, build pairings, compare licenses, and install font files into projects with a CLI.
+vinalin is a curated library and registry of open-source typefaces. The site helps founders, designers, and developers discover high-quality fonts, inspect live specimens, build pairings, compare licenses, and install font files into projects with a CLI.
 
 The site is a static single-page app with routed pages. It uses one shared header, one shared footer, a quiet editorial visual system across every route, and generated page content from the font registry in `app.js`.
 
@@ -10,7 +10,7 @@ The site is a static single-page app with routed pages. It uses one shared heade
 
 Primary idea: quality open-source fonts that are easy to self-host.
 
-Home page message: "fontlr Type Library."
+Home page message: "vinalin Type Library."
 
 Tone: curated, typographic, direct, minimal, practical.
 
@@ -33,7 +33,7 @@ The site has these main routes:
 
 The header appears on every page and includes:
 
-- fontlr brand link.
+- vinalin brand link.
 - Fonts link.
 - Pairing link.
 - Docs link.
@@ -43,7 +43,7 @@ The header appears on every page and includes:
 
 The footer appears on every page and includes:
 
-- fontlr brand statement.
+- vinalin brand statement.
 - Main links to docs, submit, and GitHub.
 - A quieter copyright/legal line with Legal Notice and Privacy Policy links.
 
@@ -58,7 +58,7 @@ The placeholder content must be replaced before publishing.
 
 ## Download Tracking
 
-fontlr tracks local interaction counts in the browser by default. Production tracking is designed around a minimal Supabase download event table and a public aggregate counts table:
+vinalin tracks local interaction counts in the browser by default. Production tracking is designed around a minimal Supabase download event table and a public aggregate counts table:
 
 - Store only `font_slug`, `event_type`, `path`, and `created_at`.
 - Count `download` events through `font_download_counts`, maintained by a database trigger.
@@ -103,7 +103,7 @@ Accessibility notes:
 
 Route: `/`
 
-Purpose: introduce fontlr as a curated open font library, spotlight one useful typeface, show popular fonts with download counts, expose the searchable catalog, and highlight foundries/designers.
+Purpose: introduce vinalin as a curated open font library, spotlight one useful typeface, show popular fonts with download counts, expose the searchable catalog, and highlight foundries/designers.
 
 Sections:
 
@@ -111,7 +111,7 @@ Sections:
 
    The hero uses a large editorial statement:
 
-   "fontlr Type Library."
+   "vinalin Type Library."
 
    Primary actions:
 
@@ -174,7 +174,7 @@ Sections:
 
 6. Closing About/Install Block
 
-   Restates fontlr as a curated showcase of usable open-source typefaces.
+   Restates vinalin as a curated showcase of usable open-source typefaces.
 
    Includes an install command module for Fraunces.
 
@@ -276,7 +276,7 @@ Pairing logic:
 
 Route: `/docs`
 
-Purpose: Explain how to install and self-host fonts from fontlr.
+Purpose: Explain how to install and self-host fonts from vinalin.
 
 Hero:
 
@@ -310,11 +310,11 @@ Content sections:
 
    Documents:
 
-   - `npx fontlr add <name>`
+   - `npx vinalin add <name>`
    - `--force`
    - `--dir <path>`
    - `--registry <url>`
-   - `npx fontlr list`
+   - `npx vinalin list`
 
 5. Registry API
 
@@ -387,13 +387,13 @@ Purpose: Provide a support path for the project.
 
 Hero:
 
-Title: "People who keep fontlr going."
+Title: "People who keep vinalin going."
 
 Main content:
 
 1. Support card
 
-   Explains that fontlr is free and community-curated.
+   Explains that vinalin is free and community-curated.
 
    Action:
 
@@ -414,7 +414,7 @@ Content:
 
 - Eyebrow: 404.
 - Title: "Page not found."
-- Copy: "That route is not in the public fontlr sitemap."
+- Copy: "That route is not in the public vinalin sitemap."
 - Link back to fonts.
 
 ## Install Command Module
@@ -429,9 +429,9 @@ It supports:
 
 Command examples:
 
-- `npx fontlr add inter`
-- `pnpm dlx fontlr add inter`
-- `bunx fontlr add inter`
+- `npx vinalin add inter`
+- `pnpm dlx vinalin add inter`
+- `bunx vinalin add inter`
 
 Behavior:
 
@@ -539,8 +539,8 @@ Main files:
 - `index.html` provides the shell, header, footer, and app mount.
 - `app.js` contains font data, routing, page rendering, and interactions.
 - `styles.css` contains font-face declarations and all visual styling.
-- `package.json` exposes the `fontlr` CLI and project scripts.
-- `bin/fontlr.js` installs fonts from the generated registry.
+- `package.json` exposes the `vinalin` CLI and project scripts.
+- `bin/vinalin.js` installs fonts from the generated registry.
 - `registry/` contains source font manifests and submitted font files.
 - `r/` contains the generated public registry API.
 - `.github/` contains pull request and validation workflow files.
@@ -560,11 +560,11 @@ These folders support static hosting paths, while the actual content is rendered
 
 ## GitHub Workflow
 
-fontlr now uses GitHub as the source of truth for submissions and registry files.
+vinalin now uses GitHub as the source of truth for submissions and registry files.
 
 Maintainer setup:
 
-- Create the GitHub repository `thisisbremlo/fontlr`.
+- Create the GitHub repository `thisisbremlo/vinalin`.
 - Push this local project to `main`.
 - Run `npm run mirror:fonts` once to copy the currently referenced `.woff2` files into `registry/fonts/<slug>/files/`.
 - Run `npm run build:registry`.
@@ -585,20 +585,20 @@ GitHub Actions validates the registry on pull requests and pushes to `main`.
 
 ## CLI Workflow
 
-The package exposes a `fontlr` binary.
+The package exposes a `vinalin` binary.
 
 Supported commands:
 
-- `fontlr list`
-- `fontlr add <name>`
-- `fontlr add <name> --registry <url-or-path>`
-- `fontlr add <name> --dir <path>`
-- `fontlr add <name> --force`
+- `vinalin list`
+- `vinalin add <name>`
+- `vinalin add <name> --registry <url-or-path>`
+- `vinalin add <name> --dir <path>`
+- `vinalin add <name> --force`
 
 Install commands:
 
-- `npx fontlr list`
-- `npx fontlr add inter`
+- `npx vinalin list`
+- `npx vinalin add inter`
 
 ## UX Principles
 

@@ -1,6 +1,6 @@
-# fontlr
+# vinalin
 
-fontlr is a curated open font library with a static website, GitHub-based submissions, a generated registry, and a CLI for installing self-hosted font files.
+vinalin is a curated open font library with a static website, GitHub-based submissions, a generated registry, and a CLI for installing self-hosted font files.
 
 ## Local development
 
@@ -29,14 +29,14 @@ Local test:
 
 ```bash
 npm link
-fontlr list --registry ./r/registry.json
-fontlr add inter --registry ./r/registry.json
+vinalin list --registry ./r/registry.json
+vinalin add inter --registry ./r/registry.json
 ```
 
 Install usage:
 
 ```bash
-npx fontlr add inter
+npx vinalin add inter
 ```
 
 Every registry entry must include at least one `.woff2` file and a bundled license before validation passes.

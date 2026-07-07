@@ -1,7 +1,7 @@
 {
-  "name": "fontlr registry",
+  "name": "vinalin registry",
   "schemaVersion": 1,
-  "generatedAt": "2026-06-22T16:00:56.071Z",
+  "generatedAt": "2026-07-07T01:36:19.218Z",
   "fonts": [
     {
       "schemaVersion": 1,
@@ -315,7 +315,7 @@
         "italic"
       ],
       "fallback": "monospace",
-      "previewText": "const font = await fontlr.add(\"geist-mono\")",
+      "previewText": "const font = await vinalin.add(\"geist-mono\")",
       "description": "The monospace companion to Geist. Clean, precise, and made for code.",
       "submittedBy": {
         "github": "thisisbremlo"

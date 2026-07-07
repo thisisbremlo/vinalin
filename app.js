@@ -4,7 +4,7 @@ const fonts = [
   { name: "departure-mono", displayName: "Departure Mono", version: "1.350", category: "mono", designer: "Helena Zhang", license: "OFL-1.1", source: "https://departuremono.com", variable: false, weights: [400], styles: ["normal"], fallback: "monospace", previewText: "Pixel-perfect type for quiet systems.", description: "A pixel-conscious monospace typeface with support for Latin, Greek, small caps, old-style numerals, fractions, and selected symbols.", submittedBy: "thisisbremlo", family: "Zelto Departure Mono" },
   { name: "fraunces", displayName: "Fraunces", version: "1.0", category: "serif", designer: "Undercase Type", license: "OFL-1.1", source: "https://github.com/undercasetype/Fraunces", variable: true, weights: [400, 500, 600, 700, 900], styles: ["normal", "italic"], fallback: "serif", previewText: "A wonky, old-style soft serif.", description: "A display serif inspired by early 20th century typefaces, with optical sizing, softness, and wonk axes.", submittedBy: "thisisbremlo", family: "Zelto Fraunces" },
   { name: "geist", displayName: "Geist", version: "1.7.2", category: "sans", designer: "Geist Type", license: "OFL-1.1", source: "https://github.com", variable: true, weights: [400, 500, 600, 700], styles: ["normal", "italic"], fallback: "sans-serif", previewText: "Design is the silent ambassador of your brand.", description: "A Swiss-inspired sans-serif built for legibility and precision for the modern web.", submittedBy: "thisisbremlo", family: "Zelto Geist" },
-  { name: "geist-mono", displayName: "Geist Mono", version: "1.7.2", category: "mono", designer: "Geist Type", license: "OFL-1.1", source: "https://github.com", variable: true, weights: [400, 500, 600, 700], styles: ["normal", "italic"], fallback: "monospace", previewText: "const font = await fontlr.add(\"geist-mono\")", description: "The monospace companion to Geist. Clean, precise, and made for code.", submittedBy: "thisisbremlo", family: "Zelto Geist Mono" },
+  { name: "geist-mono", displayName: "Geist Mono", version: "1.7.2", category: "mono", designer: "Geist Type", license: "OFL-1.1", source: "https://github.com", variable: true, weights: [400, 500, 600, 700], styles: ["normal", "italic"], fallback: "monospace", previewText: "const font = await vinalin.add(\"geist-mono\")", description: "The monospace companion to Geist. Clean, precise, and made for code.", submittedBy: "thisisbremlo", family: "Zelto Geist Mono" },
   { name: "hs-lunaobscura", displayName: "HS LunaObscura", version: "1.0", category: "display", designer: "Headspace Agency", license: "OFL-1.1", source: "https://lunaobscura.headspace.ru", variable: false, weights: [400], styles: ["normal"], fallback: "sans-serif", previewText: "Signal found beyond the interface.", description: "An industrial display typeface for sci-fi, cyberpunk, dystopian interfaces, posters, navigation, and UI mockups.", submittedBy: "thisisbremlo", family: "Zelto HS LunaObscura" },
   { name: "inter", displayName: "Inter", version: "4.1", category: "sans", designer: "Rasmus Andersson", license: "OFL-1.1", source: "https://github.com/rsms/inter", variable: true, weights: [400, 500, 600, 700], styles: ["normal", "italic"], fallback: "sans-serif", previewText: "Sphinx of black quartz, judge my vow.", description: "A typeface carefully crafted and designed for computer screens. The de-facto standard for product interfaces.", submittedBy: "thisisbremlo", family: "Zelto Inter" },
   { name: "jetbrains-mono", displayName: "JetBrains Mono", version: "2.304", category: "mono", designer: "JetBrains", license: "OFL-1.1", source: "https://github.com/JetBrains/JetBrainsMono", variable: true, weights: [400, 500, 700, 800], styles: ["normal", "italic"], fallback: "monospace", previewText: "() => ({ ligatures: true, zero: \"0O\" })", description: "A typeface for developers. Increased x-height, code ligatures, and 145 languages supported.", submittedBy: "thisisbremlo", family: "Zelto JetBrains Mono" },
@@ -72,8 +72,8 @@ const downloadSeed = {
   "hs-lunaobscura": 221000,
   "momo-signature": 174000,
 };
-const trackingStorageKey = "fontlr:font-tracking";
-const downloadCountsStorageKey = "fontlr:download-counts";
+const trackingStorageKey = "vinalin:font-tracking";
+const downloadCountsStorageKey = "vinalin:download-counts";
 let remoteDownloadCounts = readRemoteDownloadCounts();
 let remoteDownloadCountsLoaded = false;
 let downloadCountsRequest = null;
@@ -202,8 +202,8 @@ function downloadCount(font, data = readFontTracking()) {
 }
 
 function supabaseTrackingConfig() {
-  const url = window.FONTLR_SUPABASE_URL || document.querySelector('meta[name="fontlr:supabase-url"]')?.content;
-  const key = window.FONTLR_SUPABASE_ANON_KEY || document.querySelector('meta[name="fontlr:supabase-anon-key"]')?.content;
+  const url = window.VINALIN_SUPABASE_URL || document.querySelector('meta[name="vinalin:supabase-url"]')?.content;
+  const key = window.VINALIN_SUPABASE_ANON_KEY || document.querySelector('meta[name="vinalin:supabase-anon-key"]')?.content;
   if (!url || !key || url.includes("YOUR_PROJECT") || key.includes("YOUR_PUBLIC_ANON_KEY")) return null;
   return url && key ? { url: url.replace(/\/$/, ""), key } : null;
 }
@@ -352,7 +352,7 @@ function pagePath() {
 }
 
 function setTitle(title) {
-  document.title = title ? `${title} - fontlr` : "fontlr - Open font library";
+  document.title = title ? `${title} - vinalin` : "vinalin - Open font library";
 }
 
 function setPage(page) {
@@ -392,7 +392,7 @@ function highlightCode(code) {
   html = html.replace(/\b(import|from|export|const|let|var|function|return|font-family|inline|GET)\b/g, `<span class="syntax-keyword">$1</span>`);
   html = html.replace(/(^|\s)(--[A-Za-z][\w-]*)/gm, `$1<span class="syntax-flag">$2</span>`);
   html = html.replace(/(@[\w-]+)/g, `<span class="syntax-keyword">$1</span>`);
-  html = html.replace(/(\$|npx|pnpm|bunx|fontlr)\b/g, `<span class="syntax-command">$1</span>`);
+  html = html.replace(/(\$|npx|pnpm|bunx|vinalin)\b/g, `<span class="syntax-command">$1</span>`);
   html = html.replace(/\b([A-Za-z][\w-]*)(:)(?=\s)/g, `<span class="syntax-property">$1</span>$2`);
 
   tokens.forEach((token, index) => {
@@ -403,9 +403,9 @@ function highlightCode(code) {
 
 function commandsFor(slug = "inter") {
   return {
-    npm: `npx fontlr add ${slug}`,
-    pnpm: `pnpm dlx fontlr add ${slug}`,
-    bun: `bunx fontlr add ${slug}`,
+    npm: `npx vinalin add ${slug}`,
+    pnpm: `pnpm dlx vinalin add ${slug}`,
+    bun: `bunx vinalin add ${slug}`,
   };
 }
 
@@ -506,7 +506,7 @@ function renderHome() {
       </div>
       <div class="container report-hero-grid">
         <p class="report-kicker">A practical type library for founders, developers, and designers choosing fonts that can ship.</p>
-        <h1 class="hero-title" id="hero-title">fontlr Type Library</h1>
+        <h1 class="hero-title" id="hero-title">vinalin Type Library</h1>
         <div class="report-meta">
           <span>17 open-source families</span>
           <span>Self-hosted installs</span>
@@ -566,7 +566,7 @@ function renderHome() {
           <h2><span>01</span>Tools</h2>
           <div>
             <h3>The local-first font stack</h3>
-            <p>Install commands, license files, and predictable fallbacks are part of the library. fontlr treats fonts like components you can inspect, copy, and own.</p>
+            <p>Install commands, license files, and predictable fallbacks are part of the library. vinalin treats fonts like components you can inspect, copy, and own.</p>
             <div class="chapter-specimen" style="font-family: ${fontStack(systemFont)};">${systemFont.previewText}</div>
           </div>
         </div>
@@ -716,7 +716,7 @@ function pairPreview(pair) {
       <article class="pair-scenario pair-scenario-doc">
         <p style="font-family: ${fontStack(pair.accent)};">Docs</p>
         <h5 style="font-family: ${fontStack(pair.headline)};">Install once. Ship everywhere.</h5>
-        <code style="font-family: ${fontStack(pair.accent)};">npx fontlr add inter</code>
+        <code style="font-family: ${fontStack(pair.accent)};">npx vinalin add inter</code>
         <span style="font-family: ${fontStack(pair.body)};">Use the same family across prototypes, production, and brand systems.</span>
       </article>
       <article class="pair-scenario pair-scenario-editorial">
@@ -922,11 +922,11 @@ function bindHomeControls() {
   const fontGrid = document.querySelector("#fontGrid");
   const resultCount = document.querySelector("#resultCount");
   const viewButtons = [...document.querySelectorAll("[data-view]")];
-  let catalogView = localStorage.getItem("fontlrCatalogView") === "grid" ? "grid" : "list";
+  let catalogView = localStorage.getItem("vinalinCatalogView") === "grid" ? "grid" : "list";
 
   function setCatalogView(view) {
     catalogView = view === "grid" ? "grid" : "list";
-    localStorage.setItem("fontlrCatalogView", catalogView);
+    localStorage.setItem("vinalinCatalogView", catalogView);
     fontGrid.classList.toggle("is-grid-view", catalogView === "grid");
     fontGrid.classList.toggle("is-list-view", catalogView !== "grid");
     viewButtons.forEach((button) => {
@@ -1052,32 +1052,32 @@ function renderDocs() {
         </aside>
         <article class="prose">
           <h2 id="quick-start">Quick start</h2>
-          <p>Open your project folder in a terminal, pick a family from the <a href="/#fonts" data-local-link>fontlr catalog</a>, and run its install command:</p>
-          ${codeBlock(`npx fontlr add inter`)}
+          <p>Open your project folder in a terminal, pick a family from the <a href="/#fonts" data-local-link>vinalin catalog</a>, and run its install command:</p>
+          ${codeBlock(`npx vinalin add inter`)}
           ${renderInstallBox()}
-          <p>The CLI downloads the registered <code>.woff2</code> files, includes the license, and creates ready-to-use font code inside your project. The files are self-hosted by your app; fontlr is not required at runtime.</p>
+          <p>The CLI downloads the registered <code>.woff2</code> files, includes the license, and creates ready-to-use font code inside your project. The files are self-hosted by your app; vinalin is not required at runtime.</p>
           <h2 id="find-font">Find a font name</h2>
-          <p>The install name is the short slug shown in each command on fontlr. For example, <strong>JetBrains Mono</strong> uses <code>jetbrains-mono</code>:</p>
-          ${codeBlock(`npx fontlr list
-npx fontlr add jetbrains-mono`)}
+          <p>The install name is the short slug shown in each command on vinalin. For example, <strong>JetBrains Mono</strong> uses <code>jetbrains-mono</code>:</p>
+          ${codeBlock(`npx vinalin list
+npx vinalin add jetbrains-mono`)}
           <h2 id="font-names">All font names</h2>
-          <p>Use the slug beside each family in the CLI command. These are all fonts currently available on fontlr:</p>
+          <p>Use the slug beside each family in the CLI command. These are all fonts currently available on vinalin:</p>
           <div class="doc-font-list">
             ${fonts.map((font) => `
               <a href="/fonts/${font.name}" data-local-link>
                 <span><strong>${font.displayName}</strong><code>${font.name}</code></span>
-                <code>npx fontlr add ${font.name}</code>
+                <code>npx vinalin add ${font.name}</code>
               </a>`).join("")}
           </div>
           <h2 id="cli">CLI reference</h2>
-          ${codeBlock(`npx fontlr add &lt;name&gt;          install a font
-npx fontlr list                list available fonts
+          ${codeBlock(`npx vinalin add &lt;name&gt;          install a font
+npx vinalin list                list available fonts
 
 --force                        overwrite existing files
 --dir &lt;path&gt;                   choose the font files directory
 --registry &lt;url&gt;               use a compatible registry mirror`)}
           <h2 id="output">Where files go</h2>
-          <p>fontlr detects common project structures and puts each family in a predictable local folder:</p>
+          <p>vinalin detects common project structures and puts each family in a predictable local folder:</p>
           ${codeBlock(`Next.js:     app/fonts/&lt;name&gt;/
 React/Vite: public/fonts/&lt;name&gt;/
 Other:       fonts/&lt;name&gt;/`)}
@@ -1097,7 +1097,7 @@ font-family: var(--font-inter);`)}
           <h2 id="licenses">Licenses</h2>
           <p>The exact license text is installed beside every family. Keep that file with the fonts, and check the family's <a href="/licenses" data-local-link>license page</a> before shipping.</p>
           <h2 id="troubleshooting">Troubleshooting</h2>
-          <p>If a folder already exists, use <code>--force</code> only if replacing it is safe. If the CLI cannot identify your app structure, provide the destination explicitly with <code>--dir</code>. Run <code>npx fontlr list</code> to confirm the family slug before retrying.</p>
+          <p>If a folder already exists, use <code>--force</code> only if replacing it is safe. If the CLI cannot identify your app structure, provide the destination explicitly with <code>--dir</code>. Run <code>npx vinalin list</code> to confirm the family slug before retrying.</p>
         </article>
       </div>
     </section>`;
@@ -1111,13 +1111,13 @@ function renderSubmit() {
       <div class="container">
         <p class="eyebrow">Submit</p>
         <h1>Add a font to the registry<span>.</span></h1>
-        <p class="hero-copy">fontlr is community-curated. Submissions happen as pull requests - no accounts, no forms. Every accepted font credits its submitter on the font page.</p>
+        <p class="hero-copy">vinalin is community-curated. Submissions happen as pull requests - no accounts, no forms. Every accepted font credits its submitter on the font page.</p>
       </div>
     </section>
     <section class="submit-page">
       <div class="container submit-layout">
         <div class="step-list">
-          <article><span>01</span><h2>Fork the registry</h2><p>The whole registry lives in <code>thisisbremlo/fontlr</code>. Fork it and create a branch for your font.</p></article>
+          <article><span>01</span><h2>Fork the registry</h2><p>The whole registry lives in <code>thisisbremlo/vinalin</code>. Fork it and create a branch for your font.</p></article>
           <article><span>02</span><h2>Add your font folder</h2><p>Create <code>registry/fonts/&lt;slug&gt;/</code> with a <code>font.json</code>, the <code>.woff2</code> files under <code>files/</code>, and the license as <code>files/OFL.txt</code>.</p></article>
           <article><span>03</span><h2>Open a pull request</h2><p>Run <code>npm run build:registry</code> and <code>npm run validate:registry</code>. CI repeats those checks before the font ships.</p></article>
         </div>
@@ -1154,7 +1154,7 @@ function renderSubmit() {
     { "path": "/r/fonts/your-font/YourFont.woff2", "weight": "100 900", "style": "normal" }
   ]
 }`)}
-          <a class="primary-link" href="https://github.com/thisisbremlo/fontlr/compare" target="_blank" rel="noreferrer">Open a pull request</a>
+          <a class="primary-link" href="https://github.com/thisisbremlo/vinalin/compare" target="_blank" rel="noreferrer">Open a pull request</a>
         </article>
       </div>
     </section>`;
@@ -1167,14 +1167,14 @@ function renderDonor() {
     <section class="page-hero">
       <div class="container">
         <p class="eyebrow">Donors</p>
-        <h1>People who keep fontlr going<span>.</span></h1>
+        <h1>People who keep vinalin going<span>.</span></h1>
       </div>
     </section>
     <section class="donor-page">
       <div class="container donor-layout">
         <article class="donor-card support-card">
           <p class="eyebrow">Support me</p>
-          <h2>fontlr is free and community-curated.</h2>
+          <h2>vinalin is free and community-curated.</h2>
           <p>If it saves you time, you can fund the work on Ko-fi. Every supporter helps keep the registry, site, and CLI moving.</p>
           <a class="primary-link" href="https://ko-fi.com/bremlo" target="_blank" rel="noreferrer">Support on Ko-fi</a>
         </article>
@@ -1236,12 +1236,12 @@ function renderLegalNotice() {
             <div><span>Contact</span><strong><a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></strong></div>
           </div>
           <div class="legal-document-actions">
-            <a class="primary-link" href="/legal-notice/fontlr-legal-notice.pdf" target="_blank" rel="noreferrer">Open legal notice PDF</a>
-            <a class="mini-link" href="/legal-notice/fontlr-legal-notice.pdf" download>Download PDF</a>
+            <a class="primary-link" href="/legal-notice/vinalin-legal-notice.pdf" target="_blank" rel="noreferrer">Open legal notice PDF</a>
+            <a class="mini-link" href="/legal-notice/vinalin-legal-notice.pdf" download>Download PDF</a>
           </div>
         </div>
-        <object class="legal-pdf" data="/legal-notice/fontlr-legal-notice.pdf" type="application/pdf" aria-label="fontlr legal notice PDF">
-          <p>Your browser cannot display the PDF. <a href="/legal-notice/fontlr-legal-notice.pdf">Open the legal notice</a>.</p>
+        <object class="legal-pdf" data="/legal-notice/vinalin-legal-notice.pdf" type="application/pdf" aria-label="vinalin legal notice PDF">
+          <p>Your browser cannot display the PDF. <a href="/legal-notice/vinalin-legal-notice.pdf">Open the legal notice</a>.</p>
         </object>
       </div>
     </section>`;
@@ -1262,7 +1262,7 @@ function renderPrivacy() {
         <div class="legal-document-intro">
           <div>
             <p class="eyebrow">Updated June 2026</p>
-            <h2>How fontlr handles data</h2>
+            <h2>How vinalin handles data</h2>
             <p>The complete policy explains website hosting, anonymous font-download counts, GitHub-hosted project files, contributions, contact data, storage duration, and your GDPR rights.</p>
           </div>
           <div class="legal-data">
@@ -1270,12 +1270,12 @@ function renderPrivacy() {
             <div><span>Privacy contact</span><strong><a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></strong></div>
           </div>
           <div class="legal-document-actions">
-            <a class="primary-link" href="/privacy/fontlr-privacy-policy.pdf" target="_blank" rel="noreferrer">Open privacy policy PDF</a>
-            <a class="mini-link" href="/privacy/fontlr-privacy-policy.pdf" download>Download PDF</a>
+            <a class="primary-link" href="/privacy/vinalin-privacy-policy.pdf" target="_blank" rel="noreferrer">Open privacy policy PDF</a>
+            <a class="mini-link" href="/privacy/vinalin-privacy-policy.pdf" download>Download PDF</a>
           </div>
         </div>
-        <object class="legal-pdf" data="/privacy/fontlr-privacy-policy.pdf" type="application/pdf" aria-label="fontlr privacy policy PDF">
-          <p>Your browser cannot display the PDF. <a href="/privacy/fontlr-privacy-policy.pdf">Open the privacy policy</a>.</p>
+        <object class="legal-pdf" data="/privacy/vinalin-privacy-policy.pdf" type="application/pdf" aria-label="vinalin privacy policy PDF">
+          <p>Your browser cannot display the PDF. <a href="/privacy/vinalin-privacy-policy.pdf">Open the privacy policy</a>.</p>
         </object>
       </div>
     </section>`;
@@ -1563,7 +1563,7 @@ function renderNotFound() {
       <div class="container">
         <p class="eyebrow">404</p>
         <h1>Page not found<span>.</span></h1>
-        <p class="hero-copy">That route is not in the public fontlr sitemap.</p>
+        <p class="hero-copy">That route is not in the public vinalin sitemap.</p>
         <a class="primary-link" href="/" data-local-link>Back to fonts</a>
       </div>
     </section>`;
@@ -1622,10 +1622,10 @@ function setupLicenseNavigation() {
 function setupFooterExtras() {
   const footer = document.querySelector(".footer-inner");
   if (!footer || footer.querySelector(".footer-projects")) return;
-  const githubLink = footer.querySelector('a[href="https://github.com/thisisbremlo/fontlr"]');
+  const githubLink = footer.querySelector('a[href="https://github.com/thisisbremlo/vinalin"]');
   if (githubLink) {
     githubLink.classList.add("github-star-badge");
-    githubLink.setAttribute("aria-label", "Star fontlr on GitHub");
+    githubLink.setAttribute("aria-label", "Star vinalin on GitHub");
     githubLink.innerHTML = `<span aria-hidden="true">&#9733;</span><span>GitHub</span><strong data-github-stars>--</strong>`;
   }
   footer.insertAdjacentHTML("beforeend", `
@@ -1639,7 +1639,7 @@ function setupFooterExtras() {
 async function hydrateGithubStars() {
   const output = document.querySelector("[data-github-stars]");
   if (!output) return;
-  const cacheKey = "fontlr:github-stars";
+  const cacheKey = "vinalin:github-stars";
   try {
     const cached = JSON.parse(localStorage.getItem(cacheKey) || "null");
     if (cached && Date.now() - cached.updatedAt < 3600000) {
@@ -1650,7 +1650,7 @@ async function hydrateGithubStars() {
     // A live request below can still populate the badge.
   }
   try {
-    const response = await fetch("https://api.github.com/repos/thisisbremlo/fontlr", {
+    const response = await fetch("https://api.github.com/repos/thisisbremlo/vinalin", {
       headers: { Accept: "application/vnd.github+json" },
     });
     if (!response.ok) throw new Error(`GitHub returned ${response.status}`);

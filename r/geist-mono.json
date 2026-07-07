@@ -29,7 +29,7 @@
     "italic"
   ],
   "fallback": "monospace",
-  "previewText": "const font = await fontlr.add(\"geist-mono\")",
+  "previewText": "const font = await vinalin.add(\"geist-mono\")",
   "description": "The monospace companion to Geist. Clean, precise, and made for code.",
   "submittedBy": {
     "github": "thisisbremlo"

@@ -1,6 +1,6 @@
 # Contributing fonts
 
-fontlr accepts fonts through GitHub pull requests.
+vinalin accepts fonts through GitHub pull requests.
 
 ## Add a font
 

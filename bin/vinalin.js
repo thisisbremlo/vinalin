@@ -3,19 +3,19 @@
 const fs = require("fs");
 const path = require("path");
 
-const DEFAULT_REGISTRY = process.env.FONTLR_REGISTRY_URL || "https://raw.githubusercontent.com/thisisbremlo/fontlr/main/r/registry.json";
+const DEFAULT_REGISTRY = process.env.VINALIN_REGISTRY_URL || "https://raw.githubusercontent.com/thisisbremlo/vinalin/main/r/registry.json";
 
 function usage() {
-  console.log(`fontlr
+  console.log(`vinalin
 
 Usage:
-  fontlr list [--registry <url-or-path>]
-  fontlr add <name> [--registry <url-or-path>] [--dir <path>] [--force]
+  vinalin list [--registry <url-or-path>]
+  vinalin add <name> [--registry <url-or-path>] [--dir <path>] [--force]
 
 Examples:
-  npx fontlr add inter
-  npx fontlr add inter --registry ./r/registry.json
-  FONTLR_REGISTRY_URL=https://example.com/r/registry.json npx fontlr list`);
+  npx vinalin add inter
+  npx vinalin add inter --registry ./r/registry.json
+  VINALIN_REGISTRY_URL=https://example.com/r/registry.json npx vinalin list`);
 }
 
 function readFlag(args, name) {
@@ -65,7 +65,7 @@ function detectTarget(root, customDir) {
     return {
       kind: "custom",
       fontDir: path.resolve(root, customDir),
-      cssPath: path.resolve(root, customDir, "fontlr.css"),
+      cssPath: path.resolve(root, customDir, "vinalin.css"),
     };
   }
 
@@ -217,6 +217,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error(`fontlr: ${error.message}`);
+  console.error(`vinalin: ${error.message}`);
   process.exit(1);
 });

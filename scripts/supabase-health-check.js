@@ -3,7 +3,7 @@
 /*
  * Backend health/availability check for Supabase.
  *
- * This script updates one dedicated operational row to confirm that Fontlr can
+ * This script updates one dedicated operational row to confirm that Vinalin can
  * still reach Supabase. It does not create users, generate product traffic,
  * touch production content, or record artificial user activity.
  */
