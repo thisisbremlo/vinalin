@@ -6,6 +6,9 @@
   "bin": {
     "vinalin": "./bin/vinalin.js"
   },
+  "files": [
+    "bin/"
+  ],
   "scripts": {
     "mirror:fonts": "node scripts/mirror-font-files.js",
     "build:registry": "node scripts/build-registry.js",

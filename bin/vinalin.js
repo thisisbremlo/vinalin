@@ -218,5 +218,5 @@ async function main() {
 
 main().catch((error) => {
   console.error(`vinalin: ${error.message}`);
-  process.exit(1);
+  process.exitCode = 1;
 });

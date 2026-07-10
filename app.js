@@ -1235,14 +1235,65 @@ function renderLegalNotice() {
             <div><span>Website operator</span><strong>Benjamin Michael Bremer</strong></div>
             <div><span>Contact</span><strong><a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></strong></div>
           </div>
-          <div class="legal-document-actions">
-            <a class="primary-link" href="/legal-notice/vinalin-legal-notice.pdf" target="_blank" rel="noreferrer">Open legal notice PDF</a>
-            <a class="mini-link" href="/legal-notice/vinalin-legal-notice.pdf" download>Download PDF</a>
-          </div>
         </div>
-        <object class="legal-pdf" data="/legal-notice/vinalin-legal-notice.pdf" type="application/pdf" aria-label="vinalin legal notice PDF">
-          <p>Your browser cannot display the PDF. <a href="/legal-notice/vinalin-legal-notice.pdf">Open the legal notice</a>.</p>
-        </object>
+        
+        <div class="legal-prose">
+          <h2>Information According to § 5 DDG</h2>
+          <div class="legal-section">
+            <h3>Website Operator</h3>
+            <p>
+              Benjamin Michael Bremer<br>
+              Gartenstraße 58a<br>
+              29525 Uelzen<br>
+              Germany
+            </p>
+            <p><strong>Email:</strong> <a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></p>
+          </div>
+          
+          <div class="legal-section">
+            <h3>Responsible for Content According to § 18 Abs. 2 MStV</h3>
+            <p>
+              Benjamin Michael Bremer<br>
+              Gartenstraße 58a<br>
+              29525 Uelzen<br>
+              Germany
+            </p>
+          </div>
+
+          <h2>Website Purpose</h2>
+          <p>vinalin is a curated type library for founders, designers, and developers who want to discover, test, compare, and self-host open fonts.</p>
+          <p>The website provides font specimens, live previews, glyph testing, license information, source references, install guidance, pairing suggestions, and documentation to help users choose and ship typefaces with more confidence.</p>
+          <p>vinalin is intended for informational, creative, educational, and design-related purposes.</p>
+
+          <h2>Font Licenses and Third-Party Content</h2>
+          <p>The fonts listed on vinalin are created by their respective authors, designers, foundries, or contributors.</p>
+          <p>Each font remains subject to its own license terms. Where available, license information, source links, and attribution details are provided on the respective font detail pages.</p>
+          <p>Although vinalin aims to provide accurate and transparent license information, users are responsible for reviewing and complying with the applicable license before using, modifying, redistributing, or shipping any font in personal, commercial, or open-source projects.</p>
+          <p>Third-party content is identified where applicable.</p>
+
+          <h2>Submissions and Community Contributions</h2>
+          <p>vinalin may accept font submissions, corrections, metadata updates, or improvements through GitHub pull requests.</p>
+          <p>Contributors are responsible for ensuring that submitted files, metadata, source links, and license information are accurate and that the submitted fonts may legally be redistributed or referenced within the project.</p>
+
+          <h2>Liability for Content</h2>
+          <p>As a service provider, I am responsible for my own content on these pages in accordance with applicable laws. However, I am not obligated to monitor transmitted or stored third-party information or investigate circumstances indicating unlawful activity.</p>
+          <p>Obligations to remove or block the use of information under general laws remain unaffected.</p>
+
+          <h2>Liability for Links</h2>
+          <p>This website may contain links to external third-party websites, including font sources, repositories, foundries, documentation, and project pages.</p>
+          <p>I have no influence over the content of external websites and therefore cannot accept liability for external content. The respective provider or operator of linked websites is always responsible for their own content.</p>
+
+          <h2>Copyright</h2>
+          <p>All original content, layouts, interface designs, documentation, previews, and visual materials created for this website are subject to applicable copyright laws.</p>
+          <p>Duplication, editing, distribution, storage, or any form of use outside the limits of copyright law requires prior written consent unless otherwise permitted by law.</p>
+          <p>Fonts, font files, specimens, names, trademarks, and third-party materials remain the property of their respective rights holders and are governed by their own license terms.</p>
+
+          <h2>Consumer Dispute Resolution</h2>
+          <p>I am neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+
+          <h2>Contact</h2>
+          <p>For inquiries regarding this website, font entries, licensing concerns, submissions, projects, or legal matters, please contact: <a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></p>
+        </div>
       </div>
     </section>`;
 }
@@ -1269,14 +1320,183 @@ function renderPrivacy() {
             <div><span>Controller</span><strong>Benjamin Michael Bremer</strong></div>
             <div><span>Privacy contact</span><strong><a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></strong></div>
           </div>
-          <div class="legal-document-actions">
-            <a class="primary-link" href="/privacy/vinalin-privacy-policy.pdf" target="_blank" rel="noreferrer">Open privacy policy PDF</a>
-            <a class="mini-link" href="/privacy/vinalin-privacy-policy.pdf" download>Download PDF</a>
-          </div>
         </div>
-        <object class="legal-pdf" data="/privacy/vinalin-privacy-policy.pdf" type="application/pdf" aria-label="vinalin privacy policy PDF">
-          <p>Your browser cannot display the PDF. <a href="/privacy/vinalin-privacy-policy.pdf">Open the privacy policy</a>.</p>
-        </object>
+        
+        <div class="legal-prose">
+          <h2>Data Protection at a Glance</h2>
+          
+          <h3>General Information</h3>
+          <p>The following information provides an overview of how personal data is processed when visiting this website. This privacy policy applies to vinalin, a curated type library for discovering, testing, comparing, and self-hosting open fonts.</p>
+          <p>Personal data means any information that can be used to directly or indirectly identify a person, such as name, email address, IP address, device information, request data, or communication content.</p>
+
+          <h3>Controller</h3>
+          <p>
+            The controller responsible for data processing on this website is:<br>
+            Benjamin Michael Bremer<br>
+            Gartenstraße 58a<br>
+            29525 Uelzen<br>
+            Germany
+          </p>
+          <p><strong>Email:</strong> <a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></p>
+
+          <h3>How Data Is Collected</h3>
+          <p>Some data is collected when you voluntarily provide it, for example when you contact me by email or interact with external contribution channels such as GitHub.</p>
+          <p>Other data may be collected automatically when visiting the website. This may include technical information such as IP address, browser type, operating system, device information, referrer URL, access time, requested files, and server request data.</p>
+
+          <h3>What Data Is Used For</h3>
+          <p>Personal data may be processed to:</p>
+          <ul>
+            <li>Provide and securely deliver the website</li>
+            <li>Maintain website performance and stability</li>
+            <li>Display font previews, specimens, font files, and related content</li>
+            <li>Count font downloads and understand which fonts are used most often</li>
+            <li>Respond to inquiries and communication requests</li>
+            <li>Review submissions, corrections, or contribution requests</li>
+            <li>Improve the usability, structure, and content of the website</li>
+            <li>Prevent misuse, spam, technical errors, or abuse</li>
+          </ul>
+
+          <h3>Legal Bases for Processing</h3>
+          <p>Depending on the purpose, data processing may be based on:</p>
+          <ul>
+            <li><strong>Art. 6(1)(a) GDPR</strong> where consent has been given</li>
+            <li><strong>Art. 6(1)(b) GDPR</strong> where processing is necessary for pre-contractual or contractual communication</li>
+            <li><strong>Art. 6(1)(c) GDPR</strong> where processing is required by law</li>
+            <li><strong>Art. 6(1)(f) GDPR</strong> where processing is necessary for legitimate interests, such as secure website delivery, communication, download counting, error prevention, analytics, and project maintenance</li>
+          </ul>
+
+          <hr>
+
+          <h2>Hosting and Website Delivery via Vercel</h2>
+          <p>This website is hosted and delivered through <strong>Vercel</strong>.</p>
+          <p>When visiting the website, technical connection data such as IP addresses, request metadata, browser information, device data, referrer information, access times, and requested resources may be processed to deliver the website securely and reliably.</p>
+          <p>The processing is necessary to provide the website, ensure stability, prevent abuse, and maintain security.</p>
+          <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR</p>
+          <p>
+            <strong>Provider:</strong><br>
+            Vercel Inc.<br>
+            440 N Barranca Ave #4133<br>
+            Covina, CA 91723<br>
+            United States
+          </p>
+          <p><strong>More information:</strong> <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noreferrer">Vercel Privacy Notice</a></p>
+          <p>Vercel may use technical infrastructure providers and content delivery networks to operate and deliver the website efficiently. Where legally required, processing by service providers is carried out on the basis of appropriate data protection agreements and safeguards for international data transfers.</p>
+
+          <h2>Supabase Download Counts</h2>
+          <p>This website uses Supabase to store anonymous download counts for fonts.</p>
+          <p>When a font is downloaded, an anonymous counter for the respective font may be increased in the database.</p>
+          <p>The stored download count is not linked to a user account, IP address, device identifier, browser fingerprint, or any other information intended to identify individual visitors.</p>
+          <p>The download counts are used to understand which fonts are used most often and to improve the structure, curation, and maintenance of the font library.</p>
+          <p>Although the stored download counts are anonymous and aggregated, Supabase and its technical infrastructure may process connection data such as IP addresses, timestamps, request metadata, or similar technical information for service delivery, security, logging, and abuse prevention.</p>
+          <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR</p>
+          <p>
+            <strong>Provider:</strong><br>
+            Supabase Pte. Ltd.<br>
+            65 Chulia Street #38-02/03<br>
+            OCBC Centre<br>
+            Singapore 049513
+          </p>
+          <p>Where legally required, processing by Supabase is carried out on the basis of appropriate data protection agreements and safeguards for international data transfers.</p>
+
+          <h2>Font Files Stored on GitHub</h2>
+          <p>Font files, metadata, license files, or related project files may be stored in a public GitHub repository.</p>
+          <p>When font files or related resources are loaded from GitHub or GitHub-related delivery infrastructure, your browser may connect to GitHub. In this case, GitHub may process technical connection data such as IP address, request metadata, browser information, access time, and requested files.</p>
+          <p>GitHub is responsible for its own data processing when you access GitHub-hosted resources or interact with GitHub directly.</p>
+          <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR</p>
+          <p>
+            <strong>Provider for users outside North America:</strong><br>
+            GitHub B.V.<br>
+            Prins Bernhardplein 200<br>
+            1097 JB Amsterdam<br>
+            Netherlands
+          </p>
+          <p>
+            <strong>Provider:</strong><br>
+            GitHub, Inc.<br>
+            88 Colin P. Kelly Jr. Street<br>
+            San Francisco, CA 94107<br>
+            United States
+          </p>
+          <p><strong>More information:</strong> <a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noreferrer">GitHub Privacy Statement</a></p>
+
+          <h2>Font Library, Font Previews, and Glyph Testing</h2>
+          <p>vinalin provides font specimens, previews, glyph testing, metadata, source references, and license-related information.</p>
+          <p>When using preview fields, specimen tools, comparison tools, or glyph testing features, the entered text is intended to be processed locally in the browser and is not intentionally stored by me.</p>
+          <p>However, technical request data may still be processed by the hosting provider or other technical service providers when loading pages, assets, font files, previews, metadata, or related resources.</p>
+          <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR</p>
+
+          <h2>GitHub Contributions and Pull Requests</h2>
+          <p>vinalin may allow or encourage submissions, corrections, metadata updates, or font contributions through GitHub pull requests.</p>
+          <p>If you interact with vinalin through GitHub, for example by opening an issue, submitting a pull request, commenting, or contributing files, your GitHub profile information, contribution content, timestamps, and related metadata may become publicly visible depending on GitHub's settings and the repository configuration.</p>
+          <p>GitHub is responsible for its own data processing when you use GitHub's platform.</p>
+          <p>I may process publicly submitted contribution data to review, manage, document, and maintain the font library.</p>
+          <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR</p>
+          <p>Please avoid submitting private, sensitive, or unnecessary personal data through public issues, pull requests, comments, or repository files.</p>
+
+          <h2>Contact by Email</h2>
+          <p>If you contact me by email, the data you provide will be processed for the purpose of handling your inquiry and any related follow-up communication.</p>
+          <p>This may include your email address, name, message content, technical email metadata, and any information you voluntarily include in the message.</p>
+          <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR where the communication relates to a request, project, or potential collaboration</p>
+          <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR for general communication and documentation of inquiries</p>
+          <p>The data will not be shared without your consent unless required by law or necessary to process your request.</p>
+
+          <h2>Contact Forms</h2>
+          <p>If this website provides a contact form, the information submitted through the form will be processed for the purpose of handling your inquiry.</p>
+          <p>The data processed may include your name, email address, message content, timestamp, and technical metadata required to transmit and protect the form.</p>
+          <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR where the inquiry relates to a request, project, or potential collaboration</p>
+          <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR for general communication, spam prevention, and secure form delivery</p>
+          <p>If no contact form is used, this section does not apply.</p>
+
+          <h2>External Links</h2>
+          <p>This website may contain links to external websites, including font sources, GitHub repositories, foundries, documentation pages, license texts, tools, and other third-party resources.</p>
+          <p>When you click an external link, you leave this website. The respective external provider is responsible for any data processing that takes place on their website.</p>
+          <p>I have no control over the data processing practices of external websites.</p>
+
+          <h2>Cookies and Local Storage</h2>
+          <p>This website does not intentionally use marketing or advertising cookies.</p>
+          <p>Technically necessary cookies, local storage, or similar technologies may be used if required for website functionality, security, accessibility, preferences, or technical delivery.</p>
+          <p>If future features require non-essential cookies or tracking technologies, this privacy policy will be updated and consent will be requested where required.</p>
+
+          <h2>Data Sharing</h2>
+          <p>Personal data is not sold.</p>
+          <p>Personal data may be shared with technical service providers where necessary to operate, secure, analyze, or maintain the website.</p>
+          <p>This may include hosting providers, infrastructure providers, database providers, repository providers, email providers, or external platforms used for contributions and communication.</p>
+          <p>Where required, service providers are used on the basis of appropriate data protection agreements.</p>
+
+          <h2>International Data Transfers</h2>
+          <p>Some service providers may process data outside the European Union or the European Economic Area.</p>
+          <p>Where data is transferred to countries outside the EU or EEA, such transfers are carried out only where a legal basis exists and appropriate safeguards are in place, such as adequacy decisions, standard contractual clauses, or other legally recognized mechanisms.</p>
+
+          <h2>Storage Duration</h2>
+          <p>Personal data is stored only for as long as necessary for the respective processing purpose.</p>
+          <p>Communication data may be stored for as long as necessary to process the inquiry and for reasonable documentation purposes.</p>
+          <p>Technical server, database, analytics, and security logs may be stored temporarily for security, troubleshooting, debugging, and abuse prevention.</p>
+          <p>Anonymous download counts may be stored for as long as they are useful for maintaining, improving, and curating the font library. These counts are stored in aggregated form and are not used to identify individual visitors.</p>
+          <p>Data may be stored for longer periods if legal retention obligations apply or if storage is necessary to establish, exercise, or defend legal claims.</p>
+
+          <h2>Your Rights</h2>
+          <p>You have the right to request information about the personal data stored about you.</p>
+          <p>You also have the right to request correction, deletion, restriction of processing, or data portability where legally applicable.</p>
+          <p>You have the right to object to certain forms of processing, especially where processing is based on legitimate interests under Art. 6(1)(f) GDPR.</p>
+          <p>Where processing is based on consent, you may withdraw your consent at any time with future effect.</p>
+          <p>To exercise your rights, you can contact me at: <a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></p>
+
+          <h2>Right to Lodge a Complaint</h2>
+          <p>You have the right to lodge a complaint with a competent data protection supervisory authority.</p>
+          <p>You may also contact another competent supervisory authority depending on your place of residence or the place of the alleged infringement.</p>
+
+          <h2>SSL/TLS Encryption</h2>
+          <p>This website uses SSL/TLS encryption to protect data transmission.</p>
+          <p>You can usually recognize an encrypted connection by the lock icon in the browser address bar.</p>
+
+          <h2>Objection to Advertising Emails</h2>
+          <p>The use of contact data published on this website for unsolicited advertising, spam, or promotional communication is hereby objected to.</p>
+          <p>Legal action may be taken in the event of unsolicited promotional communication.</p>
+
+          <h2>Changes to This Privacy Policy</h2>
+          <p>This privacy policy may be updated to reflect legal, technical, operational, or regulatory changes.</p>
+          <p>The current version is always the version published on this website.</p>
+        </div>
       </div>
     </section>`;
 }
@@ -1626,12 +1846,17 @@ function setupFooterExtras() {
   if (githubLink) {
     githubLink.classList.add("github-star-badge");
     githubLink.setAttribute("aria-label", "Star vinalin on GitHub");
-    githubLink.innerHTML = `<span aria-hidden="true">&#9733;</span><span>GitHub</span><strong data-github-stars>--</strong>`;
+    githubLink.innerHTML = `
+      <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="margin-right: 2px;">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      <span>GitHub</span>
+      <strong data-github-stars>--</strong>`;
   }
   footer.insertAdjacentHTML("beforeend", `
     <div class="footer-projects">
       <span>A project by <a href="https://bremlo.uk" target="_blank" rel="noreferrer">Bremlo</a></span>
-      <span class="footer-side-project">Also building <a href="https://loopa.framer.website" target="_blank" rel="noreferrer">Loopa</a></span>
+      <span class="footer-side-project">Also building <a href="https://savault.de" target="_blank" rel="noreferrer">Savault</a></span>
     </div>`);
   hydrateGithubStars();
 }
