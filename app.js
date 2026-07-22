@@ -351,8 +351,55 @@ function pagePath() {
   return path;
 }
 
+function prefersReducedMotion() {
+  return Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+}
+
+function supportsViewTransitions() {
+  return typeof document !== "undefined" && typeof document.startViewTransition === "function";
+}
+
+/**
+ * Wrap a DOM update in the native View Transitions API when available so SPA
+ * route changes fade softly. Falls back to a CSS animation keyed off
+ * `.is-route-enter` for browsers without the API, and short-circuits to
+ * an instant update when the user prefers reduced motion.
+ */
+function withViewTransition(update) {
+  if (supportsViewTransitions() && !prefersReducedMotion()) {
+    return document.startViewTransition(update);
+  }
+  update();
+  if (!app || prefersReducedMotion()) return Promise.resolve();
+  // Restart the animation cleanly on consecutive navigations.
+  app.classList.remove("is-route-enter");
+  // Reading offsetWidth forces a synchronous reflow so the keyframes replay.
+  void app.offsetWidth;
+  app.classList.add("is-route-enter");
+  return Promise.resolve();
+}
+
 function setTitle(title) {
-  document.title = title ? `${title} - vinalin` : "vinalin - Open font library";
+  document.title = title ? `${title} - vinalin` : "vinalin - Curated open font library for founders, developers & designers";
+}
+
+function updateMeta({ title, description, path, ogType = "website" }) {
+  const fullTitle = title ? `${title} - vinalin` : "vinalin - Curated open font library for founders, developers & designers";
+  document.title = fullTitle;
+  const canonical = path ? `https://vinalin.eu${path}` : "https://vinalin.eu/";
+  const setContent = (selector, value) => {
+    const el = document.querySelector(selector);
+    if (el) el.content = value;
+  };
+  setContent('meta[name="description"]', description || "A curated open font library for founders, developers, and designers.");
+  setContent('meta[property="og:title"]', fullTitle);
+  setContent('meta[property="og:description"]', description || "A curated open font library for founders, developers, and designers.");
+  setContent('meta[property="og:type"]', ogType);
+  setContent('meta[property="og:url"]', canonical);
+  setContent('meta[name="twitter:title"]', fullTitle);
+  setContent('meta[name="twitter:description"]', description || "A curated open font library for founders, developers, and designers.");
+  const canonicalEl = document.querySelector('link[rel="canonical"]');
+  if (canonicalEl) canonicalEl.href = canonical;
 }
 
 function setPage(page) {
@@ -494,6 +541,12 @@ function foundryCard(font) {
 function renderHome() {
   setTitle("");
   setPage("home");
+  updateMeta({
+    title: "",
+    description: "A curated open font library for founders, developers, and designers. Discover 17 production-ready open-source font families, install commands, pairings, and licenses.",
+    path: "/",
+    ogType: "website",
+  });
   const spotlight = popularFonts(1)[0] || fontByName("inter");
   const craftFont = fontByName("fraunces");
   const systemFont = fontByName("inter");
@@ -731,6 +784,12 @@ function pairPreview(pair) {
 function renderPairingPage() {
   setTitle("Font pairing lab");
   setPage("inner");
+  updateMeta({
+    title: "Font pairing lab",
+    description: "Find matching headline, body, and accent fonts with the vinalin pairing lab. Build font systems for interfaces, brands, and docs.",
+    path: "/pairing",
+    ogType: "website",
+  });
   const pairing = recommendPairing({ headline: "space-grotesk", body: "inter", accent: "geist-mono" });
   app.innerHTML = `
     <section class="page-hero">
@@ -1031,6 +1090,12 @@ function bindHomeControls() {
 function renderDocs() {
   setTitle("Docs");
   setPage("inner");
+  updateMeta({
+    title: "Docs",
+    description: "Learn how to install and use the vinalin CLI and font library. Quick start, commands, registry format, and troubleshooting.",
+    path: "/docs",
+    ogType: "article",
+  });
   app.innerHTML = `
     <section class="page-hero">
       <div class="container">
@@ -1053,15 +1118,25 @@ function renderDocs() {
         <article class="prose">
           <h2 id="quick-start">Quick start</h2>
           <p>Open your project folder in a terminal, pick a family from the <a href="/#fonts" data-local-link>vinalin catalog</a>, and run its install command:</p>
-          ${codeBlock(`npx @bremlo/vinalin add inter`)}
+          ${codeBlock(`npx @bremlo/vinalin add inter
+pnpm dlx @bremlo/vinalin add inter
+bunx @bremlo/vinalin add inter`)}
           ${renderInstallBox()}
           <p>The CLI downloads the registered <code>.woff2</code> files, includes the license, and creates ready-to-use font code inside your project. The files are self-hosted by your app; vinalin is not required at runtime.</p>
           <h2 id="find-font">Find a font name</h2>
           <p>The install name is the short slug shown in each command on vinalin. For example, <strong>JetBrains Mono</strong> uses <code>jetbrains-mono</code>:</p>
           ${codeBlock(`npx @bremlo/vinalin list
-npx @bremlo/vinalin add jetbrains-mono`)}
+npx @bremlo/vinalin add jetbrains-mono
+
+# or with pnpm
+pnpm dlx @bremlo/vinalin list
+pnpm dlx @bremlo/vinalin add jetbrains-mono
+
+# or with Bun
+bunx @bremlo/vinalin list
+bunx @bremlo/vinalin add jetbrains-mono`)}
           <h2 id="font-names">All font names</h2>
-          <p>Use the slug beside each family in the CLI command. These are all fonts currently available on vinalin:</p>
+          <p>Use the slug beside each family in the CLI command. The examples below use npx; replace <code>npx</code> with <code>pnpm dlx</code> or <code>bunx</code> if you use pnpm or Bun. These are all fonts currently available on vinalin:</p>
           <div class="doc-font-list">
             ${fonts.map((font) => `
               <a href="/fonts/${font.name}" data-local-link>
@@ -1070,12 +1145,17 @@ npx @bremlo/vinalin add jetbrains-mono`)}
               </a>`).join("")}
           </div>
           <h2 id="cli">CLI reference</h2>
-          ${codeBlock(`npx @bremlo/vinalin add &lt;name&gt;          install a font
-npx @bremlo/vinalin list                list available fonts
+          ${codeBlock(`npx @bremlo/vinalin add <name>          install a font (npm)
+pnpm dlx @bremlo/vinalin add <name>    install a font (pnpm)
+bunx @bremlo/vinalin add <name>        install a font (Bun)
+npx @bremlo/vinalin list                list available fonts (npm)
+pnpm dlx @bremlo/vinalin list            list available fonts (pnpm)
+bunx @bremlo/vinalin list                list available fonts (Bun)
 
 --force                        overwrite existing files
 --dir &lt;path&gt;                   choose the font files directory
 --registry &lt;url&gt;               use a compatible registry mirror`)}
+          <p>Install globally to run <code>vinalin</code> directly, or install locally and run it via <code>npx vinalin</code>, <code>pnpm vinalin</code>, or <code>bunx vinalin</code>.</p>
           <h2 id="output">Where files go</h2>
           <p>vinalin detects common project structures and puts each family in a predictable local folder:</p>
           ${codeBlock(`Next.js:     app/fonts/&lt;name&gt;/
@@ -1106,6 +1186,12 @@ font-family: var(--font-inter);`)}
 function renderSubmit() {
   setTitle("Submit a font");
   setPage("inner");
+  updateMeta({
+    title: "Submit a font",
+    description: "Submit an open-source font to the vinalin library. Learn the license requirements, metadata format, and review process.",
+    path: "/submit",
+    ogType: "article",
+  });
   app.innerHTML = `
     <section class="page-hero">
       <div class="container">
@@ -1163,6 +1249,12 @@ function renderSubmit() {
 function renderDonor() {
   setTitle("Donors");
   setPage("inner");
+  updateMeta({
+    title: "Donors",
+    description: "Meet the supporters keeping vinalin open. Sponsor or contribute to the curated open font library.",
+    path: "/donors",
+    ogType: "website",
+  });
   app.innerHTML = `
     <section class="page-hero">
       <div class="container">
@@ -1216,6 +1308,12 @@ async function bindSupporters() {
 function renderLegalNotice() {
   setTitle("Legal Notice");
   setPage("inner");
+  updateMeta({
+    title: "Legal Notice",
+    description: "Legal notice, ownership, and disclaimer for the vinalin open font library website.",
+    path: "/legal-notice",
+    ogType: "article",
+  });
   app.innerHTML = `
     <section class="page-hero">
       <div class="container">
@@ -1301,6 +1399,12 @@ function renderLegalNotice() {
 function renderPrivacy() {
   setTitle("Privacy Policy");
   setPage("inner");
+  updateMeta({
+    title: "Privacy Policy",
+    description: "Privacy policy for vinalin. Learn what data is collected, how it is used, and your rights.",
+    path: "/privacy",
+    ogType: "article",
+  });
   app.innerHTML = `
     <section class="page-hero">
       <div class="container">
@@ -1504,6 +1608,12 @@ function renderPrivacy() {
 function renderLicenses() {
   setTitle("Font Licenses");
   setPage("inner");
+  updateMeta({
+    title: "Font Licenses",
+    description: "Browse the open licenses for every font in the vinalin library. OFL 1.1 and Fontshare Free font licenses.",
+    path: "/licenses",
+    ogType: "article",
+  });
   app.innerHTML = `
     <section class="page-hero">
       <div class="container">
@@ -1585,6 +1695,12 @@ async function bindFontDownloads(font) {
 function renderFontDetail(font) {
   setTitle(font.displayName);
   setPage("detail");
+  updateMeta({
+    title: font.displayName,
+    description: font.description,
+    path: `/fonts/${font.name}`,
+    ogType: "article",
+  });
   trackFontEvent(font.name, "view");
   const weights = displayWeights(font);
   const styleRows = weights.slice(0, 10).map((weight) => {
@@ -1778,6 +1894,12 @@ function bindTester() {
 function renderNotFound() {
   setTitle("404");
   setPage("inner");
+  updateMeta({
+    title: "Page not found",
+    description: "The page you are looking for does not exist on vinalin.",
+    path: window.location.pathname,
+    ogType: "website",
+  });
   app.innerHTML = `
     <section class="page-hero">
       <div class="container">
@@ -1946,12 +2068,14 @@ document.addEventListener("click", async (event) => {
     } else {
       history.pushState({}, "", href);
     }
-    route();
-    if (window.location.hash) {
-      scrollToHash();
-    } else {
-      window.scrollTo({ top: 0, behavior: "auto" });
-    }
+    withViewTransition(() => {
+      route();
+      if (window.location.hash) {
+        scrollToHash();
+      } else {
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+    });
     document.body.classList.remove("nav-open");
     const menuButton = document.querySelector(".menu-toggle");
     menuButton?.setAttribute("aria-expanded", "false");
@@ -1960,8 +2084,10 @@ document.addEventListener("click", async (event) => {
 });
 
 window.addEventListener("popstate", () => {
-  route();
-  scrollToHash();
+  withViewTransition(() => {
+    route();
+    scrollToHash();
+  });
 });
 route();
 setupMenuToggleIcon();
