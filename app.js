@@ -1940,6 +1940,7 @@ function setupMobileNav() {
   button.innerHTML = "<span></span><span></span><span></span>";
   button.setAttribute("aria-expanded", "false");
   button.setAttribute("aria-label", "Open menu");
+  nav.setAttribute("aria-hidden", "true");
 
   // Add a backdrop for closing the panel.
   if (!document.querySelector(".nav-backdrop")) {
@@ -1953,6 +1954,7 @@ function setupMobileNav() {
     document.body.classList.toggle("nav-open", isOpen);
     button.setAttribute("aria-expanded", String(isOpen));
     button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    nav.setAttribute("aria-hidden", isOpen ? "false" : "true");
   }
 
   function closeMenu() {
@@ -1976,7 +1978,13 @@ function setupMobileNav() {
     if (event.target.closest(".nav-backdrop")) closeMenu();
   });
 
-  button.setAttribute("aria-haspopup", "true");
+
+  function getFocusable() {
+    const inside = nav.querySelectorAll(
+      "a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled])"
+    );
+    return [button, ...inside];
+  }
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
@@ -1985,7 +1993,7 @@ function setupMobileNav() {
     }
     if (!document.body.classList.contains("nav-open")) return;
     if (event.key !== "Tab") return;
-    const focusable = nav.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled])");
+    const focusable = getFocusable();
     if (!focusable.length) return;
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
@@ -1996,6 +2004,14 @@ function setupMobileNav() {
       event.preventDefault();
       first.focus();
     }
+  });
+
+  // Trap focus inside the open mobile panel.
+  document.addEventListener("focusin", (event) => {
+    if (!document.body.classList.contains("nav-open")) return;
+    if (event.target === button || nav.contains(event.target)) return;
+    const focusable = getFocusable();
+    if (focusable.length) focusable[0].focus();
   });
 
   // Close the mobile menu when crossing back to the desktop breakpoint.
