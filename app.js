@@ -403,9 +403,9 @@ function highlightCode(code) {
 
 function commandsFor(slug = "inter") {
   return {
-    npm: `npx vinalin add ${slug}`,
-    pnpm: `pnpm dlx vinalin add ${slug}`,
-    bun: `bunx vinalin add ${slug}`,
+    npm: `npx @bremlo/vinalin add ${slug}`,
+    pnpm: `pnpm dlx @bremlo/vinalin add ${slug}`,
+    bun: `bunx @bremlo/vinalin add ${slug}`,
   };
 }
 
@@ -716,7 +716,7 @@ function pairPreview(pair) {
       <article class="pair-scenario pair-scenario-doc">
         <p style="font-family: ${fontStack(pair.accent)};">Docs</p>
         <h5 style="font-family: ${fontStack(pair.headline)};">Install once. Ship everywhere.</h5>
-        <code style="font-family: ${fontStack(pair.accent)};">npx vinalin add inter</code>
+        <code style="font-family: ${fontStack(pair.accent)};">npx @bremlo/vinalin add inter</code>
         <span style="font-family: ${fontStack(pair.body)};">Use the same family across prototypes, production, and brand systems.</span>
       </article>
       <article class="pair-scenario pair-scenario-editorial">
@@ -1053,25 +1053,25 @@ function renderDocs() {
         <article class="prose">
           <h2 id="quick-start">Quick start</h2>
           <p>Open your project folder in a terminal, pick a family from the <a href="/#fonts" data-local-link>vinalin catalog</a>, and run its install command:</p>
-          ${codeBlock(`npx vinalin add inter`)}
+          ${codeBlock(`npx @bremlo/vinalin add inter`)}
           ${renderInstallBox()}
           <p>The CLI downloads the registered <code>.woff2</code> files, includes the license, and creates ready-to-use font code inside your project. The files are self-hosted by your app; vinalin is not required at runtime.</p>
           <h2 id="find-font">Find a font name</h2>
           <p>The install name is the short slug shown in each command on vinalin. For example, <strong>JetBrains Mono</strong> uses <code>jetbrains-mono</code>:</p>
-          ${codeBlock(`npx vinalin list
-npx vinalin add jetbrains-mono`)}
+          ${codeBlock(`npx @bremlo/vinalin list
+npx @bremlo/vinalin add jetbrains-mono`)}
           <h2 id="font-names">All font names</h2>
           <p>Use the slug beside each family in the CLI command. These are all fonts currently available on vinalin:</p>
           <div class="doc-font-list">
             ${fonts.map((font) => `
               <a href="/fonts/${font.name}" data-local-link>
                 <span><strong>${font.displayName}</strong><code>${font.name}</code></span>
-                <code>npx vinalin add ${font.name}</code>
+                <code>npx @bremlo/vinalin add ${font.name}</code>
               </a>`).join("")}
           </div>
           <h2 id="cli">CLI reference</h2>
-          ${codeBlock(`npx vinalin add &lt;name&gt;          install a font
-npx vinalin list                list available fonts
+          ${codeBlock(`npx @bremlo/vinalin add &lt;name&gt;          install a font
+npx @bremlo/vinalin list                list available fonts
 
 --force                        overwrite existing files
 --dir &lt;path&gt;                   choose the font files directory
@@ -1097,7 +1097,7 @@ font-family: var(--font-inter);`)}
           <h2 id="licenses">Licenses</h2>
           <p>The exact license text is installed beside every family. Keep that file with the fonts, and check the family's <a href="/licenses" data-local-link>license page</a> before shipping.</p>
           <h2 id="troubleshooting">Troubleshooting</h2>
-          <p>If a folder already exists, use <code>--force</code> only if replacing it is safe. If the CLI cannot identify your app structure, provide the destination explicitly with <code>--dir</code>. Run <code>npx vinalin list</code> to confirm the family slug before retrying.</p>
+          <p>If a folder already exists, use <code>--force</code> only if replacing it is safe. If the CLI cannot identify your app structure, provide the destination explicitly with <code>--dir</code>. Run <code>npx @bremlo/vinalin list</code> to confirm the family slug before retrying.</p>
         </article>
       </div>
     </section>`;

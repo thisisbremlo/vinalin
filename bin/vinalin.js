@@ -13,9 +13,9 @@ Usage:
   vinalin add <name> [--registry <url-or-path>] [--dir <path>] [--force]
 
 Examples:
-  npx vinalin add inter
-  npx vinalin add inter --registry ./r/registry.json
-  VINALIN_REGISTRY_URL=https://example.com/r/registry.json npx vinalin list`);
+  npx @bremlo/vinalin add inter
+  npx @bremlo/vinalin add inter --registry ./r/registry.json
+  VINALIN_REGISTRY_URL=https://example.com/r/registry.json npx @bremlo/vinalin list`);
 }
 
 function readFlag(args, name) {
@@ -31,7 +31,13 @@ function hasFlag(args, name) {
 async function readJson(source) {
   if (/^https?:\/\//.test(source)) {
     const response = await fetch(source);
-    if (!response.ok) throw new Error(`Could not read ${source} (${response.status})`);
+    if (!response.ok) {
+      const hint =
+        response.status === 404
+          ? " The default registry must be public on GitHub (thisisbremlo/vinalin), or pass --registry ./r/registry.json for local installs."
+          : "";
+      throw new Error(`Could not read ${source} (${response.status}).${hint}`);
+    }
     return response.json();
   }
   const absolute = path.resolve(source);

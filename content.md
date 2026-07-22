@@ -310,11 +310,11 @@ Content sections:
 
    Documents:
 
-   - `npx vinalin add <name>`
+   - `npx @bremlo/vinalin add <name>`
    - `--force`
    - `--dir <path>`
    - `--registry <url>`
-   - `npx vinalin list`
+   - `npx @bremlo/vinalin list`
 
 5. Registry API
 
@@ -429,9 +429,9 @@ It supports:
 
 Command examples:
 
-- `npx vinalin add inter`
-- `pnpm dlx vinalin add inter`
-- `bunx vinalin add inter`
+- `npx @bremlo/vinalin add inter`
+- `pnpm dlx @bremlo/vinalin add inter`
+- `bunx @bremlo/vinalin add inter`
 
 Behavior:
 
@@ -597,8 +597,8 @@ Supported commands:
 
 Install commands:
 
-- `npx vinalin list`
-- `npx vinalin add inter`
+- `npx @bremlo/vinalin list`
+- `npx @bremlo/vinalin add inter`
 
 ## UX Principles
 

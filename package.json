@@ -1,10 +1,10 @@
 {
-  "name": "vinalin",
+  "name": "@bremlo/vinalin",
   "version": "0.1.0",
   "description": "A curated open font library and CLI for installing self-hosted font files.",
   "private": false,
   "bin": {
-    "vinalin": "./bin/vinalin.js"
+    "vinalin": "bin/vinalin.js"
   },
   "files": [
     "bin/"
@@ -14,6 +14,7 @@
     "build:registry": "node scripts/build-registry.js",
     "validate:registry": "node scripts/validate-registry.js",
     "check": "npm run build:registry && node --check app.js && node --check bin/vinalin.js && node scripts/validate-registry.js",
+    "prepublishOnly": "node --check bin/vinalin.js",
     "dev": "node scripts/dev-server.js",
     "start": "node scripts/dev-server.js",
     "health:supabase": "node --env-file=.env.local scripts/supabase-health-check.js"
@@ -24,6 +25,17 @@
     "self-hosted",
     "cli"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thisisbremlo/vinalin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thisisbremlo/vinalin/issues"
+  },
+  "homepage": "https://github.com/thisisbremlo/vinalin#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=18"
