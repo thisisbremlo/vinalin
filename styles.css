@@ -13617,3 +13617,85 @@ body[data-page="inner"] .legal-section p:last-child {
   margin-bottom: 0 !important;
 }
 
+/* =========================================================
+   Motion — page transitions & smooth scrolling
+   ========================================================= */
+
+/* Enable browser-native cross-document transitions so direct URL hits
+   on static HTML files (e.g. /fonts/<slug>/index.html) animate too. */
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* SPA route changes driven by `document.startViewTransition()` in app.js. */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 320ms;
+    animation-timing-function: cubic-bezier(0.32, 0, 0.24, 1);
+    will-change: opacity, transform;
+  }
+
+  ::view-transition-old(root) {
+    animation-name: vinalin-route-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: vinalin-route-in;
+  }
+
+  @keyframes vinalin-route-out {
+    to {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes vinalin-route-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+
+  /* Fallback for browsers without the View Transitions API (Firefox).
+     Triggered by app.js adding `.is-route-enter` to `#app`. */
+  #app.is-route-enter {
+    animation: vinalin-route-fallback 320ms cubic-bezier(0.32, 0, 0.24, 1) both;
+  }
+
+  @keyframes vinalin-route-fallback {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Account for the 64px sticky site header plus breathing room when
+   scrolling to in-page anchors (e.g. "/docs#cli"). */
+html {
+  scroll-padding-top: 96px;
+}
+
+/* Honor system reduced-motion preferences: cut all motion and smooth
+   scrolling while preserving focus rings, layouts, and color shifts. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
