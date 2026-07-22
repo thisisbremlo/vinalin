@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://vinalin.eu/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://vinalin.eu/docs</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vinalin.eu/pairing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vinalin.eu/submit</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/donors</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vinalin.eu/licenses</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vinalin.eu/legal-notice</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://vinalin.eu/privacy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://vinalin.eu/fonts/cabinet-grotesk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/clash-grotesk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/departure-mono</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/fraunces</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/geist</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/geist-mono</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/hs-lunaobscura</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/inter</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/jetbrains-mono</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/manrope</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/momo-signature</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/neutral-sans</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/parkinsans</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/space-grotesk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/tanker</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/tiktok-sans</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vinalin.eu/fonts/zalando-sans</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>
