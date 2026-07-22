@@ -1,95 +1,48 @@
-# vinalin
+# vinalin ── Curated Type Library & Self-Hosted Font CLI
 
-vinalin is a curated open font library with a static website, GitHub-based submissions, a generated registry, and a CLI for installing self-hosted font files.
+**vinalin** is a curated, open-source font library and toolchain designed for founders, designers, and developers. It provides a lightweight catalog website to discover open fonts, an interactive pairing preview tool, and a zero-dependency CLI to download and configure font files for self-hosting in your own applications.
 
-## Local development
+Instead of hotlinking fonts from third-party CDNs, vinalin treats fonts like code components: you inspect them, install them, and own them directly in your repository.
+
+---
+
+## The Philosophy
+
+- **Self-Hosted by Default**: The CLI downloads optimized `.woff2` files and generates stylesheet integrations directly into your project. There are no external runtime requests, no third-party tracking, and zero dependencies on vinalin's servers at runtime.
+- **Curated, Not Exhaustive**: Rather than cataloging thousands of variations, vinalin selects high-quality open-source typefaces (from Google Fonts, Fontshare, independent foundries, etc.) that excel in digital interfaces and editorial design.
+- **Community Curation**: Submissions are handled entirely via GitHub pull requests. There are no accounts to create, no forms to fill out, and every accepted font credits its submitter on the website.
+- **Typographic & Fast**: The interface is built to prioritize visual scanning, font comparison, and layout testing under real-world scenarios (body text, headlines, code listings).
+
+## Key Features
+
+### 1. Interactive Catalog & Font Tester
+Test, preview, and compare font weights, styles, and variable axes directly in the browser. You can custom-type sample text to see how a typeface handles specific glyphs before installing.
+
+### 2. Layout & Pairing Simulator
+Test pairs of headlines, body copy, and UI text blocks side-by-side. Visual layouts like dashboards, editorial pages, and documentation let you preview type pairings in realistic contexts.
+
+### 3. Developer CLI
+Install any font in the catalog with a single command. The CLI detects your project type (Next.js, Tailwind, vanilla CSS, etc.) and automatically downloads the `.woff2` files, bundles the license metadata, and generates ready-to-import CSS or Next.js `localFont` modules.
 
 ```bash
-npm run build:registry
-npm run validate:registry
+npx @bremlo/vinalin add inter
 ```
 
-Serve the site with any static server from the repository root.
+### 4. Git-Driven Submissions
+Adding a font is as simple as adding metadata to a JSON file and committing `.woff2` assets. See [CONTRIBUTING.md](CONTRIBUTING.md) to contribute a typeface.
 
-## Mirror font files and licenses
+---
 
-To refresh the downloadable assets from their authoritative Google Fonts, Fontshare, GitHub, and foundry sources, run:
+## Technical Details
 
+The library is a static page powered by a generated JSON registry.
+
+- **The Registry:** A structured catalog schema generated from local fonts and metadata.
+- **Registry Build:** `npm run build:registry`
+- **Validation:** `npm run validate:registry`
+- **Local Testing:** Run `npm start` to spin up the local preview dev server.
+
+For testing the CLI locally from within this repository:
 ```bash
-npm run mirror:fonts
-npm run build:registry
-npm run validate:registry
-```
-
-This creates `registry/fonts/<slug>/files/*.woff2`, stores the matching license text, and copies both into the public `r/fonts/<slug>/` output during the registry build. The website and CLI use those generated local assets.
-
-## CLI
-
-### Local test (works before npm publish)
-
-From this repository:
-
-```bash
-npx --yes . list --registry ./r/registry.json
 npx --yes . add inter --registry ./r/registry.json
 ```
-
-Or link the binary globally:
-
-```bash
-npm link
-vinalin list --registry ./r/registry.json
-vinalin add inter --registry ./r/registry.json
-```
-
-### Public `npx @bremlo/vinalin` (end users)
-
-`npx @bremlo/vinalin add <font>` needs two public pieces:
-
-1. The `vinalin` package on npm
-2. The registry at `https://raw.githubusercontent.com/thisisbremlo/vinalin/main/r/registry.json`
-
-#### 1. Align the GitHub repo name and visibility
-
-Your git remote is currently `thisisbremlo/fontlr`, but the CLI and site expect `thisisbremlo/vinalin`.
-
-1. On GitHub: **Settings → General → Repository name** → rename `fontlr` to `vinalin`
-2. Set the repository to **Public** (required for raw registry + font downloads)
-3. Update your local remote:
-
-```bash
-git remote set-url origin https://github.com/thisisbremlo/vinalin.git
-git push -u origin main
-```
-
-4. Confirm the registry is reachable:
-
-```bash
-curl -I https://raw.githubusercontent.com/thisisbremlo/vinalin/main/r/registry.json
-```
-
-You should see `HTTP/2 200` (or `HTTP/1.1 200`).
-
-#### 2. Log in to npm and publish
-
-Your machine currently has an expired/invalid npm token (`npm whoami` returns 401).
-
-```bash
-npm logout
-npm login
-npm whoami
-npm publish --access public
-```
-
-After publish:
-
-```bash
-npx --yes @bremlo/vinalin list
-npx --yes @bremlo/vinalin add inter
-```
-
-Every registry entry must include at least one `.woff2` file and a bundled license before validation passes.
-
-## Submissions
-
-Font submissions happen through pull requests. See [CONTRIBUTING.md](CONTRIBUTING.md).
