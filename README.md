@@ -79,22 +79,37 @@ graph TD
 Discover, preview, and pair fonts interactively in your browser at [vinalin.eu](https://vinalin.eu).
 
 ### Command Line Interface
-Install any font from the library directly into your project's repository. Open your project terminal and run:
+Install any font from the library directly into your project's repository. Open your project terminal and run one of the following (npm, pnpm, or Bun):
 
 ```bash
-# Add a font family (e.g., Inter)
+# npm
 npx @bremlo/vinalin add inter
-
-# List all available font families
 npx @bremlo/vinalin list
+
+# pnpm
+pnpm dlx @bremlo/vinalin add inter
+pnpm dlx @bremlo/vinalin list
+
+# Bun
+bunx @bremlo/vinalin add inter
+bunx @bremlo/vinalin list
 ```
 
 ---
 
 ## 🛠️ CLI Reference
 
+Install globally (`npm install -g @bremlo/vinalin`, `pnpm add -g @bremlo/vinalin`, or `bun add -g @bremlo/vinalin`) to run `vinalin ...` directly, or install locally and run it via `npx vinalin ...`, `pnpm vinalin ...`, or `bunx vinalin ...`. If you prefer not to install it, use one of the run commands below.
+
 ```bash
+# npm
 npx @bremlo/vinalin add <name> [options]
+
+# pnpm
+pnpm dlx @bremlo/vinalin add <name> [options]
+
+# Bun
+bunx @bremlo/vinalin add <name> [options]
 ```
 
 ### Options
