@@ -1929,19 +1929,85 @@ function route() {
   return renderNotFound();
 }
 
-function setupMenuToggleIcon() {
+function setupMobileNav() {
   const button = document.querySelector(".menu-toggle");
-  if (!button) return;
-  button.innerHTML = `
-    <svg class="menu-icon menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <line x1="4" x2="20" y1="6" y2="6"></line>
-      <line x1="4" x2="20" y1="12" y2="12"></line>
-      <line x1="4" x2="20" y1="18" y2="18"></line>
-    </svg>
-    <svg class="menu-icon menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M18 6 6 18"></path>
-      <path d="m6 6 12 12"></path>
-    </svg>`;
+  const header = document.querySelector(".site-header");
+  const nav = document.querySelector("#primaryNavigation");
+  if (!button || !header || !nav || button.dataset.navSetup) return;
+  button.dataset.navSetup = "true";
+
+  // Reset to the three-bar hamburger markup used by the CSS animation.
+  button.innerHTML = "<span></span><span></span><span></span>";
+  button.setAttribute("aria-expanded", "false");
+  button.setAttribute("aria-label", "Open menu");
+
+  // Add a backdrop for closing the panel.
+  if (!document.querySelector(".nav-backdrop")) {
+    const backdrop = document.createElement("div");
+    backdrop.className = "nav-backdrop";
+    backdrop.setAttribute("aria-hidden", "true");
+    header.appendChild(backdrop);
+  }
+
+  function setOpen(isOpen) {
+    document.body.classList.toggle("nav-open", isOpen);
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  }
+
+  function closeMenu() {
+    setOpen(false);
+  }
+
+  button.addEventListener("click", () => {
+    const willOpen = !document.body.classList.contains("nav-open");
+    setOpen(willOpen);
+    if (willOpen) {
+      const firstLink = nav.querySelector("a[href]");
+      if (firstLink) firstLink.focus();
+    }
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (event.target.closest(".nav-backdrop")) closeMenu();
+  });
+
+  button.setAttribute("aria-haspopup", "true");
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+      return;
+    }
+    if (!document.body.classList.contains("nav-open")) return;
+    if (event.key !== "Tab") return;
+    const focusable = nav.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled])");
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  // Close the mobile menu when crossing back to the desktop breakpoint.
+  const mediaQuery = window.matchMedia("(min-width: 721px)");
+  const onMediaChange = (event) => {
+    if (event.matches) closeMenu();
+  };
+  if (mediaQuery.addEventListener) {
+    mediaQuery.addEventListener("change", onMediaChange);
+  } else if (mediaQuery.addListener) {
+    mediaQuery.addListener(onMediaChange);
+  }
 }
 
 function setupMobileNavArrows() {
@@ -2011,13 +2077,6 @@ async function hydrateGithubStars() {
 }
 
 document.addEventListener("click", async (event) => {
-  const menuToggle = event.target.closest(".menu-toggle");
-  if (menuToggle) {
-    const isOpen = document.body.classList.toggle("nav-open");
-    menuToggle.setAttribute("aria-expanded", `${isOpen}`);
-    menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-    return;
-  }
 
   const trackedFont = event.target.closest("[data-track-font]");
   if (trackedFont) {
@@ -2090,7 +2149,7 @@ window.addEventListener("popstate", () => {
   });
 });
 route();
-setupMenuToggleIcon();
+setupMobileNav();
 setupMobileNavArrows();
 setupLicenseNavigation();
 setupFooterExtras();
