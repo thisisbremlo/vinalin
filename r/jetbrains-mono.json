@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "name": "jetbrains-mono",
   "displayName": "JetBrains Mono",
-  "cssFamily": "Zelto JetBrains Mono",
+  "cssFamily": "JetBrains Mono",
   "version": "2.304",
   "category": "mono",
   "designer": "JetBrains",

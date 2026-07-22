@@ -1,37 +1,64 @@
 @font-face {
   font-family: "Geist";
-  src: url("https://fonts.zelto.app/_next/static/media/GeistVariable-s.p.0mrjj4bg00-he.woff2") format("woff2");
+  src: url("/r/fonts/geist/geist-100-900.woff2") format("woff2");
   font-weight: 100 900;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Geist Mono";
-  src: url("https://fonts.zelto.app/_next/static/media/GeistMonoVariable-s.p.3ms9vq719j3f8.woff2") format("woff2");
+  src: url("/r/fonts/geist-mono/geist-mono-100-900.woff2") format("woff2");
   font-weight: 100 900;
   font-display: swap;
 }
 
-@font-face { font-family: "Zelto Cabinet Grotesk"; src: url("https://fonts.zelto.app/r/fonts/cabinet-grotesk/CabinetGrotesk-Variable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto Clash Grotesk"; src: url("https://fonts.zelto.app/r/fonts/clash-grotesk/ClashGrotesk-Variable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto Departure Mono"; src: url("https://fonts.zelto.app/r/fonts/departure-mono/DepartureMono-Regular.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "Zelto Fraunces"; src: url("https://fonts.zelto.app/r/fonts/fraunces/FrauncesVariable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto Geist"; src: url("https://fonts.zelto.app/r/fonts/geist/GeistVariable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto Geist Mono"; src: url("https://fonts.zelto.app/r/fonts/geist-mono/GeistMonoVariable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto HS LunaObscura"; src: url("https://fonts.zelto.app/r/fonts/hs-lunaobscura/HSLunaObscura-Regular.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "Zelto Inter"; src: url("https://fonts.zelto.app/r/fonts/inter/InterVariable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto JetBrains Mono"; src: url("https://fonts.zelto.app/r/fonts/jetbrains-mono/JetBrainsMonoVariable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto Manrope"; src: url("https://fonts.zelto.app/r/fonts/manrope/Manrope-regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Zelto Momo Signature"; src: url("https://fonts.zelto.app/r/fonts/momo-signature/MomoSignature-Regular.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "Zelto Neutral Sans"; src: url("https://fonts.zelto.app/r/fonts/neutral-sans/NeutralSansVF.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto Parkinsans"; src: url("https://fonts.zelto.app/r/fonts/parkinsans/Parkinsans%5Bwght%5D.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto Space Grotesk"; src: url("https://fonts.zelto.app/r/fonts/space-grotesk/SpaceGroteskVariable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto Tanker"; src: url("https://fonts.zelto.app/r/fonts/tanker/Tanker-Regular.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "Zelto TikTok Sans"; src: url("https://fonts.zelto.app/r/fonts/tiktok-sans/TikTokSans%5Bopsz,slnt,wdth,wght%5D.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Zelto Zalando Sans"; src: url("https://fonts.zelto.app/r/fonts/zalando-sans/ZalandoSans%5Bwdth,wght,slnt%5D.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Cabinet Grotesk"; src: url("/r/fonts/cabinet-grotesk/cabinet-grotesk-100.woff2") format("woff2"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cabinet Grotesk"; src: url("/r/fonts/cabinet-grotesk/cabinet-grotesk-200.woff2") format("woff2"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cabinet Grotesk"; src: url("/r/fonts/cabinet-grotesk/cabinet-grotesk-300.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cabinet Grotesk"; src: url("/r/fonts/cabinet-grotesk/cabinet-grotesk-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cabinet Grotesk"; src: url("/r/fonts/cabinet-grotesk/cabinet-grotesk-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cabinet Grotesk"; src: url("/r/fonts/cabinet-grotesk/cabinet-grotesk-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cabinet Grotesk"; src: url("/r/fonts/cabinet-grotesk/cabinet-grotesk-800.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cabinet Grotesk"; src: url("/r/fonts/cabinet-grotesk/cabinet-grotesk-900.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Clash Grotesk"; src: url("/r/fonts/clash-grotesk/clash-grotesk-200.woff2") format("woff2"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Clash Grotesk"; src: url("/r/fonts/clash-grotesk/clash-grotesk-300.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Clash Grotesk"; src: url("/r/fonts/clash-grotesk/clash-grotesk-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Clash Grotesk"; src: url("/r/fonts/clash-grotesk/clash-grotesk-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Clash Grotesk"; src: url("/r/fonts/clash-grotesk/clash-grotesk-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Clash Grotesk"; src: url("/r/fonts/clash-grotesk/clash-grotesk-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Departure Mono"; src: url("/r/fonts/departure-mono/departure-mono-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Fraunces"; src: url("/r/fonts/fraunces/fraunces-100-900.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url("/r/fonts/fraunces/fraunces-100-900-italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "HS LunaObscura"; src: url("/r/fonts/hs-lunaobscura/hs-lunaobscura-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Inter"; src: url("/r/fonts/inter/inter-100-900.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("/r/fonts/inter/inter-100-900-italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "JetBrains Mono"; src: url("/r/fonts/jetbrains-mono/jetbrains-mono-100-800.woff2") format("woff2"); font-weight: 100 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/r/fonts/jetbrains-mono/jetbrains-mono-100-800-italic.woff2") format("woff2"); font-weight: 100 800; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "Manrope"; src: url("/r/fonts/manrope/manrope-200-800.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Momo Signature"; src: url("/r/fonts/momo-signature/momo-signature-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Neutral Sans"; src: url("/r/fonts/neutral-sans/neutral-sans-400-900.woff2") format("woff2"); font-weight: 400 900; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Parkinsans"; src: url("/r/fonts/parkinsans/parkinsans-300-800.woff2") format("woff2"); font-weight: 300 800; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Space Grotesk"; src: url("/r/fonts/space-grotesk/space-grotesk-300-700.woff2") format("woff2"); font-weight: 300 700; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Tanker"; src: url("/r/fonts/tanker/tanker-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "TikTok Sans"; src: url("/r/fonts/tiktok-sans/tiktok-sans-300-900.woff2") format("woff2"); font-weight: 300 900; font-style: normal; font-display: swap; }
+
+@font-face { font-family: "Zalando Sans"; src: url("/r/fonts/zalando-sans/zalando-sans-200-900.woff2") format("woff2"); font-weight: 200 900; font-style: normal; font-display: swap; }
 
 /* =========================================================
-   Zelto — editorial redesign
+   vinalin — editorial redesign
    Warm paper, soft rounded surfaces, a single clay accent.
    ========================================================= */
 
@@ -49,7 +76,7 @@
   --night: #26241f;       /* dark editorial panel */
 
   --sans: "Geist", system-ui, -apple-system, Arial, sans-serif;
-  --serif: "Zelto Fraunces", Georgia, "Times New Roman", serif;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
   --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --radius-lg: 26px;

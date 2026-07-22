@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "name": "geist-mono",
   "displayName": "Geist Mono",
-  "cssFamily": "Zelto Geist Mono",
+  "cssFamily": "Geist Mono",
   "version": "1.7.2",
   "category": "mono",
   "designer": "Geist Type",
