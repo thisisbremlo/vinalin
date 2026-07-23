@@ -519,7 +519,11 @@ function homeHotList() {
 
 function popularFontStrip() {
   const data = readFontTracking();
-  return popularFonts(6).map((font, index) => `
+  return fonts
+    .slice()
+    .sort((a, b) => downloadCount(b, data) - downloadCount(a, data))
+    .slice(0, 6)
+    .map((font, index) => `
     <li>
       <a href="/fonts/${font.name}" data-local-link data-track-font="${font.name}" data-track-event="click">
         <span>${String(index + 1).padStart(2, "0")}</span>
