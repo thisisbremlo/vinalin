@@ -18,7 +18,7 @@ if (fs.existsSync(envPath)) {
   });
 }
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, '../');
 
 const MIME_TYPES = {
@@ -91,7 +91,12 @@ const server = http.createServer((req, res) => {
       res.end(`Server Error: ${err.code}`);
       return;
     }
-    res.writeHead(200, { 'Content-Type': contentType });
+    res.writeHead(200, {
+      'Content-Type': contentType,
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
     res.end(data);
   });
 });
