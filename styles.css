@@ -12940,35 +12940,57 @@ html {
 }
 
 /* =========================================================
-   Mobile navigation — full-screen frosted overlay
+   Mobile navigation — full-screen frosted overlay on-brand
    ========================================================= */
 
 @media (max-width: 720px) {
-  /* Header stays sticky with the desktop frosted treatment */
+
+  /* Override earlier `body.nav-open .site-header { position: fixed; z-index: 1100 }`
+     rule (line ~9790) — that rule was detaching the header, floating it above
+     the menu overlay, and visually shifting the close (×) button to the
+     center. We keep the header as sticky so it stays at the top of the
+     viewport, behind the frosted overlay, but the toggle inside it stays
+     anchored top-right via the higher z-index on the button itself. */
+  body.nav-open .site-header {
+    position: sticky !important;
+    z-index: 90 !important;
+    width: 100% !important;
+  }
+
+  /* Header stays sticky and matches the desktop frosted look */
+  body .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 90 !important;
+    background: color-mix(in srgb, var(--paper) 80%, transparent) !important;
+    backdrop-filter: blur(22px) saturate(1.08) !important;
+    border-bottom: 1px solid rgba(23, 23, 23, 0.055) !important;
+  }
+
+  /* Explicit grid placement so the close (×) button is anchored to the
+     top-right corner and never wraps onto a second row. The .main-nav
+     overlay (which is `position: fixed`) is given a dedicated grid cell
+     on row 2 so it doesn't push the toggle out of place. */
   body .header-inner {
     display: grid !important;
-    grid-template-columns: 1fr auto auto !important;
-    gap: 8px !important;
+    grid-template-rows: 58px 0 !important;
+    grid-template-columns: auto 1fr auto auto !important;
+    column-gap: 10px !important;
     align-items: center !important;
     height: 58px !important;
     width: min(100% - 24px, 1160px) !important;
     margin: 0 auto !important;
   }
 
-  body .site-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 90 !important;
-    background: color-mix(in srgb, var(--paper) 78%, transparent) !important;
-    backdrop-filter: blur(22px) saturate(1.08) !important;
-    border-bottom: 1px solid rgba(23, 23, 23, 0.055) !important;
-  }
-
   body .brand {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
     justify-self: start !important;
   }
 
   body .font-count {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
     justify-self: end !important;
     height: auto !important;
     padding: 6px 12px !important;
@@ -12977,13 +12999,15 @@ html {
     background: transparent !important;
   }
 
-  /* Hamburger button stays above the full-screen overlay */
+  /* Hamburger stays anchored to the top-right of the header */
   body .menu-toggle {
+    grid-column: 4 !important;
+    grid-row: 1 !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 44px !important;
-    height: 44px !important;
+    width: 40px !important;
+    height: 40px !important;
     padding: 0 !important;
     border: 1px solid var(--line) !important;
     border-radius: 0 !important;
@@ -12991,7 +13015,6 @@ html {
     cursor: pointer !important;
     position: relative !important;
     z-index: 110 !important;
-    order: 3 !important;
     overflow: hidden !important;
   }
 
@@ -13000,27 +13023,51 @@ html {
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
-    width: 22px !important;
-    height: 2px !important;
+    width: 20px !important;
+    height: 1.5px !important;
     margin: 0 !important;
     padding: 0 !important;
     border: 0 !important;
     border-radius: 0 !important;
     background: var(--ink) !important;
     transform-origin: center center !important;
-    transition: transform 0.25s ease, opacity 0.25s ease !important;
+    transition: transform 0.28s cubic-bezier(0.32, 0, 0.24, 1), opacity 0.28s ease !important;
   }
 
   body .menu-toggle span:nth-child(1) { transform: translate(-50%, -50%) translateY(-7px) !important; }
   body .menu-toggle span:nth-child(2) { transform: translate(-50%, -50%) !important; }
   body .menu-toggle span:nth-child(3) { transform: translate(-50%, -50%) translateY(7px) !important; }
 
+  body.nav-open .menu-toggle {
+    background: var(--ink) !important;
+    border-color: var(--ink) !important;
+  }
+
+  body.nav-open .menu-toggle span {
+    background: var(--reverse) !important;
+  }
+
+  /* Accessible focus ring — keyboard users see a clear outline both when
+     the button is the three-line hamburger on paper and when it has been
+     flipped into the dark Close mode. */
+  body .menu-toggle:focus-visible {
+    outline: 2px solid var(--accent, #070707) !important;
+    outline-offset: 3px !important;
+  }
+
+  body.nav-open .menu-toggle:focus-visible {
+    outline-color: var(--reverse) !important;
+  }
+
   body.nav-open .menu-toggle span:nth-child(1) { transform: translate(-50%, -50%) rotate(45deg) !important; }
   body.nav-open .menu-toggle span:nth-child(2) { opacity: 0 !important; }
   body.nav-open .menu-toggle span:nth-child(3) { transform: translate(-50%, -50%) rotate(-45deg) !important; }
 
-  /* Full-screen frosted overlay panel */
+  /* Full-screen frosted overlay panel — gives the .main-nav a dedicated
+     grid cell so its position doesn't disturb the header row. */
   body .main-nav {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
     position: fixed !important;
     inset: 0 !important;
     width: 100vw !important;
@@ -13029,65 +13076,219 @@ html {
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     gap: 0 !important;
-    padding: 84px 24px 24px !important;
+    padding: 96px 0 32px !important;
     margin: 0 !important;
-    background: color-mix(in srgb, var(--paper) 78%, transparent) !important;
-    backdrop-filter: blur(22px) saturate(1.08) !important;
+    background: color-mix(in srgb, var(--paper) 92%, transparent) !important;
+    backdrop-filter: blur(28px) saturate(1.1) !important;
     color: var(--ink) !important;
     border: 0 !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     opacity: 0 !important;
-    transform: scale(1.02) !important;
-    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease !important;
+    transform: translateY(-6px) !important;
+    transition: opacity 0.32s ease, transform 0.32s ease, visibility 0s linear 0.32s !important;
     z-index: 100 !important;
-    overflow-y: auto !important;
     overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scrollbar-gutter: stable both-edges !important;
     pointer-events: none !important;
     visibility: hidden !important;
+    counter-reset: mobileNav !important;
   }
 
   body.nav-open .main-nav {
     opacity: 1 !important;
-    transform: scale(1) !important;
+    transform: translateY(0) !important;
     pointer-events: auto !important;
+    visibility: visible !important;
+    transition: opacity 0.32s ease, transform 0.32s ease, visibility 0s linear 0s !important;
+  }
+
+  /* Small section eyebrow at the top of the overlay */
+  body .main-nav::before {
+    content: "MENU / NAVIGATION" !important;
+    display: block !important;
+    margin: 0 24px 22px !important;
+    padding: 0 0 18px !important;
+    border-bottom: 1px solid rgba(7, 7, 7, 0.12) !important;
+    font-family: var(--sans) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    color: var(--muted) !important;
+    opacity: 1 !important;
     visibility: visible !important;
   }
 
-  body .main-nav a,
-  body .main-nav a.mobile-nav-cta {
-    display: flex !important;
+  /* Mobile nav rows mirror the desktop's mini-link aesthetic:
+     mono/uppercase/letter-spaced label, a leading index number and a
+     right-aligned arrow. Visual hierarchy is editorial, not bold. */
+  body .main-nav > a {
+    display: grid !important;
+    grid-template-columns: 30px 1fr auto !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: start !important;
     width: auto !important;
-    padding: 18px 24px !important;
-    border-bottom: 1px solid var(--line) !important;
-    border-right: 0 !important;
+    min-height: 0 !important;
+    padding: 20px 24px !important;
+    margin: 0 !important;
     background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(7, 7, 7, 0.08) !important;
+    border-right: 0 !important;
+    border-radius: 0 !important;
     color: var(--ink) !important;
-    font-size: clamp(24px, 8vw, 48px) !important;
-    font-weight: 700 !important;
-    line-height: 1.2 !important;
-    text-align: center !important;
+    font-family: var(--sans) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
+    text-align: left !important;
     text-decoration: none !important;
-    text-transform: none !important;
-    letter-spacing: -0.02em !important;
-    transition: background 0.15s ease, letter-spacing 0.15s ease !important;
+    transition: background 0.18s ease, color 0.18s ease, padding-left 0.28s cubic-bezier(0.32, 0, 0.24, 1) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* Leading index number (01, 02, …) so the menu reads like the editorial
+     index used elsewhere on the site */
+  body .main-nav > a:not(.mobile-nav-cta)::before {
+    content: counter(mobileNav, decimal-leading-zero) !important;
+    counter-increment: mobileNav !important;
+    display: block !important;
+    color: var(--muted) !important;
+    font-family: var(--sans) !important;
+    font-size: 11px !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    opacity: 0.75 !important;
+    transition: color 0.18s ease, opacity 0.18s ease !important;
+  }
+
+  /* Right-aligned arrow on every regular nav row */
+  body .main-nav > a:not(.mobile-nav-cta)::after {
+    content: "→" !important;
+    display: inline-block !important;
+    color: var(--muted) !important;
+    font-family: var(--sans) !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    transition: transform 0.28s cubic-bezier(0.32, 0, 0.24, 1), color 0.18s ease !important;
+    justify-self: end !important;
+  }
+
+  body .main-nav > a:hover,
+  body .main-nav > a:focus-visible {
+    background: var(--ink) !important;
+    color: var(--reverse) !important;
+    padding-left: 30px !important;
+  }
+
+  body .main-nav > a:hover::before,
+  body .main-nav > a:hover::after,
+  body .main-nav > a:focus-visible::before,
+  body .main-nav > a:focus-visible::after {
+    color: var(--reverse) !important;
     opacity: 1 !important;
   }
 
-  body .main-nav a:last-child {
-    border-bottom: 0 !important;
+  body .main-nav > a:hover::after,
+  body .main-nav > a:focus-visible::after {
+    transform: translateX(6px) !important;
   }
 
-  body .main-nav a:hover,
-  body .main-nav a:focus-visible {
-    background: var(--surface-2) !important;
-    color: var(--ink) !important;
-    letter-spacing: 0.02em !important;
+  /* CTA — treated as a primary action with an ink background, separated by
+     a generous gap so it feels like a discrete call to action. */
+  body .main-nav > a.mobile-nav-cta {
+    margin: 28px 24px 0 !important;
+    padding: 18px 22px !important;
+    background: var(--ink) !important;
+    color: var(--reverse) !important;
+    border-bottom: 0 !important;
+    grid-template-columns: 1fr auto !important;
+    justify-content: space-between !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.16em !important;
   }
+
+  body .main-nav > a.mobile-nav-cta::before {
+    display: inline-block !important;
+    content: "EXTERNAL" !important;
+    color: color-mix(in srgb, var(--reverse) 65%, transparent) !important;
+    font-size: 10px !important;
+    letter-spacing: 0.16em !important;
+    opacity: 1 !important;
+  }
+
+  body .main-nav > a.mobile-nav-cta::after {
+    display: inline-block !important;
+    content: "↗" !important;
+    color: var(--reverse) !important;
+    font-size: 18px !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  body .main-nav > a.mobile-nav-cta:hover,
+  body .main-nav > a.mobile-nav-cta:focus-visible {
+    background: var(--surface-2, #f4f4c7) !important;
+    color: var(--ink) !important;
+    padding-left: 22px !important;
+    border-color: var(--ink) !important;
+  }
+
+  body .main-nav > a.mobile-nav-cta:hover::after,
+  body .main-nav > a.mobile-nav-cta:focus-visible::after {
+    transform: translateX(4px) !important;
+  }
+
+  /* Small footer inside the overlay for visual balance — pushed to the
+     bottom of the flex column via `margin-top: auto`. */
+  body .main-nav::after {
+    content: "vinalin. / open font library" !important;
+    display: block !important;
+    margin: auto 24px 0 !important;
+    padding: 22px 0 0 !important;
+    border-top: 1px solid rgba(7, 7, 7, 0.12) !important;
+    color: var(--muted) !important;
+    font-family: var(--sans) !important;
+    font-size: 10px !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    opacity: 0.7 !important;
+    visibility: visible !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* Real SVG arrow spans stay visible (they were hidden on mobile before) */
+  body .main-nav .nav-link-arrow {
+    display: inline-block !important;
+    width: 18px !important;
+    height: 18px !important;
+    margin-left: 10px !important;
+    color: currentColor !important;
+    opacity: 0.6 !important;
+    transition: transform 0.28s cubic-bezier(0.32, 0, 0.24, 1), opacity 0.18s ease !important;
+  }
+
+  body .main-nav > a:hover .nav-link-arrow,
+  body .main-nav > a:focus-visible .nav-link-arrow {
+    opacity: 1 !important;
+    transform: translateX(4px) !important;
+  }
+
+  /* The earlier "Final nav arrow fix" block already sets `content: none !important`
+     on the mobile nav link pseudo-elements. Our counter/arrow rules above
+     come later in source order and have the same specificity, so they win
+     without any explicit override. Don't add a `content:` reset here — that
+     would kill the counter and the arrow. */
 
   /* Backdrop is replaced by the frosted overlay itself */
   body .nav-backdrop {
