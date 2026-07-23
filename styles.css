@@ -12940,11 +12940,11 @@ html {
 }
 
 /* =========================================================
-   Mobile navigation — clean, animated, right-hand panel
+   Mobile navigation — full-screen frosted overlay
    ========================================================= */
 
 @media (max-width: 720px) {
-  /* Override conflicting body-prefixed rules with equal specificity and !important */
+  /* Header stays sticky with the desktop frosted treatment */
   body .header-inner {
     display: grid !important;
     grid-template-columns: 1fr auto auto !important;
@@ -12959,8 +12959,9 @@ html {
     position: sticky !important;
     top: 0 !important;
     z-index: 90 !important;
-    background: #ffffe3 !important;
-    border-bottom: 1px solid rgba(7, 7, 7, 0.18) !important;
+    background: color-mix(in srgb, var(--paper) 78%, transparent) !important;
+    backdrop-filter: blur(22px) saturate(1.08) !important;
+    border-bottom: 1px solid rgba(23, 23, 23, 0.055) !important;
   }
 
   body .brand {
@@ -12976,7 +12977,7 @@ html {
     background: transparent !important;
   }
 
-  /* Hamburger button */
+  /* Hamburger button stays above the full-screen overlay */
   body .menu-toggle {
     display: inline-flex !important;
     align-items: center !important;
@@ -12984,7 +12985,7 @@ html {
     width: 44px !important;
     height: 44px !important;
     padding: 0 !important;
-    border: 1px solid rgba(7, 7, 7, 0.18) !important;
+    border: 1px solid var(--line) !important;
     border-radius: 0 !important;
     background: transparent !important;
     cursor: pointer !important;
@@ -13005,7 +13006,7 @@ html {
     padding: 0 !important;
     border: 0 !important;
     border-radius: 0 !important;
-    background: #070707 !important;
+    background: var(--ink) !important;
     transform-origin: center center !important;
     transition: transform 0.25s ease, opacity 0.25s ease !important;
   }
@@ -13018,32 +13019,29 @@ html {
   body.nav-open .menu-toggle span:nth-child(2) { opacity: 0 !important; }
   body.nav-open .menu-toggle span:nth-child(3) { transform: translate(-50%, -50%) rotate(-45deg) !important; }
 
-  /* Right-hand slide-out panel */
+  /* Full-screen frosted overlay panel */
   body .main-nav {
     position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: auto !important;
-    width: min(360px, 100vw) !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
     height: 100dvh !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
-    justify-content: flex-start !important;
+    justify-content: center !important;
     gap: 0 !important;
-    padding: 66px 0 24px !important;
+    padding: 84px 24px 24px !important;
     margin: 0 !important;
-    background: #ffffe3 !important;
-    color: #070707 !important;
-    border-left: 1px solid rgba(7, 7, 7, 0.18) !important;
-    border-right: 0 !important;
-    border-top: 0 !important;
-    border-bottom: 0 !important;
+    background: color-mix(in srgb, var(--paper) 78%, transparent) !important;
+    backdrop-filter: blur(22px) saturate(1.08) !important;
+    color: var(--ink) !important;
+    border: 0 !important;
     border-radius: 0 !important;
-    box-shadow: -12px 0 40px rgba(7, 7, 7, 0.08) !important;
-    transform: translateX(100%) !important;
-    transition: transform 0.35s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.35s ease !important;
+    box-shadow: none !important;
+    opacity: 0 !important;
+    transform: scale(1.02) !important;
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease !important;
     z-index: 100 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
@@ -13052,7 +13050,8 @@ html {
   }
 
   body.nav-open .main-nav {
-    transform: translateX(0) !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
     pointer-events: auto !important;
     visibility: visible !important;
   }
@@ -13061,21 +13060,21 @@ html {
   body .main-nav a.mobile-nav-cta {
     display: flex !important;
     align-items: center !important;
-    justify-content: space-between !important;
+    justify-content: center !important;
     width: auto !important;
     padding: 18px 24px !important;
-    border-bottom: 1px solid rgba(7, 7, 7, 0.18) !important;
+    border-bottom: 1px solid var(--line) !important;
     border-right: 0 !important;
     background: transparent !important;
-    color: #070707 !important;
-    font-size: 18px !important;
+    color: var(--ink) !important;
+    font-size: clamp(24px, 8vw, 48px) !important;
     font-weight: 700 !important;
-    line-height: 1.4 !important;
-    text-align: left !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
     text-decoration: none !important;
     text-transform: none !important;
-    letter-spacing: 0 !important;
-    transition: background 0.15s ease, padding 0.15s ease !important;
+    letter-spacing: -0.02em !important;
+    transition: background 0.15s ease, letter-spacing 0.15s ease !important;
     opacity: 1 !important;
   }
 
@@ -13085,25 +13084,14 @@ html {
 
   body .main-nav a:hover,
   body .main-nav a:focus-visible {
-    background: #f4f4c7 !important;
-    color: #070707 !important;
-    padding-left: 28px !important;
+    background: var(--surface-2) !important;
+    color: var(--ink) !important;
+    letter-spacing: 0.02em !important;
   }
 
-  /* Subtle backdrop */
+  /* Backdrop is replaced by the frosted overlay itself */
   body .nav-backdrop {
-    position: fixed !important;
-    inset: 0 !important;
-    background: rgba(7, 7, 7, 0.18) !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transition: opacity 0.3s ease !important;
-    z-index: 99 !important;
-  }
-
-  body.nav-open .nav-backdrop {
-    opacity: 1 !important;
-    pointer-events: auto !important;
+    display: none !important;
   }
 
   body.nav-open {
