@@ -1930,10 +1930,27 @@ function route() {
 }
 
 function setupMobileNav() {
-  const button = document.querySelector(".menu-toggle");
   const header = document.querySelector(".site-header");
   const nav = document.querySelector("#primaryNavigation");
-  if (!button || !header || !nav || button.dataset.navSetup) return;
+  if (!header || !nav) return;
+
+  // Create the mobile menu toggle if it doesn't exist in the markup.
+  let button = document.querySelector(".menu-toggle");
+  if (!button) {
+    button = document.createElement("button");
+    button.type = "button";
+    button.className = "menu-toggle";
+    button.setAttribute("aria-controls", "primaryNavigation");
+    // Append after the font-count so it appears at the end of the header row.
+    const fontCount = header.querySelector(".font-count");
+    if (fontCount && fontCount.parentElement) {
+      fontCount.parentElement.insertBefore(button, fontCount.nextSibling);
+    } else {
+      header.appendChild(button);
+    }
+  }
+
+  if (button.dataset.navSetup) return;
   button.dataset.navSetup = "true";
 
   // Reset to the three-bar hamburger markup used by the CSS animation.
