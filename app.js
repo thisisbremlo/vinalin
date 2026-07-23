@@ -1991,6 +1991,11 @@ function setupMobileNav() {
     link.addEventListener("click", closeMenu);
   });
 
+  // Close the menu when tapping the frosted overlay background (not a link).
+  nav.addEventListener("click", (event) => {
+    if (event.target === nav) closeMenu();
+  });
+
   document.addEventListener("click", (event) => {
     if (event.target.closest(".nav-backdrop")) closeMenu();
   });
