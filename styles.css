@@ -4928,6 +4928,74 @@ body[data-page="home"] .hero-title {
   white-space: nowrap;
 }
 
+/* Mobile copy-link card: on viewports ≤ 720px the install-box swaps out for
+   a single "Copy website link" button. The CLI toggle has no terminal handy
+   on phones, so the hero offers a copy-and-go action instead. The label
+   inherits its look from the existing body .install-label rules; spacing
+   between label and button is provided by the flex gap below. */
+body[data-page="home"] .hero-install-card-mobile {
+  display: none;
+}
+
+body[data-page="home"] .hero-install-card-mobile .copy-link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 14px 20px;
+  margin: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+body[data-page="home"] .hero-install-card-mobile .copy-link-button:hover,
+body[data-page="home"] .hero-install-card-mobile .copy-link-button:focus-visible {
+  background: var(--ink);
+  color: var(--reverse);
+  border-color: var(--ink);
+  outline: none;
+}
+
+body[data-page="home"] .hero-install-card-mobile .copy-link-button:active {
+  transform: scale(0.985);
+}
+
+body[data-page="home"] .hero-install-card-mobile .copy-link-button[data-copy-state="copied"],
+body[data-page="home"] .hero-install-card-mobile .copy-link-button[data-copy-state="error"] {
+  background: var(--ink);
+  color: var(--reverse);
+  border-color: var(--ink);
+}
+
+body[data-page="home"] .hero-install-card-mobile .copy-link-button-icon {
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+@media (max-width: 720px) {
+  body[data-page="home"] .hero-install-card-desktop {
+    display: none;
+  }
+  body[data-page="home"] .hero-install-card-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+}
+
 body .popular-fonts-list a {
   min-height: clamp(128px, 12vw, 190px) !important;
   gap: clamp(12px, 1.6vw, 22px) !important;

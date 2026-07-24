@@ -74,6 +74,7 @@ const downloadSeed = {
 };
 const trackingStorageKey = "vinalin:font-tracking";
 const downloadCountsStorageKey = "vinalin:download-counts";
+const SITE_URL = "https://vinalin.eu";
 let remoteDownloadCounts = readRemoteDownloadCounts();
 let remoteDownloadCountsLoaded = false;
 let downloadCountsRequest = null;
@@ -570,7 +571,16 @@ function renderHome() {
           <span>License-aware catalog</span>
         </div>
         <div class="hero-install-card">
-          ${renderInstallBox("inter")}
+          <div class="hero-install-card-desktop">
+            ${renderInstallBox("inter")}
+          </div>
+          <div class="hero-install-card-mobile">
+            <p class="install-label">Get the link</p>
+            <button type="button" class="copy-link-button" data-copy-link aria-label="Copy website link">
+              <span class="copy-link-button-icon" aria-hidden="true">⧉</span>
+              <span class="copy-link-button-text">Copy website link</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -2176,6 +2186,63 @@ document.addEventListener("click", async (event) => {
     } catch {
       copy.innerHTML = copy.classList.contains("code-copy") ? `<span aria-hidden="true">⧉</span>` : copy.dataset.copy;
     }
+    return;
+  }
+
+  // Mobile copy-link button: copies the current page URL and visually
+  // confirms with a short on-button state swap. Lives next to the install
+  // box but hidden on desktop where the CLI command is the right answer.
+  const copyLink = event.target.closest("[data-copy-link]");
+  if (copyLink) {
+    // Cancel any pending reset from a prior click so a quick re-click
+    // doesn't get its confirmation wiped out by the earlier timer.
+    if (copyLink._copyResetTimer) {
+      clearTimeout(copyLink._copyResetTimer);
+      copyLink._copyResetTimer = null;
+    }
+    const linkLabel = copyLink.querySelector(".copy-link-button-text") || copyLink;
+    const resetLabel = linkLabel.textContent;
+    const url = SITE_URL;
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(url);
+      ok = true;
+    } catch {
+      // Fallback for insecure context / older mobile browsers where the
+      // async clipboard API is blocked. execCommand("copy") still works
+      // in legacy Safari iOS when triggered by a user gesture.
+      try {
+        const helper = document.createElement("textarea");
+        helper.value = url;
+        helper.setAttribute("readonly", "");
+        helper.style.position = "fixed";
+        helper.style.top = "-1000px";
+        helper.style.opacity = "0";
+        document.body.appendChild(helper);
+        helper.select();
+        helper.setSelectionRange(0, url.length);
+        ok = document.execCommand("copy");
+        document.body.removeChild(helper);
+      } catch {
+        ok = false;
+      }
+    }
+    if (ok) {
+      copyLink.dataset.copyState = "copied";
+      linkLabel.textContent = "Link copied";
+      copyLink.setAttribute("aria-label", "Link copied to clipboard");
+    } else {
+      copyLink.dataset.copyState = "error";
+      linkLabel.textContent = "Copy failed";
+      copyLink.setAttribute("aria-label", "Copy failed — please try again");
+    }
+    copyLink._copyResetTimer = setTimeout(() => {
+      copyLink._copyResetTimer = null;
+      if (!copyLink.isConnected) return; // route() replaced the DOM
+      delete copyLink.dataset.copyState;
+      linkLabel.textContent = resetLabel;
+      copyLink.setAttribute("aria-label", "Copy website link");
+    }, 1600);
     return;
   }
 
