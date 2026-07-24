@@ -840,6 +840,7 @@ function bindPairingPage() {
   function setupPairSelect(select) {
     const wrapper = select.closest("[data-pair-select]");
     if (!wrapper) return;
+    const role = select.id.replace(/^pair-/, "");
     const trigger = wrapper.querySelector(".pair-select-trigger");
     const valueLabel = wrapper.querySelector("[data-select-value]");
     const optionButtons = [...wrapper.querySelectorAll("[data-value]")];
@@ -864,6 +865,7 @@ function bindPairingPage() {
     optionButtons.forEach((button) => {
       button.addEventListener("click", () => {
         select.value = button.dataset.value;
+        markTouched(role);
         sync();
         closePairSelects();
         updatePairing(false);
@@ -871,6 +873,7 @@ function bindPairingPage() {
     });
 
     select.addEventListener("change", () => {
+      markTouched(role);
       sync();
       updatePairing(false);
     });
@@ -882,17 +885,43 @@ function bindPairingPage() {
     pairSelectSyncers.forEach((sync) => sync());
   }
 
+  // Only the roles the user has explicitly picked are honoured as locks on
+  // Generate. Defaults and previously-rolled values stay eligible for
+  // re-roll, so Generate visibly mixes the system up while keeping the slot
+  // the user pinned pinned.
+  const ROLES = ["headline", "body", "accent"];
+  const userTouched = { headline: false, body: false, accent: false };
+  function markTouched(role) {
+    userTouched[role] = true;
+  }
+
   function updatePairing(forceGenerate = false) {
     const current = {
-      headline: forceGenerate ? "" : document.querySelector("#pair-headline").value,
-      body: forceGenerate ? "" : document.querySelector("#pair-body").value,
-      accent: forceGenerate ? "" : document.querySelector("#pair-accent").value,
+      headline: document.querySelector("#pair-headline").value,
+      body: document.querySelector("#pair-body").value,
+      accent: document.querySelector("#pair-accent").value,
     };
-    const pair = forceGenerate ? recommendPairing({}) : {
-      headline: fontByName(current.headline),
-      body: fontByName(current.body),
-      accent: fontByName(current.accent),
-    };
+    let pair;
+    if (forceGenerate) {
+      // Lock set is exactly what the user has touched this session;
+      // everything else is eligible for re-roll, so Generate visibly mixes
+      // up the system.
+      const locked = Object.fromEntries(
+        Object.entries(current).filter(([role]) => userTouched[role]),
+      );
+      pair = recommendPairing(locked);
+      // Roles we did not actually pass as a lock have their pin cleared —
+      // next Generate can reshuffle them again.
+      ROLES.forEach((role) => {
+        if (!locked[role]) userTouched[role] = false;
+      });
+    } else {
+      pair = {
+        headline: fontByName(current.headline),
+        body: fontByName(current.body),
+        accent: fontByName(current.accent),
+      };
+    }
     document.querySelector("#pair-headline").value = pair.headline.name;
     document.querySelector("#pair-body").value = pair.body.name;
     document.querySelector("#pair-accent").value = pair.accent.name;
