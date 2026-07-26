@@ -1749,8 +1749,19 @@ function renderFontDetail(font) {
   });
   trackFontEvent(font.name, "view");
   const weights = displayWeights(font);
+  const weightLabel = (w) => {
+    if (w <= 100) return "Thin";
+    if (w <= 200) return "ExtraLight";
+    if (w <= 300) return "Light";
+    if (w <= 400) return "Regular";
+    if (w <= 500) return "Medium";
+    if (w <= 600) return "SemiBold";
+    if (w <= 700) return "Bold";
+    if (w <= 800) return "ExtraBold";
+    return "Black";
+  };
   const styleRows = weights.slice(0, 10).map((weight) => {
-    const label = weight === 400 ? "Regular" : weight < 400 ? "Light" : weight >= 800 ? "Black" : weight >= 700 ? "Bold" : "Medium";
+    const label = weightLabel(weight);
     return `<article class="style-row">
       <div>
         <span>${label}</span>
