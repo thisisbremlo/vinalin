@@ -8890,7 +8890,6 @@ body[data-page="detail"] .style-row div {
 }
 
 body[data-page="detail"] .style-row span,
-body[data-page="detail"] .weight-list span,
 body[data-page="detail"] .meta-grid span,
 body[data-page="detail"] .glyph-groups h3,
 body[data-page="detail"] .glyph-feature p,
@@ -8901,6 +8900,14 @@ body[data-page="detail"] .tester-hint {
   font-size: 10px !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
+  opacity: 0.78 !important;
+}
+
+body[data-page="detail"] .weight-list span {
+  color: var(--muted) !important;
+  font-family: var(--mono) !important;
+  font-size: clamp(14px, 2.5vw, 28px) !important;
+  font-weight: 400 !important;
   opacity: 0.78 !important;
 }
 
@@ -9075,7 +9082,7 @@ body[data-page="detail"] .weights-section h2 {
 
 body[data-page="detail"] .weight-list div {
   display: grid !important;
-  grid-template-columns: 72px minmax(0, 1fr) !important;
+  grid-template-columns: clamp(48px, 8vw, 96px) minmax(0, 1fr) !important;
   gap: clamp(18px, 3vw, 40px) !important;
   align-items: baseline !important;
   min-height: clamp(96px, 12vw, 154px) !important;
