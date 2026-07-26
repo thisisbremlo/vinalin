@@ -8917,7 +8917,6 @@ body[data-page="detail"] .style-row p {
   margin: 10px 0 0 !important;
   color: var(--ink) !important;
   font-size: clamp(42px, 7vw, 118px) !important;
-  font-weight: inherit !important;
   line-height: 0.94 !important;
   letter-spacing: -0.055em !important;
   overflow-wrap: anywhere !important;
