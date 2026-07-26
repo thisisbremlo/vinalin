@@ -8908,6 +8908,7 @@ body[data-page="detail"] .weight-list span {
   font-family: var(--mono) !important;
   font-size: clamp(14px, 2.5vw, 28px) !important;
   font-weight: 400 !important;
+  line-height: 0.98 !important;
   opacity: 0.78 !important;
 }
 
