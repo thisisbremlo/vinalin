@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schema.json",
+  "name": "tanker",
+  "displayName": "Tanker",
+  "version": "1.0",
+  "category": "display",
+  "designer": "Indian Type Foundry",
+  "license": {
+    "type": "Fontshare Free Font License",
+    "url": "/r/fonts/tanker/LICENSE.txt"
+  },
+  "source": "https://www.fontshare.com/fonts/tanker",
+  "variable": false,
+  "weights": [
+    400
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Bold headlines that demand attention.",
+  "description": "A high-contrast, ultra-bold display sans-serif with tightly packed letterforms, built for impactful headlines and posters.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "family": "Tanker"
+}

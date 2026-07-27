@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schema.json",
+  "name": "departure-mono",
+  "displayName": "Departure Mono",
+  "version": "1.350",
+  "category": "mono",
+  "designer": "Helena Zhang",
+  "license": {
+    "type": "OFL-1.1",
+    "url": "/r/fonts/departure-mono/OFL.txt"
+  },
+  "source": "https://departuremono.com",
+  "variable": false,
+  "weights": [
+    400
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "monospace",
+  "previewText": "Pixel-perfect type for quiet systems.",
+  "description": "A pixel-conscious monospace typeface with support for Latin, Greek, small caps, old-style numerals, fractions, and selected symbols.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "family": "Departure Mono"
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schema.json",
+  "name": "manrope",
+  "displayName": "Manrope",
+  "version": "3.0",
+  "category": "sans",
+  "designer": "Mikhail Sharanda",
+  "license": {
+    "type": "OFL-1.1",
+    "url": "/r/fonts/manrope/OFL.txt"
+  },
+  "source": "https://github.com/davelab6/manrope",
+  "variable": false,
+  "weights": [
+    400,
+    500,
+    600,
+    700
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Modern, open, geometric grotesque.",
+  "description": "An open-source modern sans-serif. Geometric yet warm, great for both display and body text.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "family": "Manrope"
+}

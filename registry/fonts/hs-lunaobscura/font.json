@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schema.json",
+  "name": "hs-lunaobscura",
+  "displayName": "HS LunaObscura",
+  "version": "1.0",
+  "category": "display",
+  "designer": "Headspace Agency",
+  "license": {
+    "type": "OFL-1.1",
+    "url": "/r/fonts/hs-lunaobscura/OFL.txt"
+  },
+  "source": "https://lunaobscura.headspace.ru",
+  "variable": false,
+  "weights": [
+    400
+  ],
+  "styles": [
+    "normal"
+  ],
+  "fallback": "sans-serif",
+  "previewText": "Signal found beyond the interface.",
+  "description": "An industrial display typeface for sci-fi, cyberpunk, dystopian interfaces, posters, navigation, and UI mockups.",
+  "submittedBy": {
+    "github": "thisisbremlo"
+  },
+  "family": "HS LunaObscura"
+}
