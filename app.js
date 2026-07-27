@@ -21,6 +21,8 @@ const fonts = [
 
 
 
+
+
 const app = document.querySelector("#app");
 const basicGlyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
 const axisRanges = {
@@ -1689,6 +1691,62 @@ function renderLicenses() {
     </section>`;
 }
 
+function renderCopyright() {
+  setTitle("Copyright");
+  setPage("inner");
+  updateMeta({
+    title: "Copyright",
+    description: "Copyright notice for vinalin, the curated open font library by bremlo.",
+    path: "/copyright",
+    ogType: "article",
+  });
+  app.innerHTML = `
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Copyright</p>
+        <h1>Copyright &copy; 2025 bremlo<span>.</span></h1>
+      </div>
+    </section>
+    <section class="copyright-page">
+      <div class="container copyright-layout">
+        <div class="copyright-prose">
+          <p class="copyright-lead">vinalin is an open-source project by <strong>bremlo</strong> (Benjamin Michael Bremer). The website, CLI, registry, and all original code are released under the MIT License.</p>
+          <p>Font files distributed through vinalin retain their original licenses (OFL-1.1, Fontshare Free Font License, or equivalent). Each license ships alongside the font files and must remain there.</p>
+          <h2>Related projects</h2>
+          <div class="copyright-links">
+            <a href="https://savault.de" target="_blank" rel="noreferrer" class="copyright-card">
+              <span>Brand & digital identity studio</span>
+              <strong>Savault</strong>
+              <code>savault.de</code>
+            </a>
+            <a href="https://whoisly.de" target="_blank" rel="noreferrer" class="copyright-card">
+              <span>Domain intelligence platform</span>
+              <strong>WhoIsly</strong>
+              <code>whoisly.de</code>
+            </a>
+          </div>
+          <h2>Contact</h2>
+          <p><a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></p>
+          <h2>Legal</h2>
+          <div class="copyright-links">
+            <a href="/legal-notice" data-local-link class="copyright-card">
+              <span>Operator and liability information</span>
+              <strong>Legal Notice</strong>
+            </a>
+            <a href="/privacy" data-local-link class="copyright-card">
+              <span>Data protection and GDPR policy</span>
+              <strong>Privacy Policy</strong>
+            </a>
+            <a href="/licenses" data-local-link class="copyright-card">
+              <span>Font license overview</span>
+              <strong>Licenses</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>`;
+}
+
 function downloadFileLabel(file) {
   const weight = String(file.weight || "400").replace(" ", "-");
   return `${weight}${file.style && file.style !== "normal" ? ` ${file.style}` : ""}`;
@@ -1980,6 +2038,7 @@ function route() {
   if (path === "/donors") return renderDonor();
   if (path === "/legal-notice") return renderLegalNotice();
   if (path === "/privacy") return renderPrivacy();
+  if (path === "/copyright") return renderCopyright();
   if (path === "/licenses") return renderLicenses();
   const match = path.match(/^\/fonts\/([^/]+)$/);
   if (match) {
@@ -2126,29 +2185,11 @@ function setupLicenseNavigation() {
 }
 
 function setupFooterExtras() {
-  const footer = document.querySelector(".footer-inner");
-  if (!footer || footer.querySelector(".footer-projects")) return;
-  const githubLink = footer.querySelector('a[href="https://github.com/thisisbremlo/vinalin"]');
-  if (githubLink) {
-    githubLink.classList.add("github-star-badge");
-    githubLink.setAttribute("aria-label", "Star vinalin on GitHub");
-    githubLink.innerHTML = `
-      <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="margin-right: 2px;">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-      </svg>
-      <span>GitHub</span>
-      <strong data-github-stars>--</strong>`;
-  }
-  footer.insertAdjacentHTML("beforeend", `
-    <div class="footer-projects">
-      <span>A project by <a href="https://bremlo.uk" target="_blank" rel="noreferrer">Bremlo</a></span>
-      <span class="footer-side-project">Also building <a href="https://savault.de" target="_blank" rel="noreferrer">Savault</a></span>
-    </div>`);
   hydrateGithubStars();
 }
 
 async function hydrateGithubStars() {
-  const output = document.querySelector("[data-github-stars]");
+  const output = document.querySelector("#footerStarCount");
   if (!output) return;
   const cacheKey = "vinalin:github-stars";
   try {
