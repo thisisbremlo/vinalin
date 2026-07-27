@@ -30,6 +30,9 @@ The site has these main routes:
 - `/submit` - Contribution instructions.
 - `/donors` - Support and donor information.
 - `/fonts/<slug>` - Detail page for each font family.
+- `/licenses` - Browse open licenses for every font.
+- `/legal-notice` - Legal notice and operator information.
+- `/privacy` - Privacy policy.
 
 The header appears on every page and includes:
 
@@ -44,17 +47,15 @@ The header appears on every page and includes:
 The footer appears on every page and includes:
 
 - vinalin brand statement.
-- Main links to docs, submit, and GitHub.
+- Main links to docs, submit, GitHub, and licenses.
 - A quieter copyright/legal line with Legal Notice and Privacy Policy links.
 
 ## Legal Pages
 
-The site includes placeholder legal pages for launch preparation:
+The site includes full legal content for launch preparation:
 
-- `/legal-notice` renders a Legal Notice page with a large placeholder text field.
-- `/privacy` renders a Privacy Policy page with a large placeholder text field.
-
-The placeholder content must be replaced before publishing.
+- `/legal-notice` renders a Legal Notice page with operator information (Benjamin Michael Bremer), responsibility for content, font licensing, third-party links, copyright, and dispute resolution.
+- `/privacy` renders a Privacy Policy page with GDPR bases, hosting, Supabase, GitHub, cookies, data rights, and controller information.
 
 ## Download Tracking
 
@@ -69,33 +70,34 @@ vinalin tracks local interaction counts in the browser by default. Production tr
 
 ## Visual System
 
-The site uses a consistent dark-mode type-gallery style.
+The site uses a light editorial style with dark text on a warm cream background.
 
 Core colors:
 
-- Background: near-black `#080909`.
-- Main text: warm cream `#ffffe3`.
-- Muted text: translucent warm cream.
-- Dividers: subtle translucent cream borders.
-- Accent surfaces: very dark olive/charcoal panels.
-- Reverse buttons: cream background with dark text.
+- Background: warm cream `#ffffe3`.
+- Main text: near-black `#070707`.
+- Muted text: olive-grey `#6f6f5e`.
+- Dividers: translucent black `rgba(7, 7, 7, 0.18)`.
+- Strong dividers: `rgba(7, 7, 7, 0.34)`.
+- Accent surfaces: pale yellow-green `#e9e99d`.
+- Reverse text: warm cream `#ffffe3` on dark backgrounds.
+- Dark surfaces: `#1f1d1b` for code blocks, footer, glyph feature panels.
 
 Design language:
 
 - Large editorial typography.
 - Thin divider lines.
-- Flat surfaces instead of rounded cards.
-- Dark gallery canvas.
-- Cream text and controls.
+- Flat surfaces with zero border-radius.
+- Generous whitespace.
+- Monochromatic palette with warm undertones.
 - Live font specimens as the primary visual asset.
 - Dense but readable content blocks.
 - High-contrast interactive states.
 
 Accessibility notes:
 
-- Dark mode is applied to every page.
-- Text, links, buttons, selected states, muted copy, code blocks, and cards were contrast-checked.
-- Layout was checked for horizontal overflow.
+- Text, links, buttons, selected states, muted copy, code blocks, and cards are contrast-checked.
+- Layout is checked for horizontal overflow.
 - Header navigation remains visible and consistent.
 - Form fields, selects, buttons, and range controls retain visible focus and active states.
 
@@ -113,46 +115,66 @@ Sections:
 
    "vinalin Type Library."
 
-   Primary actions:
+   Includes a font count metadata strip (17 open-source families, Self-hosted installs, License-aware catalog) and an install command card for Inter.
 
-   - View typefaces.
-   - Build a pairing.
-   - Read the install guide.
+2. Most Popular Strip
 
-2. Spotlight
-
-   Highlights Space Grotesk as the featured typeface.
-
-   Includes:
-
-   - Eyebrow: "In the spotlight".
-   - Font name.
-   - Designer name.
-   - Description.
-   - View typeface button.
-   - Large specimen poster using the font's own preview text.
-
-3. Hot Right Now
-
-   Horizontal ranking band listing the first 10 fonts from the registry.
+   Horizontal ranking band listing the top 6 fonts sorted by local download count.
 
    Each item includes:
 
    - Rank number.
    - Font display name.
+   - Download count.
+   - Popularity descriptor and license label.
    - Link to the font detail page.
 
-4. Latest Typefaces
+3. In Short Editorial
+
+   A brief editorial statement summarizing the library's purpose:
+
+   "A curated collection of production-ready typefaces with live specimens, licenses, install commands, and enough context to choose quickly."
+
+4. Spotlight
+
+   Highlights the most popular font as the featured typeface (dynamically chosen by download count).
+
+   Includes:
+
+   - Eyebrow: "Spotlight family".
+   - Font name rendered in its own typeface.
+   - Description.
+   - Metadata grid: category, style count, variable/static status.
+   - Open specimen link.
+   - Large specimen poster using the font's own preview text.
+
+5. Quote Block
+
+   An editorial quote reinforcing the library's value proposition:
+
+   "For teams that need type to feel considered, licensed, local, and ready for the product."
+
+6. Three Chapters
+
+   Three editorial panels explaining the library's approach:
+
+   - Tools: The local-first font stack. Install commands, license files, and predictable fallbacks.
+   - Craft: Specimens are the new shortlist. Live rendering at real sizes with real preview copy.
+   - Teams: Shared type choices reduce drift. Designers, engineers, and contributors work from the same registry.
+
+7. Catalog
 
    Searchable/filterable font catalog.
 
    Controls:
 
-   - Search input.
+   - Search input (matches font name, designer, category, preview text).
    - Type filter: all, sans, serif, mono, display, handwriting.
    - Feature filter: all, variable, italics, static.
+   - License filter: all, OFL-1.1, Fontshare Free Font License.
    - Preview text input.
    - Preview size range slider.
+   - List/Grid view toggle.
 
    Each font card includes:
 
@@ -160,23 +182,22 @@ Sections:
    - Designer.
    - Live specimen rendered in the actual font.
    - Feature summary.
+   - Category badge.
+   - License label.
    - View Family link.
 
-5. Fresh Foundries
+8. Fresh Foundries
 
-   Shows a short grid of unique designers/foundries from the registry.
+   Shows a list of unique designers/foundries from the registry, sorted by number of contributed families.
 
    Each card includes:
 
-   - Category label.
+   - Index number.
    - Designer/foundry name.
-   - Link to a representative font detail page.
-
-6. Closing About/Install Block
-
-   Restates vinalin as a curated showcase of usable open-source typefaces.
-
-   Includes an install command module for Fraunces.
+   - Category labels and family count.
+   - List of contributed font names.
+   - Large type specimen preview.
+   - Link to the primary font's detail page.
 
 ## Font Detail Pages
 
@@ -261,16 +282,13 @@ Main content:
 - Font pairing lab panel.
 - Select controls for headline, body, and accent.
 - Generate pairing button.
-- Preview specimen showing a headline, body copy, and accent label.
-- Selected role chips for headline, body, and accent.
-- Warning or success message based on pairing quality.
+- Preview specimen showing a headline, body copy, accent label, and real-world scenario cards (Product, Docs, Editorial).
 
 Pairing logic:
 
 - Headline role favors display, serif, sans, and variable fonts.
 - Body role favors sans and serif fonts while avoiding display/handwriting.
 - Accent role favors mono, handwriting, and display fonts.
-- Warnings appear when roles are too similar or when display fonts are overused.
 
 ## Docs Page
 
@@ -285,48 +303,59 @@ Title: "Install fonts like components."
 Sidebar navigation:
 
 - Quick start.
-- Next.js.
-- React / Vite.
+- Find a font name.
+- All font names.
 - CLI reference.
-- Registry API.
-- Self-hosting.
+- Where files go.
+- Use the font.
 - Licenses.
+- Troubleshooting.
 
 Content sections:
 
 1. Quick Start
 
-   Tells users to pick a font and run the add command.
+   Tells users to pick a font and run the install command. Includes npm, pnpm, and Bun examples.
 
-2. Next.js App Router
+2. Find a Font Name
 
-   Explains generated local font files and `next/font/local` integration.
+   Explains that the install name is the short slug shown in each command on vinalin.
 
-3. React / Vite
+3. All Font Names
 
-   Explains generated public font files and CSS imports.
+   Lists every font with its display name, slug, and install command.
 
 4. CLI Reference
 
    Documents:
 
    - `npx @bremlo/vinalin add <name>`
+   - `pnpm dlx @bremlo/vinalin add <name>`
+   - `bunx @bremlo/vinalin add <name>`
    - `--force`
    - `--dir <path>`
    - `--registry <url>`
-   - `npx @bremlo/vinalin list`
+   - `list` command
 
-5. Registry API
+5. Where Files Go
 
-   Documents static JSON and file endpoints.
+   Documents output paths by framework:
 
-6. Self-hosting
+   - Next.js: `app/fonts/<name>/`
+   - React/Vite: `public/fonts/<name>/`
+   - Other: `fonts/<name>/`
 
-   Explains custom registry URLs and full `/r` mirrors.
+6. Use the Installed Font
+
+   Shows import examples for Next.js App Router and React/Vite projects.
 
 7. Licenses
 
-   Reminds users that license text ships next to the font files and should remain there.
+   Reminds users that license text ships next to the font files and should remain there. Links to the licenses page.
+
+8. Troubleshooting
+
+   Guidance for folder conflicts, unrecognized project structures, and slug verification.
 
 ## Submit Page
 
@@ -351,29 +380,14 @@ Requirements panel:
 - Open redistribution license such as OFL-1.1 or equivalent.
 - `.woff2` files.
 - License text must ship with files.
-- Submitter GitHub handle.
+- `submittedBy` set to your handle.
 - Curated quality bar.
 
 Schema section:
 
-Shows a sample `font.json` with:
+Shows a sample font object in `app.js` with:
 
-- Name.
-- Display name.
-- Version.
-- Category.
-- Designer.
-- License.
-- Source.
-- Variable status.
-- Axes.
-- Weights.
-- Styles.
-- Fallback.
-- Preview text.
-- Description.
-- Submitter.
-- Files.
+- name, displayName, version, category, designer, license, source, variable, weights, styles, fallback, previewText, description, submittedBy, family.
 
 Primary action:
 
@@ -401,10 +415,30 @@ Main content:
 
 2. Supporters card
 
+   Loads supporter data from `/data/supporters.json`.
+
    Placeholder state:
 
-   - No supporters listed yet.
+   - "No supporters listed yet - be the first to chip in."
    - Be the first.
+
+## Licenses Page
+
+Route: `/licenses`
+
+Purpose: Browse the open licenses for every font in the library.
+
+Hero:
+
+Title: "Clear terms, shipped with every font."
+
+Lists every font with:
+
+- License label (OFL-1.1 or Fontshare Free Font License).
+- Font display name.
+- Designer name.
+- View license link (external).
+- Open family link (internal).
 
 ## 404 Page
 
@@ -477,7 +511,7 @@ Font data fields:
 - Preview text.
 - Description.
 - Submitter.
-- CSS font family.
+- Family.
 
 Categories:
 
@@ -510,15 +544,16 @@ Catalog filtering:
 - Search matches font name, designer, category, and preview text.
 - Type filter limits by category.
 - Feature filter limits by variable, italics, or static fonts.
+- License filter limits by license type.
 - Preview text replaces every visible card specimen.
 - Size slider adjusts specimen size.
+- View toggle switches between list and grid layouts.
 - Result count updates live.
 
 Pairing:
 
 - Changing any select updates the preview.
 - Generate pairing creates a fresh suggested system.
-- Warnings explain potential role conflicts.
 
 Tester:
 
@@ -537,14 +572,14 @@ Clipboard:
 Main files:
 
 - `index.html` provides the shell, header, footer, and app mount.
-- `app.js` contains font data, routing, page rendering, and interactions.
+- `app.js` contains font data (generated from `font.json` files), routing, page rendering, and interactions.
 - `styles.css` contains font-face declarations and all visual styling.
 - `package.json` exposes the `vinalin` CLI and project scripts.
 - `bin/vinalin.js` installs fonts from the generated registry.
-- `registry/` contains source font manifests and submitted font files.
+- `registry/fonts/<slug>/font.json` is the source of truth for font metadata.
+- `registry/fonts/<slug>/files/` contains `.woff2` files and license text.
 - `r/` contains the generated public registry API.
-- `.github/` contains pull request and validation workflow files.
-- `scripts/build-registry.js` generates public registry files.
+- `scripts/build-registry.js` reads `font.json` files, syncs `app.js`, and generates public registry files.
 - `scripts/validate-registry.js` validates registry metadata.
 - `scripts/mirror-font-files.js` mirrors currently referenced hosted font files into the GitHub registry folder.
 
@@ -560,28 +595,26 @@ These folders support static hosting paths, while the actual content is rendered
 
 ## GitHub Workflow
 
-vinalin now uses GitHub as the source of truth for submissions and registry files.
+vinalin uses GitHub as the source of truth for submissions and registry files.
 
 Maintainer setup:
 
 - Create the GitHub repository `thisisbremlo/vinalin`.
 - Push this local project to `main`.
 - Run `npm run mirror:fonts` once to copy the currently referenced `.woff2` files into `registry/fonts/<slug>/files/`.
-- Run `npm run build:registry`.
+- Run `npm run build:registry` to sync everything.
 - Run `npm run validate:registry`.
-- Commit the generated `r/` registry output.
+- Commit all changes.
 - Deploy the static site with GitHub Pages or another static host.
 
 Contributor flow:
 
 - Fork the repository.
-- Add `registry/fonts/<slug>/font.json`.
+- Create `registry/fonts/<slug>/font.json` using the schema in CONTRIBUTING.md.
 - Add `.woff2` files and license text under `registry/fonts/<slug>/files/`.
-- Run `npm run build:registry`.
+- Run `npm run build:registry` — syncs everything into the website and registry.
 - Run `npm run validate:registry`.
 - Open a pull request.
-
-GitHub Actions validates the registry on pull requests and pushes to `main`.
 
 ## CLI Workflow
 
@@ -612,7 +645,7 @@ The site should feel:
 
 Design rules to preserve:
 
-- Keep the dark mode consistent across pages.
+- Keep the light editorial theme consistent across pages.
 - Keep contrast high for all text and controls.
 - Use dividers and spacing instead of heavy cards.
 - Let type specimens be the main visual element.
