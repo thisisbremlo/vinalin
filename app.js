@@ -790,13 +790,13 @@ function pairPreview(pair) {
     <div class="pair-preview-content ${previewClasses}">
     <div class="pair-specimen">
       <p style="font-family: ${fontStack(pair.accent)};">Product Brief</p>
-      <h4 style="font-family: ${fontStack(pair.headline)};">Quiet systems for loud ideas</h4>
+      <h3 style="font-family: ${fontStack(pair.headline)};">Quiet systems for loud ideas</h3>
       <span style="font-family: ${fontStack(pair.body)};">Use one font to lead, one to carry the reading, and one small accent to add texture.</span>
     </div>
     <div class="pair-scenarios">
       <article class="pair-scenario pair-scenario-interface">
         <p style="font-family: ${fontStack(pair.accent)};">Interface</p>
-        <h5 style="font-family: ${fontStack(pair.headline)};">Launch metrics without the dashboard noise.</h5>
+        <h4 style="font-family: ${fontStack(pair.headline)};">Launch metrics without the dashboard noise.</h4>
         <span style="font-family: ${fontStack(pair.body)};">A compact product surface needs a voice that can separate decisions, details, and signals without adding friction.</span>
         <div class="scenario-row" style="font-family: ${fontStack(pair.body)};">
           <strong>92%</strong>
@@ -805,13 +805,13 @@ function pairPreview(pair) {
       </article>
       <article class="pair-scenario pair-scenario-doc">
         <p style="font-family: ${fontStack(pair.accent)};">Docs</p>
-        <h5 style="font-family: ${fontStack(pair.headline)};">Install once. Ship everywhere.</h5>
+        <h4 style="font-family: ${fontStack(pair.headline)};">Install once. Ship everywhere.</h4>
         <code style="font-family: ${fontStack(pair.accent)};">npx @bremlo/vinalin add inter</code>
         <span style="font-family: ${fontStack(pair.body)};">Use the same family across prototypes, production, and brand systems.</span>
       </article>
       <article class="pair-scenario pair-scenario-editorial">
         <p style="font-family: ${fontStack(pair.accent)};">Editorial</p>
-        <h5 style="font-family: ${fontStack(pair.headline)};">A shortlist for founders, designers, and developers.</h5>
+        <h4 style="font-family: ${fontStack(pair.headline)};">A shortlist for founders, designers, and developers.</h4>
         <span style="font-family: ${fontStack(pair.body)};">Render real copy, check the license, copy the install command, and keep the decision moving.</span>
       </article>
     </div>
