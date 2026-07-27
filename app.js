@@ -1817,26 +1817,27 @@ function bindCopyrightReportForm() {
   const container = document.getElementById("copyright-report-form");
   if (!container) return;
   container.innerHTML = `
-    <form class="report-form" id="reportForm">
+    <form class="report-form" id="reportForm" action="https://api.lazyforms.com/f/c5863554-7fc3-49bc-b9c5-cc935697e592" method="POST">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <div class="form-row">
         <label for="reportName">Name</label>
-        <input type="text" id="reportName" required>
+        <input type="text" name="name" id="reportName" required>
       </div>
       <div class="form-row">
         <label for="reportEmail">Email</label>
-        <input type="email" id="reportEmail" required>
+        <input type="email" name="email" id="reportEmail" required>
       </div>
       <div class="form-row">
         <label for="reportFont">Font name</label>
-        <input type="text" id="reportFont" required>
+        <input type="text" name="font" id="reportFont" required>
       </div>
       <div class="form-row">
         <label for="reportUrl">URL</label>
-        <input type="url" id="reportUrl" placeholder="https://vinalin.com/fonts/...">
+        <input type="url" name="url" id="reportUrl" placeholder="https://vinalin.com/fonts/...">
       </div>
       <div class="form-row">
         <label for="reportType">Issue type</label>
-        <select id="reportType" required>
+        <select name="issue_type" id="reportType" required>
           <option value="" disabled selected>Select an issue type</option>
           <option value="incorrect-license">Incorrect license</option>
           <option value="missing-attribution">Missing attribution</option>
@@ -1847,7 +1848,7 @@ function bindCopyrightReportForm() {
       </div>
       <div class="form-row">
         <label for="reportMessage">Message</label>
-        <textarea id="reportMessage" rows="5" placeholder="Please describe the issue and provide any relevant information."></textarea>
+        <textarea name="message" id="reportMessage" rows="5" placeholder="Please describe the issue and provide any relevant information."></textarea>
       </div>
       <button type="submit" class="submit-button">Submit Report</button>
     </form>
@@ -1857,10 +1858,25 @@ function bindCopyrightReportForm() {
   const form = document.getElementById("reportForm");
   const success = document.getElementById("reportSuccess");
   if (form && success) {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
-      form.hidden = true;
-      success.hidden = false;
+      const btn = form.querySelector(".submit-button");
+      btn.disabled = true;
+      btn.textContent = "Submitting...";
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, { method: "POST", body: data });
+        if (res.ok) {
+          form.hidden = true;
+          success.hidden = false;
+        } else {
+          btn.disabled = false;
+          btn.textContent = "Submit Report";
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = "Submit Report";
+      }
     });
   }
 }
