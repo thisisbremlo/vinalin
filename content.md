@@ -31,6 +31,7 @@ The site has these main routes:
 - `/donors` - Support and donor information.
 - `/fonts/<slug>` - Detail page for each font family.
 - `/licenses` - Browse open licenses for every font.
+- `/copyright` - Copyright notice and related projects.
 - `/legal-notice` - Legal notice and operator information.
 - `/privacy` - Privacy policy.
 
@@ -46,9 +47,12 @@ The header appears on every page and includes:
 
 The footer appears on every page and includes:
 
-- vinalin brand statement.
-- Main links to docs, submit, GitHub, and licenses.
-- A quieter copyright/legal line with Legal Notice and Privacy Policy links.
+- GitHub stars badge (left).
+- Project by bremlo with links to Savault and WhoIsly (center).
+- Contact email: hi@bremlo.uk.
+- Main navigation links (Fonts, Pairing, Docs, Submit, Donors, Licenses).
+- Legal navigation (Legal Notice, Privacy Policy, Copyright).
+- Copyright line: Copyright © 2025 bremlo.
 
 ## Legal Pages
 
@@ -450,6 +454,24 @@ Content:
 - Title: "Page not found."
 - Copy: "That route is not in the public vinalin sitemap."
 - Link back to fonts.
+
+## Copyright Page
+
+Route: `/copyright`
+
+Purpose: Provide a clean copyright notice and links to related projects.
+
+Hero:
+
+Title: "Copyright © 2025 bremlo."
+
+Main content:
+
+- Lead paragraph: vinalin is an open-source project by bremlo, released under MIT License.
+- Font license note: font files retain their original licenses.
+- Related projects: Savault (savault.de) and WhoIsly (whoisly.de) with links.
+- Contact: hi@bremlo.uk.
+- Legal links: Legal Notice, Privacy Policy, Licenses.
 
 ## Install Command Module
 
