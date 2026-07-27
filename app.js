@@ -23,6 +23,7 @@ const fonts = [
 
 
 
+
 const app = document.querySelector("#app");
 const basicGlyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
 const axisRanges = {
@@ -2185,34 +2186,11 @@ function setupLicenseNavigation() {
 }
 
 function setupFooterExtras() {
-  hydrateGithubStars();
+  // Footer is now static HTML — no dynamic setup needed.
 }
 
 async function hydrateGithubStars() {
-  const output = document.querySelector("#footerStarCount");
-  if (!output) return;
-  const cacheKey = "vinalin:github-stars";
-  try {
-    const cached = JSON.parse(localStorage.getItem(cacheKey) || "null");
-    if (cached && Date.now() - cached.updatedAt < 3600000) {
-      output.textContent = new Intl.NumberFormat("en", { notation: "compact" }).format(cached.count);
-      return;
-    }
-  } catch {
-    // A live request below can still populate the badge.
-  }
-  try {
-    const response = await fetch("https://api.github.com/repos/thisisbremlo/vinalin", {
-      headers: { Accept: "application/vnd.github+json" },
-    });
-    if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
-    const repository = await response.json();
-    const count = Number(repository.stargazers_count) || 0;
-    output.textContent = new Intl.NumberFormat("en", { notation: "compact" }).format(count);
-    localStorage.setItem(cacheKey, JSON.stringify({ count, updatedAt: Date.now() }));
-  } catch {
-    output.textContent = "0";
-  }
+  // Kept for backward compatibility but no longer used by the footer.
 }
 
 document.addEventListener("click", async (event) => {
