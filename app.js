@@ -380,6 +380,17 @@ function withViewTransition(update) {
   return Promise.resolve();
 }
 
+function announceRoute() {
+  const announcer = document.getElementById("route-announcer");
+  if (announcer) {
+    announcer.textContent = document.title;
+  }
+  const main = document.getElementById("app");
+  if (main) {
+    main.focus({ preventScroll: true });
+  }
+}
+
 function setTitle(title) {
   document.title = title ? `${title} - vinalin` : "vinalin - Curated open font library for founders, developers & designers";
 }
@@ -2439,6 +2450,7 @@ document.addEventListener("click", async (event) => {
       } else {
         window.scrollTo({ top: 0, behavior: "auto" });
       }
+      announceRoute();
     });
     document.body.classList.remove("nav-open");
     const menuButton = document.querySelector(".menu-toggle");
@@ -2451,6 +2463,7 @@ window.addEventListener("popstate", () => {
   withViewTransition(() => {
     route();
     scrollToHash();
+    announceRoute();
   });
 });
 route();
