@@ -13761,16 +13761,28 @@ body .copyright-card {
   flex-direction: column;
   gap: 6px;
   padding: 20px 0;
-  border: none;
-  border-bottom: none;
+  border-bottom: none !important;
   color: var(--ink);
   text-decoration: none;
   -webkit-text-decoration: none;
-  transition: opacity 0.15s ease;
 }
 
-body .copyright-card:hover {
-  opacity: 0.7;
+body[data-page="inner"] .copyright-links .copyright-card,
+body[data-page="inner"] .copyright-links .copyright-card:hover,
+body[data-page="inner"] .copyright-links .copyright-card:focus,
+body[data-page="inner"] .copyright-links .copyright-card:focus-visible {
+  border-bottom: none !important;
+  border-bottom-color: transparent !important;
+}
+
+body[data-page="inner"] .copyright-links .copyright-card strong {
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 150ms ease;
+}
+
+body[data-page="inner"] .copyright-links .copyright-card:hover strong {
+  text-decoration: underline;
 }
 
 body .copyright-card span {
@@ -13783,7 +13795,6 @@ body .copyright-card strong {
   font-family: var(--sans);
   font-size: 16px;
   font-weight: 700;
-  display: inline-block;
 }
 
 body .copyright-card code {
