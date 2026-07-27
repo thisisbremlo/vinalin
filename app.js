@@ -1820,20 +1820,20 @@ function bindCopyrightReportForm() {
     <form class="report-form" id="reportForm" action="https://api.lazyforms.com/f/c5863554-7fc3-49bc-b9c5-cc935697e592" method="POST">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <div class="form-row">
-        <label for="reportName">Name</label>
-        <input type="text" name="name" id="reportName" required>
+        <label for="reportName">Full name</label>
+        <input type="text" name="name" id="reportName" required placeholder="Your full name">
       </div>
       <div class="form-row">
         <label for="reportEmail">Email</label>
-        <input type="email" name="email" id="reportEmail" required>
+        <input type="email" name="email" id="reportEmail" required placeholder="you@example.com">
       </div>
       <div class="form-row">
-        <label for="reportFont">Font name</label>
-        <input type="text" name="font" id="reportFont" required>
+        <label for="reportFont">Font or content</label>
+        <input type="text" name="font" id="reportFont" required placeholder="Name of the font or content in question">
       </div>
       <div class="form-row">
-        <label for="reportUrl">URL</label>
-        <input type="url" name="url" id="reportUrl" placeholder="https://vinalin.com/fonts/...">
+        <label for="reportUrl">URL of affected content</label>
+        <input type="url" name="url" id="reportUrl" required placeholder="https://vinalin.com/fonts/...">
       </div>
       <div class="form-row">
         <label for="reportType">Issue type</label>
@@ -1847,8 +1847,12 @@ function bindCopyrightReportForm() {
         </select>
       </div>
       <div class="form-row">
-        <label for="reportMessage">Message</label>
-        <textarea name="message" id="reportMessage" rows="5" placeholder="Please describe the issue and provide any relevant information."></textarea>
+        <label for="reportMessage">Description of your concern</label>
+        <textarea name="message" id="reportMessage" rows="5" required placeholder="Please describe the issue in detail."></textarea>
+      </div>
+      <div class="form-row">
+        <label for="reportProof">Proof of ownership or authorization</label>
+        <textarea name="proof" id="reportProof" rows="3" required placeholder="Please provide proof that you are the copyright owner or authorized representative (e.g. link to your foundry page, signed letter, or registration)."></textarea>
       </div>
       <button type="submit" class="submit-button">Submit Report</button>
     </form>
