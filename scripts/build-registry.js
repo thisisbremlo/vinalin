@@ -1,21 +1,75 @@
 const fs = require("fs");
 const path = require("path");
-const vm = require("vm");
 
 const root = path.resolve(__dirname, "..");
-const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
-const match = appSource.match(/const fonts = (\[[\s\S]*?\]);/);
+const fontsDir = path.join(root, "registry", "fonts");
+const appPath = path.join(root, "app.js");
+const outDir = path.join(root, "r");
 
-if (!match) {
-  throw new Error("Could not find the fonts array in app.js");
+if (!fs.existsSync(fontsDir)) {
+  throw new Error("registry/fonts/ directory not found");
 }
 
-const fonts = vm.runInNewContext(match[1]);
-const outDir = path.join(root, "r");
 fs.mkdirSync(outDir, { recursive: true });
 
+// ── 1. Read all font.json files ─────────────────────────────────────────────
+
+const fontFolders = fs.readdirSync(fontsDir).filter((name) => {
+  const stat = fs.statSync(path.join(fontsDir, name));
+  return stat.isDirectory() && fs.existsSync(path.join(fontsDir, name, "font.json"));
+});
+
+const fonts = fontFolders.map((folder) => {
+  const json = JSON.parse(fs.readFileSync(path.join(fontsDir, folder, "font.json"), "utf8"));
+  if (json.name !== folder) {
+    console.warn(`Warning: folder "${folder}" has font.json with name "${json.name}"`);
+  }
+  return json;
+});
+
+// ── 2. Sync font.json → app.js fonts array ──────────────────────────────────
+
+function fontToJsObject(font) {
+  const fields = [
+    `name: ${JSON.stringify(font.name)}`,
+    `displayName: ${JSON.stringify(font.displayName)}`,
+    `version: ${JSON.stringify(font.version)}`,
+    `category: ${JSON.stringify(font.category)}`,
+    `designer: ${JSON.stringify(font.designer)}`,
+    `license: ${JSON.stringify(font.license?.type || font.license || "OFL-1.1")}`,
+    `source: ${JSON.stringify(font.source)}`,
+    `variable: ${JSON.stringify(Boolean(font.variable))}`,
+    `weights: ${JSON.stringify(font.weights)}`,
+    `styles: ${JSON.stringify(font.styles)}`,
+    `fallback: ${JSON.stringify(font.fallback)}`,
+    `previewText: ${JSON.stringify(font.previewText)}`,
+    `description: ${JSON.stringify(font.description)}`,
+    `submittedBy: ${JSON.stringify(font.submittedBy?.github || font.submittedBy || "unknown")}`,
+    `family: ${JSON.stringify(font.family || font.displayName)}`,
+  ];
+  return `  { ${fields.join(", ")} }`;
+}
+
+const jsArray = `const fonts = [\n${fonts.map(fontToJsObject).join(",\n")}\n];\n`;
+
+let appSource = fs.readFileSync(appPath, "utf8");
+const startMarker = "const fonts = [";
+const endMarker = "];";
+const startIdx = appSource.indexOf(startMarker);
+const endIdx = appSource.indexOf(endMarker, startIdx + startMarker.length);
+
+if (startIdx !== -1 && endIdx !== -1) {
+  const newSource = appSource.slice(0, startIdx) + jsArray.trimEnd() + "\n" + appSource.slice(endIdx + endMarker.length);
+  fs.writeFileSync(appPath, newSource);
+  console.log(`Synced ${fonts.length} fonts to app.js`);
+} else {
+  console.warn("Warning: could not find fonts array in app.js, skipping sync");
+}
+
+// ── 3. Generate r/registry.json ─────────────────────────────────────────────
+
 function licenseObject(font) {
-  if (typeof font.license === "object") return font.license;
+  if (font.license && typeof font.license === "object") return font.license;
   const filesDir = path.join(root, "registry", "fonts", font.name, "files");
   const licenseFile = ["OFL.txt", "LICENSE.txt", "LICENSE"].find((file) => fs.existsSync(path.join(filesDir, file)));
   return {
@@ -61,7 +115,7 @@ function registryFont(font) {
     fallback: font.fallback,
     previewText: font.previewText,
     description: font.description,
-    submittedBy: { github: font.submittedBy || "unknown" },
+    submittedBy: { github: font.submittedBy?.github || font.submittedBy || "unknown" },
     files: filesFor(font),
   };
 }
