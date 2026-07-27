@@ -1720,7 +1720,7 @@ function renderCopyright() {
           </div>
           <div class="legal-data">
             <div><span>Website operator</span><strong>Benjamin Michael Bremer</strong></div>
-            <div><span>Copyright contact</span><strong><a href="mailto:legal@vinalin.com">legal@vinalin.com</a></strong></div>
+            <div><span>Copyright contact</span><strong><a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></strong></div>
           </div>
         </div>
 
@@ -1789,7 +1789,7 @@ function renderCopyright() {
 
           <h2>Contact</h2>
           <div class="legal-section">
-            <p>Copyright and licensing requests:<br><a href="mailto:legal@vinalin.com">legal@vinalin.com</a></p>
+            <p>Copyright and licensing requests:<br><a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></p>
           </div>
 
           <h2>Related</h2>
