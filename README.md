@@ -130,7 +130,7 @@ The CLI automatically detects your project structure:
 We accept high-quality open-source font submissions directly through GitHub pull requests. There are no forms to fill out, and every accepted font credits its submitter on the website.
 
 1. **Fork the Repository:** `github.com/thisisbremlo/vinalin`
-2. **Add Font Metadata:** Add the font object definition to the catalog array in [app.js](file:///c:/Users/Benja/Desktop/archive/personal/code/vinalin/app.js).
+2. **Add Font Metadata:** Create `registry/fonts/<slug>/font.json` with the font metadata (see [CONTRIBUTING.md](file:///c:/Users/Benja/Desktop/archive/personal/code/vinalin/CONTRIBUTING.md) for the schema).
 3. **Mirror the Font Assets:**
    Add download instructions to [scripts/mirror-font-files.js](file:///c:/Users/Benja/Desktop/archive/personal/code/vinalin/scripts/mirror-font-files.js) and run:
    ```bash
@@ -138,7 +138,7 @@ We accept high-quality open-source font submissions directly through GitHub pull
    npm run build:registry
    npm run validate:registry
    ```
-4. **Submit PR:** Commit the updated metadata and mirrored `.woff2` files under `registry/fonts/`, then open a Pull Request.
+4. **Submit PR:** Commit the updated metadata and mirrored `.woff2` files under `registry/fonts/<slug>/files/`, then open a Pull Request.
 
 For detailed guidelines, see [CONTRIBUTING.md](file:///c:/Users/Benja/Desktop/archive/personal/code/vinalin/CONTRIBUTING.md).
 
