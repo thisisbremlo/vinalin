@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -76,6 +76,8 @@
     <link rel="stylesheet" href="/styles.css?v=20260725-mobile-on-brand">
   </head>
   <body>
+    <a href="#app" class="skip-link">Skip to main content</a>
+    <div id="route-announcer" class="visually-hidden" aria-live="assertive" aria-atomic="true"></div>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="/" data-local-link aria-label="vinalin home">vinalin<span>.</span></a>
@@ -90,11 +92,11 @@
           <span>17</span>
           <span>fonts</span>
         </a>
-        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNavigation"><span></span><span></span><span></span></button>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNavigation"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
       </div>
     </header>
 
-    <main id="app"></main>
+    <main id="app" tabindex="-1"></main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
