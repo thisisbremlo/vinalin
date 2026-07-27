@@ -10,4 +10,4 @@ registry/fonts/<slug>/
     OFL.txt
 ```
 
-Run `npm run build:registry` after adding or changing a font. The generated public registry is written to `r/`.
+The `font.json` file is the source of truth for font metadata. Run `npm run sync:fonts` to update `app.js` from `font.json` files, then `npm run build:registry` to generate the public registry in `r/`.
