@@ -1,7 +1,7 @@
 {
   "name": "vinalin registry",
   "schemaVersion": 1,
-  "generatedAt": "2026-07-27T11:51:33.630Z",
+  "generatedAt": "2026-07-27T12:15:19.037Z",
   "fonts": [
     {
       "schemaVersion": 1,
@@ -15,6 +15,9 @@
         "type": "Fontshare Free Font License",
         "url": "/r/fonts/cabinet-grotesk/LICENSE.txt"
       },
+      "licenseName": "Fontshare Free Font License",
+      "copyrightNotice": "Copyright (c) Indian Type Foundry",
+      "redistributionAllowed": true,
       "source": "https://www.fontshare.com/fonts/cabinet-grotesk",
       "variable": true,
       "axes": {
@@ -97,6 +100,9 @@
         "type": "Fontshare Free Font License",
         "url": "/r/fonts/clash-grotesk/LICENSE.txt"
       },
+      "licenseName": "Fontshare Free Font License",
+      "copyrightNotice": "Copyright (c) Indian Type Foundry",
+      "redistributionAllowed": true,
       "source": "https://www.fontshare.com/fonts/clash-grotesk",
       "variable": true,
       "axes": {
@@ -167,6 +173,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/departure-mono/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Helena Zhang, with Reserved Font Name Departure Mono",
+      "redistributionAllowed": true,
       "source": "https://departuremono.com",
       "variable": false,
       "axes": {},
@@ -202,6 +211,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/fraunces/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Undercase Type, with Reserved Font Name Fraunces",
+      "redistributionAllowed": true,
       "source": "https://github.com/undercasetype/Fraunces",
       "variable": true,
       "axes": {
@@ -252,6 +264,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/geist/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Geist Type, with Reserved Font Name Geist",
+      "redistributionAllowed": true,
       "source": "https://github.com",
       "variable": true,
       "axes": {
@@ -296,6 +311,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/geist-mono/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Geist Type, with Reserved Font Name Geist Mono",
+      "redistributionAllowed": true,
       "source": "https://github.com",
       "variable": true,
       "axes": {
@@ -340,6 +358,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/hs-lunaobscura/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Headspace Agency, with Reserved Font Name HS LunaObscura",
+      "redistributionAllowed": true,
       "source": "https://lunaobscura.headspace.ru",
       "variable": false,
       "axes": {},
@@ -375,6 +396,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/inter/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Rasmus Andersson, with Reserved Font Name Inter",
+      "redistributionAllowed": true,
       "source": "https://github.com/rsms/inter",
       "variable": true,
       "axes": {
@@ -424,6 +448,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/jetbrains-mono/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) JetBrains, with Reserved Font Name JetBrains Mono",
+      "redistributionAllowed": true,
       "source": "https://github.com/JetBrains/JetBrainsMono",
       "variable": true,
       "axes": {
@@ -473,6 +500,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/manrope/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Mikhail Sharanda, with Reserved Font Name Manrope",
+      "redistributionAllowed": true,
       "source": "https://github.com/davelab6/manrope",
       "variable": false,
       "axes": {},
@@ -511,6 +541,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/momo-signature/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) M - N Associates, with Reserved Font Name Momo Signature",
+      "redistributionAllowed": true,
       "source": "https://momo.vn",
       "variable": false,
       "axes": {},
@@ -546,6 +579,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/neutral-sans/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Barry Shawn, with Reserved Font Name Neutral Sans",
+      "redistributionAllowed": true,
       "source": "https://github.com/BesignLab/Neutral-Sans",
       "variable": true,
       "axes": {
@@ -589,6 +625,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/parkinsans/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Red Stone, with Reserved Font Name Parkinsans",
+      "redistributionAllowed": true,
       "source": "https://github.com/redstonedesign/parkinsans",
       "variable": true,
       "axes": {
@@ -634,6 +673,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/space-grotesk/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Florian Karsten, with Reserved Font Name Space Grotesk",
+      "redistributionAllowed": true,
       "source": "https://github.com/floriankarsten/space-grotesk",
       "variable": true,
       "axes": {
@@ -678,6 +720,9 @@
         "type": "Fontshare Free Font License",
         "url": "/r/fonts/tanker/LICENSE.txt"
       },
+      "licenseName": "Fontshare Free Font License",
+      "copyrightNotice": "Copyright (c) Indian Type Foundry",
+      "redistributionAllowed": true,
       "source": "https://www.fontshare.com/fonts/tanker",
       "variable": false,
       "axes": {},
@@ -713,6 +758,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/tiktok-sans/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) TikTok Inc., with Reserved Font Name TikTok Sans",
+      "redistributionAllowed": true,
       "source": "https://github.com/tiktok/TikTokSans",
       "variable": true,
       "axes": {
@@ -758,6 +806,9 @@
         "type": "OFL-1.1",
         "url": "/r/fonts/zalando-sans/OFL.txt"
       },
+      "licenseName": "SIL Open Font License 1.1",
+      "copyrightNotice": "Copyright (c) Jakob Ekelund / KH Type, with Reserved Font Name Zalando Sans",
+      "redistributionAllowed": true,
       "source": "https://github.com/zalando/sans",
       "variable": true,
       "axes": {

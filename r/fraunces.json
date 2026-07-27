@@ -10,6 +10,9 @@
     "type": "OFL-1.1",
     "url": "/r/fonts/fraunces/OFL.txt"
   },
+  "licenseName": "SIL Open Font License 1.1",
+  "copyrightNotice": "Copyright (c) Undercase Type, with Reserved Font Name Fraunces",
+  "redistributionAllowed": true,
   "source": "https://github.com/undercasetype/Fraunces",
   "variable": true,
   "axes": {

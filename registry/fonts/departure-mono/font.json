@@ -9,6 +9,9 @@
     "type": "OFL-1.1",
     "url": "/r/fonts/departure-mono/OFL.txt"
   },
+  "licenseName": "SIL Open Font License 1.1",
+  "copyrightNotice": "Copyright (c) Helena Zhang, with Reserved Font Name Departure Mono",
+  "redistributionAllowed": true,
   "source": "https://departuremono.com",
   "variable": false,
   "weights": [

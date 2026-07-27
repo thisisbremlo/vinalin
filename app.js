@@ -1,22 +1,23 @@
 const fonts = [
-  { name: "cabinet-grotesk", displayName: "Cabinet Grotesk", version: "2.0", category: "sans", designer: "Indian Type Foundry", license: "Fontshare Free Font License", source: "https://www.fontshare.com/fonts/cabinet-grotesk", variable: true, weights: [100,200,300,400,500,700,800,900], styles: ["normal"], fallback: "sans-serif", previewText: "A versatile grotesque for every weight.", description: "A clean, geometric grotesque sans-serif spanning Thin to Black, suited to both expressive headlines and functional body text.", submittedBy: "thisisbremlo", family: "Cabinet Grotesk" },
-  { name: "clash-grotesk", displayName: "Clash Grotesk", version: "2.0", category: "sans", designer: "Indian Type Foundry", license: "Fontshare Free Font License", source: "https://www.fontshare.com/fonts/clash-grotesk", variable: true, weights: [200,300,400,500,600,700], styles: ["normal"], fallback: "sans-serif", previewText: "Confident type with a modern edge.", description: "A contemporary grotesque sans-serif with sturdy, slightly condensed letterforms, built for bold headlines and clean interface text.", submittedBy: "thisisbremlo", family: "Clash Grotesk" },
-  { name: "departure-mono", displayName: "Departure Mono", version: "1.350", category: "mono", designer: "Helena Zhang", license: "OFL-1.1", source: "https://departuremono.com", variable: false, weights: [400], styles: ["normal"], fallback: "monospace", previewText: "Pixel-perfect type for quiet systems.", description: "A pixel-conscious monospace typeface with support for Latin, Greek, small caps, old-style numerals, fractions, and selected symbols.", submittedBy: "thisisbremlo", family: "Departure Mono" },
-  { name: "fraunces", displayName: "Fraunces", version: "1.0", category: "serif", designer: "Undercase Type", license: "OFL-1.1", source: "https://github.com/undercasetype/Fraunces", variable: true, weights: [400,500,600,700,900], styles: ["normal","italic"], fallback: "serif", previewText: "A wonky, old-style soft serif.", description: "A display serif inspired by early 20th century typefaces, with optical sizing, softness, and wonk axes.", submittedBy: "thisisbremlo", family: "Fraunces" },
-  { name: "geist", displayName: "Geist", version: "1.7.2", category: "sans", designer: "Geist Type", license: "OFL-1.1", source: "https://github.com", variable: true, weights: [400,500,600,700], styles: ["normal","italic"], fallback: "sans-serif", previewText: "Design is the silent ambassador of your brand.", description: "A Swiss-inspired sans-serif built for legibility and precision for the modern web.", submittedBy: "thisisbremlo", family: "Geist" },
-  { name: "geist-mono", displayName: "Geist Mono", version: "1.7.2", category: "mono", designer: "Geist Type", license: "OFL-1.1", source: "https://github.com", variable: true, weights: [400,500,600,700], styles: ["normal","italic"], fallback: "monospace", previewText: "const font = await vinalin.add(\"geist-mono\")", description: "The monospace companion to Geist. Clean, precise, and made for code.", submittedBy: "thisisbremlo", family: "Geist Mono" },
-  { name: "hs-lunaobscura", displayName: "HS LunaObscura", version: "1.0", category: "display", designer: "Headspace Agency", license: "OFL-1.1", source: "https://lunaobscura.headspace.ru", variable: false, weights: [400], styles: ["normal"], fallback: "sans-serif", previewText: "Signal found beyond the interface.", description: "An industrial display typeface for sci-fi, cyberpunk, dystopian interfaces, posters, navigation, and UI mockups.", submittedBy: "thisisbremlo", family: "HS LunaObscura" },
-  { name: "inter", displayName: "Inter", version: "4.1", category: "sans", designer: "Rasmus Andersson", license: "OFL-1.1", source: "https://github.com/rsms/inter", variable: true, weights: [400,500,600,700], styles: ["normal","italic"], fallback: "sans-serif", previewText: "Sphinx of black quartz, judge my vow.", description: "A typeface carefully crafted and designed for computer screens. The de-facto standard for product interfaces.", submittedBy: "thisisbremlo", family: "Inter" },
-  { name: "jetbrains-mono", displayName: "JetBrains Mono", version: "2.304", category: "mono", designer: "JetBrains", license: "OFL-1.1", source: "https://github.com/JetBrains/JetBrainsMono", variable: true, weights: [400,500,700,800], styles: ["normal","italic"], fallback: "monospace", previewText: "() => ({ ligatures: true, zero: \"0O\" })", description: "A typeface for developers. Increased x-height, code ligatures, and 145 languages supported.", submittedBy: "thisisbremlo", family: "JetBrains Mono" },
-  { name: "manrope", displayName: "Manrope", version: "3.0", category: "sans", designer: "Mikhail Sharanda", license: "OFL-1.1", source: "https://github.com/davelab6/manrope", variable: false, weights: [400,500,600,700], styles: ["normal"], fallback: "sans-serif", previewText: "Modern, open, geometric grotesque.", description: "An open-source modern sans-serif. Geometric yet warm, great for both display and body text.", submittedBy: "thisisbremlo", family: "Manrope" },
-  { name: "momo-signature", displayName: "Momo Signature", version: "1.0", category: "handwriting", designer: "M - N Associates", license: "OFL-1.1", source: "https://momo.vn", variable: false, weights: [400], styles: ["normal"], fallback: "cursive", previewText: "A personal mark inside digital trust.", description: "A handwritten signature-inspired typeface designed to add a personal, trusted, and individual tone.", submittedBy: "thisisbremlo", family: "Momo Signature" },
-  { name: "neutral-sans", displayName: "Neutral Sans", version: "1.1", category: "sans", designer: "Barry Shawn", license: "OFL-1.1", source: "https://github.com/BesignLab/Neutral-Sans", variable: true, weights: [400,500,700,900], styles: ["normal"], fallback: "sans-serif", previewText: "Warm clarity for modern interfaces.", description: "A modern humanist sans-serif with rounded details, strong readability, variable weight support, and multilingual coverage.", submittedBy: "thisisbremlo", family: "Neutral Sans" },
-  { name: "parkinsans", displayName: "Parkinsans", version: "1.0", category: "sans", designer: "Red Stone", license: "OFL-1.1", source: "https://github.com/redstonedesign/parkinsans", variable: true, weights: [300,400,500,600,700,800], styles: ["normal"], fallback: "sans-serif", previewText: "Accessible type with human energy.", description: "A geometric sans-serif designed for Parkinson's UK, balancing energetic display character with accessible short-form reading.", submittedBy: "thisisbremlo", family: "Parkinsans" },
-  { name: "space-grotesk", displayName: "Space Grotesk", version: "2.0.0", category: "display", designer: "Florian Karsten", license: "OFL-1.1", source: "https://github.com/floriankarsten/space-grotesk", variable: true, weights: [300,400,500,600,700], styles: ["normal"], fallback: "sans-serif", previewText: "Space is big. Really big.", description: "A proportional sans-serif derived from Space Mono, with retro-futuristic details that shine at display sizes.", submittedBy: "thisisbremlo", family: "Space Grotesk" },
-  { name: "tanker", displayName: "Tanker", version: "1.0", category: "display", designer: "Indian Type Foundry", license: "Fontshare Free Font License", source: "https://www.fontshare.com/fonts/tanker", variable: false, weights: [400], styles: ["normal"], fallback: "sans-serif", previewText: "Bold headlines that demand attention.", description: "A high-contrast, ultra-bold display sans-serif with tightly packed letterforms, built for impactful headlines and posters.", submittedBy: "thisisbremlo", family: "Tanker" },
-  { name: "tiktok-sans", displayName: "TikTok Sans", version: "1.0", category: "sans", designer: "TikTok Inc.", license: "OFL-1.1", source: "https://github.com/tiktok/TikTokSans", variable: true, weights: [400,500,600,700,800,900], styles: ["normal"], fallback: "sans-serif", previewText: "A social rhythm for product type.", description: "A modern sans-serif typeface from TikTok, built for clear brand expression across digital interfaces and communication.", submittedBy: "thisisbremlo", family: "TikTok Sans" },
-  { name: "zalando-sans", displayName: "Zalando Sans", version: "1.0", category: "sans", designer: "Jakob Ekelund / KH Type", license: "OFL-1.1", source: "https://github.com/zalando/sans", variable: true, weights: [200,300,400,500,600,700,800,900], styles: ["normal"], fallback: "sans-serif", previewText: "Bold systems can still feel welcoming.", description: "A flexible grotesque sans-serif developed for Zalando, combining clarity, expressive range, and brand personality through variable axes.", submittedBy: "thisisbremlo", family: "Zalando Sans" }
+  { name: "cabinet-grotesk", displayName: "Cabinet Grotesk", version: "2.0", category: "sans", designer: "Indian Type Foundry", license: "Fontshare Free Font License", licenseName: "Fontshare Free Font License", copyrightNotice: "Copyright (c) Indian Type Foundry", source: "https://www.fontshare.com/fonts/cabinet-grotesk", variable: true, weights: [100,200,300,400,500,700,800,900], styles: ["normal"], fallback: "sans-serif", previewText: "A versatile grotesque for every weight.", description: "A clean, geometric grotesque sans-serif spanning Thin to Black, suited to both expressive headlines and functional body text.", submittedBy: "thisisbremlo", family: "Cabinet Grotesk" },
+  { name: "clash-grotesk", displayName: "Clash Grotesk", version: "2.0", category: "sans", designer: "Indian Type Foundry", license: "Fontshare Free Font License", licenseName: "Fontshare Free Font License", copyrightNotice: "Copyright (c) Indian Type Foundry", source: "https://www.fontshare.com/fonts/clash-grotesk", variable: true, weights: [200,300,400,500,600,700], styles: ["normal"], fallback: "sans-serif", previewText: "Confident type with a modern edge.", description: "A contemporary grotesque sans-serif with sturdy, slightly condensed letterforms, built for bold headlines and clean interface text.", submittedBy: "thisisbremlo", family: "Clash Grotesk" },
+  { name: "departure-mono", displayName: "Departure Mono", version: "1.350", category: "mono", designer: "Helena Zhang", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Helena Zhang, with Reserved Font Name Departure Mono", source: "https://departuremono.com", variable: false, weights: [400], styles: ["normal"], fallback: "monospace", previewText: "Pixel-perfect type for quiet systems.", description: "A pixel-conscious monospace typeface with support for Latin, Greek, small caps, old-style numerals, fractions, and selected symbols.", submittedBy: "thisisbremlo", family: "Departure Mono" },
+  { name: "fraunces", displayName: "Fraunces", version: "1.0", category: "serif", designer: "Undercase Type", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Undercase Type, with Reserved Font Name Fraunces", source: "https://github.com/undercasetype/Fraunces", variable: true, weights: [400,500,600,700,900], styles: ["normal","italic"], fallback: "serif", previewText: "A wonky, old-style soft serif.", description: "A display serif inspired by early 20th century typefaces, with optical sizing, softness, and wonk axes.", submittedBy: "thisisbremlo", family: "Fraunces" },
+  { name: "geist", displayName: "Geist", version: "1.7.2", category: "sans", designer: "Geist Type", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Geist Type, with Reserved Font Name Geist", source: "https://github.com", variable: true, weights: [400,500,600,700], styles: ["normal","italic"], fallback: "sans-serif", previewText: "Design is the silent ambassador of your brand.", description: "A Swiss-inspired sans-serif built for legibility and precision for the modern web.", submittedBy: "thisisbremlo", family: "Geist" },
+  { name: "geist-mono", displayName: "Geist Mono", version: "1.7.2", category: "mono", designer: "Geist Type", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Geist Type, with Reserved Font Name Geist Mono", source: "https://github.com", variable: true, weights: [400,500,600,700], styles: ["normal","italic"], fallback: "monospace", previewText: "const font = await vinalin.add(\"geist-mono\")", description: "The monospace companion to Geist. Clean, precise, and made for code.", submittedBy: "thisisbremlo", family: "Geist Mono" },
+  { name: "hs-lunaobscura", displayName: "HS LunaObscura", version: "1.0", category: "display", designer: "Headspace Agency", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Headspace Agency, with Reserved Font Name HS LunaObscura", source: "https://lunaobscura.headspace.ru", variable: false, weights: [400], styles: ["normal"], fallback: "sans-serif", previewText: "Signal found beyond the interface.", description: "An industrial display typeface for sci-fi, cyberpunk, dystopian interfaces, posters, navigation, and UI mockups.", submittedBy: "thisisbremlo", family: "HS LunaObscura" },
+  { name: "inter", displayName: "Inter", version: "4.1", category: "sans", designer: "Rasmus Andersson", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Rasmus Andersson, with Reserved Font Name Inter", source: "https://github.com/rsms/inter", variable: true, weights: [400,500,600,700], styles: ["normal","italic"], fallback: "sans-serif", previewText: "Sphinx of black quartz, judge my vow.", description: "A typeface carefully crafted and designed for computer screens. The de-facto standard for product interfaces.", submittedBy: "thisisbremlo", family: "Inter" },
+  { name: "jetbrains-mono", displayName: "JetBrains Mono", version: "2.304", category: "mono", designer: "JetBrains", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) JetBrains, with Reserved Font Name JetBrains Mono", source: "https://github.com/JetBrains/JetBrainsMono", variable: true, weights: [400,500,700,800], styles: ["normal","italic"], fallback: "monospace", previewText: "() => ({ ligatures: true, zero: \"0O\" })", description: "A typeface for developers. Increased x-height, code ligatures, and 145 languages supported.", submittedBy: "thisisbremlo", family: "JetBrains Mono" },
+  { name: "manrope", displayName: "Manrope", version: "3.0", category: "sans", designer: "Mikhail Sharanda", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Mikhail Sharanda, with Reserved Font Name Manrope", source: "https://github.com/davelab6/manrope", variable: false, weights: [400,500,600,700], styles: ["normal"], fallback: "sans-serif", previewText: "Modern, open, geometric grotesque.", description: "An open-source modern sans-serif. Geometric yet warm, great for both display and body text.", submittedBy: "thisisbremlo", family: "Manrope" },
+  { name: "momo-signature", displayName: "Momo Signature", version: "1.0", category: "handwriting", designer: "M - N Associates", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) M - N Associates, with Reserved Font Name Momo Signature", source: "https://momo.vn", variable: false, weights: [400], styles: ["normal"], fallback: "cursive", previewText: "A personal mark inside digital trust.", description: "A handwritten signature-inspired typeface designed to add a personal, trusted, and individual tone.", submittedBy: "thisisbremlo", family: "Momo Signature" },
+  { name: "neutral-sans", displayName: "Neutral Sans", version: "1.1", category: "sans", designer: "Barry Shawn", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Barry Shawn, with Reserved Font Name Neutral Sans", source: "https://github.com/BesignLab/Neutral-Sans", variable: true, weights: [400,500,700,900], styles: ["normal"], fallback: "sans-serif", previewText: "Warm clarity for modern interfaces.", description: "A modern humanist sans-serif with rounded details, strong readability, variable weight support, and multilingual coverage.", submittedBy: "thisisbremlo", family: "Neutral Sans" },
+  { name: "parkinsans", displayName: "Parkinsans", version: "1.0", category: "sans", designer: "Red Stone", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Red Stone, with Reserved Font Name Parkinsans", source: "https://github.com/redstonedesign/parkinsans", variable: true, weights: [300,400,500,600,700,800], styles: ["normal"], fallback: "sans-serif", previewText: "Accessible type with human energy.", description: "A geometric sans-serif designed for Parkinson's UK, balancing energetic display character with accessible short-form reading.", submittedBy: "thisisbremlo", family: "Parkinsans" },
+  { name: "space-grotesk", displayName: "Space Grotesk", version: "2.0.0", category: "display", designer: "Florian Karsten", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Florian Karsten, with Reserved Font Name Space Grotesk", source: "https://github.com/floriankarsten/space-grotesk", variable: true, weights: [300,400,500,600,700], styles: ["normal"], fallback: "sans-serif", previewText: "Space is big. Really big.", description: "A proportional sans-serif derived from Space Mono, with retro-futuristic details that shine at display sizes.", submittedBy: "thisisbremlo", family: "Space Grotesk" },
+  { name: "tanker", displayName: "Tanker", version: "1.0", category: "display", designer: "Indian Type Foundry", license: "Fontshare Free Font License", licenseName: "Fontshare Free Font License", copyrightNotice: "Copyright (c) Indian Type Foundry", source: "https://www.fontshare.com/fonts/tanker", variable: false, weights: [400], styles: ["normal"], fallback: "sans-serif", previewText: "Bold headlines that demand attention.", description: "A high-contrast, ultra-bold display sans-serif with tightly packed letterforms, built for impactful headlines and posters.", submittedBy: "thisisbremlo", family: "Tanker" },
+  { name: "tiktok-sans", displayName: "TikTok Sans", version: "1.0", category: "sans", designer: "TikTok Inc.", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) TikTok Inc., with Reserved Font Name TikTok Sans", source: "https://github.com/tiktok/TikTokSans", variable: true, weights: [400,500,600,700,800,900], styles: ["normal"], fallback: "sans-serif", previewText: "A social rhythm for product type.", description: "A modern sans-serif typeface from TikTok, built for clear brand expression across digital interfaces and communication.", submittedBy: "thisisbremlo", family: "TikTok Sans" },
+  { name: "zalando-sans", displayName: "Zalando Sans", version: "1.0", category: "sans", designer: "Jakob Ekelund / KH Type", license: "OFL-1.1", licenseName: "SIL Open Font License 1.1", copyrightNotice: "Copyright (c) Jakob Ekelund / KH Type, with Reserved Font Name Zalando Sans", source: "https://github.com/zalando/sans", variable: true, weights: [200,300,400,500,600,700,800,900], styles: ["normal"], fallback: "sans-serif", previewText: "Bold systems can still feel welcoming.", description: "A flexible grotesque sans-serif developed for Zalando, combining clarity, expressive range, and brand personality through variable axes.", submittedBy: "thisisbremlo", family: "Zalando Sans" }
 ];
+
 
 
 
@@ -1706,30 +1707,92 @@ function renderCopyright() {
     <section class="page-hero">
       <div class="container">
         <p class="eyebrow">Copyright</p>
-        <h1>Copyright &copy; 2025 bremlo<span>.</span></h1>
+        <h1>Copyright &amp; Font Takedown Policy<span>.</span></h1>
       </div>
     </section>
-    <section class="copyright-page">
-      <div class="container copyright-layout">
-        <div class="copyright-prose">
-          <p class="copyright-lead">vinalin is an open-source project by <strong>bremlo</strong> (Benjamin Michael Bremer). The website, CLI, registry, and all original code are released under the MIT License.</p>
-          <p>Font files distributed through vinalin retain their original licenses (OFL-1.1, Fontshare Free Font License, or equivalent). Each license ships alongside the font files and must remain there.</p>
-          <h2>Related projects</h2>
-          <div class="copyright-links">
-            <a href="https://savault.de" target="_blank" rel="noreferrer" class="copyright-card">
-              <span>Brand & digital identity studio</span>
-              <strong>Savault</strong>
-              <code>savault.de</code>
-            </a>
-            <a href="https://whoisly.de" target="_blank" rel="noreferrer" class="copyright-card">
-              <span>Domain intelligence platform</span>
-              <strong>WhoIsly</strong>
-              <code>whoisly.de</code>
-            </a>
+    <section class="legal-page">
+      <div class="container legal-document">
+        <div class="legal-document-intro">
+          <div>
+            <p class="eyebrow">Updated July 2026</p>
+            <h2>Font ownership and licensing</h2>
+            <p>vinalin respects the intellectual property rights of font designers, foundries, and copyright holders. This page explains how fonts are attributed, licensed, and how to report issues.</p>
           </div>
+          <div class="legal-data">
+            <div><span>Website operator</span><strong>Benjamin Michael Bremer</strong></div>
+            <div><span>Copyright contact</span><strong><a href="mailto:legal@vinalin.com">legal@vinalin.com</a></strong></div>
+          </div>
+        </div>
+
+        <div class="legal-prose">
+          <h2>Font Ownership</h2>
+          <div class="legal-section">
+            <p>All fonts, typefaces, names, trademarks, logos, and related intellectual property displayed or distributed through vinalin remain the property of their respective creators, foundries, or copyright holders.</p>
+            <p>vinalin does not claim ownership of any third-party fonts.</p>
+            <p>Each font is provided under its original license, including licenses such as the SIL Open Font License (OFL), Fontshare Free License, or other licenses specified on each font page.</p>
+          </div>
+
+          <h2>Licensing &amp; Distribution</h2>
+          <div class="legal-section">
+            <p>vinalin only includes fonts that are available for redistribution under their respective licenses.</p>
+            <p>Where applicable, vinalin provides:</p>
+            <ul>
+              <li>License information</li>
+              <li>Original creator attribution</li>
+              <li>Source references</li>
+              <li>Installation instructions</li>
+            </ul>
+            <p>Users are responsible for reviewing and complying with the applicable font license before using any typeface in personal, commercial, or other projects.</p>
+          </div>
+
+          <h2>Original Copyright Notices</h2>
+          <div class="legal-section">
+            <p>vinalin preserves original copyright notices and license information provided by font creators whenever required by the applicable license.</p>
+            <p>For fonts licensed under the SIL Open Font License (OFL), the original copyright statements, author names, and license files must remain unchanged.</p>
+            <p>Example:</p>
+            <p>Copyright &copy; [year] [author/foundry name]<br>Licensed under the SIL Open Font License, Version 1.1.<br>The full license text can be found at: <a href="https://openfontlicense.org" target="_blank" rel="noreferrer">https://openfontlicense.org</a></p>
+            <p><strong>Do not replace, remove, or modify original copyright notices from font creators.</strong></p>
+          </div>
+
+          <h2>Website Content</h2>
+          <div class="legal-section">
+            <p>All original content, layouts, interface designs, documentation, previews, and visual materials created for this website are subject to applicable copyright laws.</p>
+            <p>Duplication, editing, distribution, storage, or any form of use outside the limits of copyright law requires prior written consent unless otherwise permitted by law.</p>
+            <p>Fonts, font files, specimens, names, trademarks, and third-party materials remain the property of their respective rights holders and are governed by their own license terms.</p>
+          </div>
+
+          <h2>Copyright Concerns &amp; Removal Requests</h2>
+          <div class="legal-section">
+            <p>If you are a font creator, foundry, or copyright holder and believe that a font, attribution, license information, or related content on vinalin is incorrect or violates your rights, please contact us.</p>
+            <p>Please provide:</p>
+            <ul>
+              <li>Your full name and contact information</li>
+              <li>The font or content you are referring to</li>
+              <li>The URL of the affected content</li>
+              <li>A description of your concern</li>
+              <li>Proof that you are the copyright owner or authorized representative</li>
+            </ul>
+            <p>We will review valid requests and take appropriate action, including:</p>
+            <ul>
+              <li>Correcting metadata</li>
+              <li>Updating attribution</li>
+              <li>Updating license information</li>
+              <li>Removing affected content when necessary</li>
+            </ul>
+          </div>
+
+          <h2>Report Licensing Issue</h2>
+          <div class="legal-section">
+            <p>Use the form below to report a licensing issue, incorrect attribution, or copyright concern about any font on vinalin.</p>
+          </div>
+          <div id="copyright-report-form"></div>
+
           <h2>Contact</h2>
-          <p><a href="mailto:hi@bremlo.uk">hi@bremlo.uk</a></p>
-          <h2>Legal</h2>
+          <div class="legal-section">
+            <p>Copyright and licensing requests:<br><a href="mailto:legal@vinalin.com">legal@vinalin.com</a></p>
+          </div>
+
+          <h2>Related</h2>
           <div class="copyright-links">
             <a href="/legal-notice" data-local-link class="copyright-card">
               <span>Operator and liability information</span>
@@ -1747,6 +1810,59 @@ function renderCopyright() {
         </div>
       </div>
     </section>`;
+  bindCopyrightReportForm();
+}
+
+function bindCopyrightReportForm() {
+  const container = document.getElementById("copyright-report-form");
+  if (!container) return;
+  container.innerHTML = `
+    <form class="report-form" id="reportForm">
+      <div class="form-row">
+        <label for="reportName">Name</label>
+        <input type="text" id="reportName" required>
+      </div>
+      <div class="form-row">
+        <label for="reportEmail">Email</label>
+        <input type="email" id="reportEmail" required>
+      </div>
+      <div class="form-row">
+        <label for="reportFont">Font name</label>
+        <input type="text" id="reportFont" required>
+      </div>
+      <div class="form-row">
+        <label for="reportUrl">URL</label>
+        <input type="url" id="reportUrl" placeholder="https://vinalin.com/fonts/...">
+      </div>
+      <div class="form-row">
+        <label for="reportType">Issue type</label>
+        <select id="reportType" required>
+          <option value="" disabled selected>Select an issue type</option>
+          <option value="incorrect-license">Incorrect license</option>
+          <option value="missing-attribution">Missing attribution</option>
+          <option value="copyright-concern">Copyright concern</option>
+          <option value="incorrect-creator">Incorrect creator information</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="reportMessage">Message</label>
+        <textarea id="reportMessage" rows="5" placeholder="Please describe the issue and provide any relevant information."></textarea>
+      </div>
+      <button type="submit" class="submit-button">Submit Report</button>
+    </form>
+    <div class="report-success" id="reportSuccess" hidden>
+      <p>Thanks for your report. We will review the information and get back to you if further action is required.</p>
+    </div>`;
+  const form = document.getElementById("reportForm");
+  const success = document.getElementById("reportSuccess");
+  if (form && success) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.hidden = true;
+      success.hidden = false;
+    });
+  }
 }
 
 function downloadFileLabel(file) {
@@ -1851,7 +1967,7 @@ function renderFontDetail(font) {
               <span>${weights.length} ${weights.length === 1 ? "style" : "styles"}</span>
               <span>${font.variable ? "Variable" : "Static"}</span>
             </div>
-            <p class="category-line">${font.license}</p>
+            <p class="category-line">${font.licenseName || font.license}</p>
             <h1 style="font-family: ${fontStack(font)};">${font.displayName}</h1>
             <p class="detail-copy">${font.description}</p>
             ${renderInstallBox(font.name)}
@@ -1901,10 +2017,12 @@ function renderFontDetail(font) {
         <section class="meta-grid" id="details">
           <div><span>Designer</span><strong>${font.designer}</strong></div>
           <div><span>Version</span><strong>${font.version}</strong></div>
-          <div id="license"><span>License</span><strong><a href="${licenseUrlFor(font)}" target="_blank" rel="noreferrer">${font.license} &rarr;</a></strong></div>
+          <div id="license"><span>License</span><strong><a href="${licenseUrlFor(font)}" target="_blank" rel="noreferrer">${font.licenseName || font.license} &rarr;</a></strong></div>
+          <div><span>Copyright</span><strong>${font.copyrightNotice || "Not specified"}</strong></div>
           <div><span>Source</span><strong>${font.source.replace(/^https?:\/\//, "")}</strong></div>
           <div><span>Styles</span><strong>${font.variable ? "Variable" : "Static"}${font.styles.includes("italic") ? " + italics" : ""}</strong></div>
           <div><span>Submitted by</span><strong>@${font.submittedBy}</strong></div>
+          <div class="report-link"><a href="/copyright" data-local-link>Report licensing issue &rarr;</a></div>
         </section>
       </div>
     </section>`;

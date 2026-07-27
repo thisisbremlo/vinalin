@@ -9,6 +9,9 @@
     "type": "OFL-1.1",
     "url": "/r/fonts/geist/OFL.txt"
   },
+  "licenseName": "SIL Open Font License 1.1",
+  "copyrightNotice": "Copyright (c) Geist Type, with Reserved Font Name Geist",
+  "redistributionAllowed": true,
   "source": "https://github.com",
   "variable": true,
   "axes": {

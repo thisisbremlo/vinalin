@@ -34,6 +34,9 @@
         "url": { "type": "string" }
       }
     },
+    "licenseName": { "type": "string" },
+    "copyrightNotice": { "type": "string" },
+    "redistributionAllowed": { "type": "boolean" },
     "source": { "type": "string" },
     "variable": { "type": "boolean" },
     "axes": { "type": "object" },

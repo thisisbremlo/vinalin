@@ -9,6 +9,9 @@
     "type": "OFL-1.1",
     "url": "/r/fonts/neutral-sans/OFL.txt"
   },
+  "licenseName": "SIL Open Font License 1.1",
+  "copyrightNotice": "Copyright (c) Barry Shawn, with Reserved Font Name Neutral Sans",
+  "redistributionAllowed": true,
   "source": "https://github.com/BesignLab/Neutral-Sans",
   "variable": true,
   "axes": {

@@ -10,6 +10,9 @@
     "type": "OFL-1.1",
     "url": "/r/fonts/space-grotesk/OFL.txt"
   },
+  "licenseName": "SIL Open Font License 1.1",
+  "copyrightNotice": "Copyright (c) Florian Karsten, with Reserved Font Name Space Grotesk",
+  "redistributionAllowed": true,
   "source": "https://github.com/floriankarsten/space-grotesk",
   "variable": true,
   "axes": {

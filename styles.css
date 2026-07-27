@@ -13484,7 +13484,7 @@ body .foundry-card-head {
 body .foundry-card-head strong {
   font-family: var(--sans);
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: -0.03em;
 }
@@ -13565,6 +13565,7 @@ body .foundry-card:hover strong {
 
   body .foundry-card-head strong {
     font-size: 18px;
+    font-weight: 500;
   }
 }
 
@@ -13795,4 +13796,90 @@ body .copyright-card code {
 
 body .copyright-card:hover code {
   color: rgba(255, 255, 255, 0.4);
+}
+
+/* Report licensing issue form */
+body .report-link {
+  grid-column: 1 / -1;
+  padding-top: 8px;
+}
+body .report-link a {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.15s;
+}
+body .report-link a:hover { color: var(--fg); }
+body .report-form {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+body .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+body .form-row label {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+body .form-row input,
+body .form-row select,
+body .form-row textarea {
+  font-family: var(--sans);
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--fg);
+  transition: border-color 0.15s;
+}
+body .form-row input:focus,
+body .form-row select:focus,
+body .form-row textarea:focus {
+  outline: none;
+  border-color: var(--fg);
+}
+body .form-row textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+body .report-form .submit-button {
+  align-self: flex-start;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: 1px solid var(--fg);
+  border-radius: 6px;
+  background: var(--fg);
+  color: var(--bg);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+body .report-form .submit-button:hover {
+  background: var(--bg);
+  color: var(--fg);
+}
+body .report-success {
+  margin-bottom: 40px;
+}
+body .report-success p {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
 }

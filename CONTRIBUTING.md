@@ -26,6 +26,9 @@ Create `registry/fonts/<slug>/font.json`:
   "category": "sans",
   "designer": "Jane Doe",
   "license": { "type": "OFL-1.1", "url": "/r/fonts/your-font/files/OFL.txt" },
+  "licenseName": "SIL Open Font License 1.1",
+  "copyrightNotice": "Copyright (c) Jane Doe, with Reserved Font Name Your Font",
+  "redistributionAllowed": true,
   "source": "https://github.com/example/your-font",
   "variable": true,
   "axes": { "wght": [100, 900] },
@@ -47,6 +50,9 @@ Create `registry/fonts/<slug>/font.json`:
 - `category` — One of `sans`, `serif`, `mono`, `display`, `handwriting`.
 - `designer` — Designer or foundry name.
 - `license` — Object with `type` (e.g. `OFL-1.1`) and `url` pointing to the bundled license file.
+- `licenseName` — Full license name (e.g. `SIL Open Font License 1.1` or `Fontshare Free Font License`).
+- `copyrightNotice` — Original copyright notice exactly as provided by the creator. Do not modify.
+- `redistributionAllowed` — `true` if the font may be redistributed under its license.
 - `source` — URL to the font's upstream repository or download page.
 - `variable` — `true` for variable fonts, `false` for static.
 - `axes` — Optional. Variable font axes range (e.g. `{ "wght": [100, 900] }`). Omit for static fonts.

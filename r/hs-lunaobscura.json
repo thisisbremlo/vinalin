@@ -10,6 +10,9 @@
     "type": "OFL-1.1",
     "url": "/r/fonts/hs-lunaobscura/OFL.txt"
   },
+  "licenseName": "SIL Open Font License 1.1",
+  "copyrightNotice": "Copyright (c) Headspace Agency, with Reserved Font Name HS LunaObscura",
+  "redistributionAllowed": true,
   "source": "https://lunaobscura.headspace.ru",
   "variable": false,
   "axes": {},

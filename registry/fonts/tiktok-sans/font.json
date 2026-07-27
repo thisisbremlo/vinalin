@@ -9,6 +9,9 @@
     "type": "OFL-1.1",
     "url": "/r/fonts/tiktok-sans/OFL.txt"
   },
+  "licenseName": "SIL Open Font License 1.1",
+  "copyrightNotice": "Copyright (c) TikTok Inc., with Reserved Font Name TikTok Sans",
+  "redistributionAllowed": true,
   "source": "https://github.com/tiktok/TikTokSans",
   "variable": true,
   "axes": {

@@ -10,6 +10,9 @@
     "type": "OFL-1.1",
     "url": "/r/fonts/inter/OFL.txt"
   },
+  "licenseName": "SIL Open Font License 1.1",
+  "copyrightNotice": "Copyright (c) Rasmus Andersson, with Reserved Font Name Inter",
+  "redistributionAllowed": true,
   "source": "https://github.com/rsms/inter",
   "variable": true,
   "axes": {

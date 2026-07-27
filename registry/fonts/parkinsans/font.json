@@ -9,6 +9,9 @@
     "type": "OFL-1.1",
     "url": "/r/fonts/parkinsans/OFL.txt"
   },
+  "licenseName": "SIL Open Font License 1.1",
+  "copyrightNotice": "Copyright (c) Red Stone, with Reserved Font Name Parkinsans",
+  "redistributionAllowed": true,
   "source": "https://github.com/redstonedesign/parkinsans",
   "variable": true,
   "axes": {
