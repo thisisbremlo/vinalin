@@ -13752,15 +13752,16 @@ body .copyright-prose p a:hover {
 body .copyright-links {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  gap: 0;
 }
 
 body .copyright-card {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 20px;
-  border: 1px solid var(--line-strong);
+  padding: 20px 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
   color: var(--ink);
   text-decoration: none;
   transition: background 0.15s ease, color 0.15s ease;
@@ -13769,7 +13770,7 @@ body .copyright-card {
 body .copyright-card:hover {
   background: var(--ink);
   color: var(--reverse);
-  border-color: var(--ink);
+  border-bottom-color: var(--ink);
 }
 
 body .copyright-card span {
@@ -13863,16 +13864,16 @@ body .report-form .submit-button {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 10px 20px;
-  border: 1px solid var(--fg);
+  border: 1px solid #070707;
   border-radius: 6px;
-  background: var(--fg);
-  color: var(--bg);
+  background: #070707;
+  color: #ffffe3;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
 body .report-form .submit-button:hover {
-  background: var(--bg);
-  color: var(--fg);
+  background: transparent;
+  color: #070707;
 }
 body .report-success {
   margin-bottom: 40px;
