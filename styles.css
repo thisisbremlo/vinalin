@@ -13762,8 +13762,10 @@ body .copyright-card {
   gap: 6px;
   padding: 20px 0;
   border: none;
+  border-bottom: none;
   color: var(--ink);
   text-decoration: none;
+  -webkit-text-decoration: none;
   transition: opacity 0.15s ease;
 }
 
