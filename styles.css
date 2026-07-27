@@ -13417,3 +13417,166 @@ html {
     min-height: 320px;
   }
 }
+
+/* ── Fresh Foundries ───────────────────────────────────── */
+
+body .foundry-section {
+  padding: clamp(90px, 12vw, 180px) 0 clamp(90px, 12vw, 180px);
+  background: transparent;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+body .foundry-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+body .foundry-card {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  align-items: center;
+  gap: 32px;
+  min-height: 0;
+  padding: 28px 24px;
+  border: none;
+  border-bottom: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink);
+  text-decoration: none;
+  overflow: visible;
+}
+
+body .foundry-card:last-child {
+  border-bottom: 1px solid var(--line-strong);
+}
+
+body .foundry-card:hover {
+  background: var(--ink) !important;
+  color: var(--reverse) !important;
+}
+
+body .foundry-card-index span {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+body .foundry-card:hover .foundry-card-index span {
+  color: var(--muted);
+}
+
+body .foundry-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+body .foundry-card-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+body .foundry-card-head strong {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+body .foundry-card:hover .foundry-card-head strong {
+  color: var(--reverse);
+}
+
+body .foundry-card-head span {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+body .foundry-card:hover .foundry-card-head span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body .foundry-card-fonts {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+body .foundry-card:hover .foundry-card-fonts {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+body .foundry-card-specimen {
+  font-family: var(--sans);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--line);
+  white-space: nowrap;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s ease;
+}
+
+body .foundry-card:hover .foundry-card-specimen {
+  color: rgba(255, 255, 255, 0.12);
+}
+
+body .foundry-card span,
+body .foundry-card strong {
+  color: inherit !important;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 1;
+}
+
+body .foundry-card:hover span,
+body .foundry-card:hover strong {
+  color: inherit !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 720px) {
+  body .foundry-card {
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    padding: 20px 16px;
+  }
+
+  body .foundry-card-specimen {
+    display: none;
+  }
+
+  body .foundry-card-head {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  body .foundry-card-head strong {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 960px) {
+  body .foundry-card {
+    grid-template-columns: 40px 1fr auto;
+    gap: 20px;
+    padding: 24px 20px;
+  }
+
+  body .foundry-card-specimen {
+    max-width: 160px;
+    font-size: 28px;
+  }
+}
