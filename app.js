@@ -2033,19 +2033,12 @@ function renderFontDetail(font) {
             </div>
           </div>
         </section>
-        <section class="weights-section">
-          <h2>Weights</h2>
-          <div class="weight-list" style="font-family: ${fontStack(font)};">
-            ${weights.map((weight) => `<div><span>${weight}</span><p style="font-weight:${weight};">${font.previewText}</p></div>`).join("")}
-          </div>
-        </section>
         <section class="meta-grid" id="details">
           <div><span>Designer</span><strong>${font.designer}</strong></div>
           <div><span>Version</span><strong>${font.version}</strong></div>
           <div id="license"><span>License</span><strong><a href="${licenseUrlFor(font)}" target="_blank" rel="noreferrer">${font.licenseName || font.license} &rarr;</a></strong></div>
           <div><span>Copyright</span><strong>${font.copyrightNotice || "Not specified"}</strong></div>
           <div><span>Source</span><strong>${font.source.replace(/^https?:\/\//, "")}</strong></div>
-          <div><span>Styles</span><strong>${font.variable ? "Variable" : "Static"}${font.styles.includes("italic") ? " + italics" : ""}</strong></div>
           <div><span>Submitted by</span><strong>@${font.submittedBy}</strong></div>
           <div class="report-link"><a href="/copyright" data-local-link>Report licensing issue &rarr;</a></div>
         </section>
@@ -2323,12 +2316,6 @@ function setupMobileNavArrows() {
   });
 }
 
-function setupLicenseNavigation() {
-  const footerNav = document.querySelector(".footer-inner nav");
-  if (!footerNav || footerNav.querySelector('[href="/licenses"]')) return;
-  footerNav.insertAdjacentHTML("afterbegin", '<a href="/licenses" data-local-link>Licenses</a>');
-}
-
 function setupFooterExtras() {
   // Footer is now static HTML — no dynamic setup needed.
 }
@@ -2469,7 +2456,6 @@ window.addEventListener("popstate", () => {
 route();
 setupMobileNav();
 setupMobileNavArrows();
-setupLicenseNavigation();
 setupFooterExtras();
 scrollToHash();
 hydrateDownloadCounts();

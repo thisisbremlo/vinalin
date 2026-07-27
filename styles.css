@@ -9106,8 +9106,8 @@ body[data-page="detail"] .meta-grid {
 body[data-page="detail"] .meta-grid div {
   display: grid !important;
   align-content: space-between !important;
-  min-height: 124px !important;
-  padding: 16px !important;
+  min-height: 90px !important;
+  padding: 14px 16px !important;
   border-right: 1px solid rgba(23, 23, 23, 0.075) !important;
   border-bottom: 1px solid rgba(23, 23, 23, 0.075) !important;
 }
@@ -12131,7 +12131,7 @@ body[data-page="inner"] .legal-data {
 }
 
 body[data-page="inner"] .legal-data div {
-  min-height: 130px !important;
+  min-height: 90px !important;
   padding: 18px !important;
   border-right: 1px solid rgba(23, 23, 23, 0.09) !important;
 }
@@ -12143,17 +12143,17 @@ body[data-page="inner"] .legal-data div:last-child {
 body[data-page="inner"] .legal-data span,
 body[data-page="inner"] .legal-font-list small {
   display: block !important;
-  margin-bottom: 22px !important;
+  margin-bottom: 14px !important;
   color: rgba(23, 23, 23, 0.48) !important;
   font-family: var(--mono) !important;
-  font-size: 10px !important;
+  font-size: 9px !important;
   line-height: 1.2 !important;
   text-transform: uppercase !important;
 }
 
 body[data-page="inner"] .legal-data strong {
   color: var(--ink) !important;
-  font-size: clamp(20px, 2.4vw, 34px) !important;
+  font-size: clamp(14px, 1.4vw, 20px) !important;
   font-weight: 400 !important;
   line-height: 1.05 !important;
 }
@@ -13445,6 +13445,7 @@ body .foundry-card {
   color: var(--ink);
   text-decoration: none;
   overflow: visible;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 body .foundry-card:last-child {
@@ -13462,6 +13463,7 @@ body .foundry-card-index span {
   line-height: 1;
   letter-spacing: 0.04em;
   color: var(--muted);
+  transition: color 0.35s ease;
 }
 
 body .foundry-card:hover .foundry-card-index span {
@@ -13487,6 +13489,7 @@ body .foundry-card-head strong {
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.03em;
+  transition: color 0.35s ease;
 }
 
 body .foundry-card:hover .foundry-card-head strong {
@@ -13499,6 +13502,7 @@ body .foundry-card-head span {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
+  transition: color 0.35s ease;
 }
 
 body .foundry-card:hover .foundry-card-head span {
@@ -13509,6 +13513,7 @@ body .foundry-card-fonts {
   font-family: var(--sans);
   font-size: 13px;
   color: var(--muted);
+  transition: color 0.35s ease;
 }
 
 body .foundry-card:hover .foundry-card-fonts {
@@ -13526,7 +13531,7 @@ body .foundry-card-specimen {
   max-width: 280px;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: color 0.2s ease;
+  transition: color 0.35s ease;
 }
 
 body .foundry-card:hover .foundry-card-specimen {
