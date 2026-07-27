@@ -13801,25 +13801,12 @@ body .copyright-card strong {
   font-size: 16px;
   font-weight: 700;
   display: inline-block;
-  position: relative;
-  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
 }
 
-body .copyright-card strong::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--ink);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.2s ease;
-}
-
-body .copyright-card:hover strong::after {
-  transform: scaleX(1);
+body .copyright-card:hover strong {
+  border-bottom-color: currentColor;
 }
 
 body .copyright-card code {
