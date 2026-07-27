@@ -13600,17 +13600,8 @@ body .footer-top {
   border-bottom: 1px solid var(--line);
 }
 
-body .footer-brand {
-  font-family: var(--sans);
+body .footer-top .brand {
   font-size: 18px;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  text-decoration: none;
-}
-
-body .footer-brand span {
-  color: var(--ink);
 }
 
 body .footer-nav {

@@ -24,6 +24,7 @@ const fonts = [
 
 
 
+
 const app = document.querySelector("#app");
 const basicGlyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
 const axisRanges = {
