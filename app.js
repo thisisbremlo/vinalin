@@ -893,15 +893,50 @@ function bindPairingPage() {
       closePairSelects(wrapper);
       wrapper.classList.toggle("is-open", willOpen);
       trigger.setAttribute("aria-expanded", String(willOpen));
+      if (willOpen) {
+        const selected = optionButtons.find((b) => b.dataset.value === select.value);
+        (selected || optionButtons[0])?.focus();
+      }
     });
 
-    optionButtons.forEach((button) => {
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        const willOpen = !wrapper.classList.contains("is-open");
+        closePairSelects(wrapper);
+        wrapper.classList.toggle("is-open", willOpen);
+        trigger.setAttribute("aria-expanded", String(willOpen));
+        if (willOpen) {
+          const selected = optionButtons.find((b) => b.dataset.value === select.value);
+          (selected || optionButtons[0])?.focus();
+        }
+      }
+    });
+
+    optionButtons.forEach((button, index) => {
       button.addEventListener("click", () => {
         select.value = button.dataset.value;
         markTouched(role);
         sync();
         closePairSelects();
+        trigger.focus();
         updatePairing(false);
+      });
+      button.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowDown") {
+          event.preventDefault();
+          optionButtons[index + 1]?.focus();
+        } else if (event.key === "ArrowUp") {
+          event.preventDefault();
+          if (index === 0) { trigger.focus(); closePairSelects(); }
+          else optionButtons[index - 1]?.focus();
+        } else if (event.key === "Escape") {
+          closePairSelects();
+          trigger.focus();
+        } else if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          button.click();
+        }
       });
     });
 
@@ -1094,15 +1129,50 @@ function bindHomeControls() {
       closeCustomSelects(wrapper);
       wrapper.classList.toggle("is-open", willOpen);
       trigger.setAttribute("aria-expanded", String(willOpen));
+      if (willOpen) {
+        const selected = optionButtons.find((b) => b.dataset.value === select.value);
+        (selected || optionButtons[0])?.focus();
+      }
     });
 
-    optionButtons.forEach((button) => {
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        const willOpen = !wrapper.classList.contains("is-open");
+        closeCustomSelects(wrapper);
+        wrapper.classList.toggle("is-open", willOpen);
+        trigger.setAttribute("aria-expanded", String(willOpen));
+        if (willOpen) {
+          const selected = optionButtons.find((b) => b.dataset.value === select.value);
+          (selected || optionButtons[0])?.focus();
+        }
+      }
+    });
+
+    optionButtons.forEach((button, index) => {
       button.addEventListener("click", () => {
         select.value = button.dataset.value;
         sync();
         closeCustomSelects();
+        trigger.focus();
         select.dispatchEvent(new Event("input", { bubbles: true }));
         select.dispatchEvent(new Event("change", { bubbles: true }));
+      });
+      button.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowDown") {
+          event.preventDefault();
+          optionButtons[index + 1]?.focus();
+        } else if (event.key === "ArrowUp") {
+          event.preventDefault();
+          if (index === 0) { trigger.focus(); closeCustomSelects(); }
+          else optionButtons[index - 1]?.focus();
+        } else if (event.key === "Escape") {
+          closeCustomSelects();
+          trigger.focus();
+        } else if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          button.click();
+        }
       });
     });
 
