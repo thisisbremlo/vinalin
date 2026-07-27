@@ -1,22 +1,25 @@
 const fonts = [
-  { name: "cabinet-grotesk", displayName: "Cabinet Grotesk", version: "2.0", category: "sans", designer: "Indian Type Foundry", license: "Fontshare Free Font License", source: "https://www.fontshare.com/fonts/cabinet-grotesk", variable: true, weights: [100, 200, 300, 400, 500, 700, 800, 900], styles: ["normal"], fallback: "sans-serif", previewText: "A versatile grotesque for every weight.", description: "A clean, geometric grotesque sans-serif spanning Thin to Black, suited to both expressive headlines and functional body text.", submittedBy: "thisisbremlo", family: "Cabinet Grotesk" },
-  { name: "clash-grotesk", displayName: "Clash Grotesk", version: "2.0", category: "sans", designer: "Indian Type Foundry", license: "Fontshare Free Font License", source: "https://www.fontshare.com/fonts/clash-grotesk", variable: true, weights: [200, 300, 400, 500, 600, 700], styles: ["normal"], fallback: "sans-serif", previewText: "Confident type with a modern edge.", description: "A contemporary grotesque sans-serif with sturdy, slightly condensed letterforms, built for bold headlines and clean interface text.", submittedBy: "thisisbremlo", family: "Clash Grotesk" },
+  { name: "cabinet-grotesk", displayName: "Cabinet Grotesk", version: "2.0", category: "sans", designer: "Indian Type Foundry", license: "Fontshare Free Font License", source: "https://www.fontshare.com/fonts/cabinet-grotesk", variable: true, weights: [100,200,300,400,500,700,800,900], styles: ["normal"], fallback: "sans-serif", previewText: "A versatile grotesque for every weight.", description: "A clean, geometric grotesque sans-serif spanning Thin to Black, suited to both expressive headlines and functional body text.", submittedBy: "thisisbremlo", family: "Cabinet Grotesk" },
+  { name: "clash-grotesk", displayName: "Clash Grotesk", version: "2.0", category: "sans", designer: "Indian Type Foundry", license: "Fontshare Free Font License", source: "https://www.fontshare.com/fonts/clash-grotesk", variable: true, weights: [200,300,400,500,600,700], styles: ["normal"], fallback: "sans-serif", previewText: "Confident type with a modern edge.", description: "A contemporary grotesque sans-serif with sturdy, slightly condensed letterforms, built for bold headlines and clean interface text.", submittedBy: "thisisbremlo", family: "Clash Grotesk" },
   { name: "departure-mono", displayName: "Departure Mono", version: "1.350", category: "mono", designer: "Helena Zhang", license: "OFL-1.1", source: "https://departuremono.com", variable: false, weights: [400], styles: ["normal"], fallback: "monospace", previewText: "Pixel-perfect type for quiet systems.", description: "A pixel-conscious monospace typeface with support for Latin, Greek, small caps, old-style numerals, fractions, and selected symbols.", submittedBy: "thisisbremlo", family: "Departure Mono" },
-  { name: "fraunces", displayName: "Fraunces", version: "1.0", category: "serif", designer: "Undercase Type", license: "OFL-1.1", source: "https://github.com/undercasetype/Fraunces", variable: true, weights: [400, 500, 600, 700, 900], styles: ["normal", "italic"], fallback: "serif", previewText: "A wonky, old-style soft serif.", description: "A display serif inspired by early 20th century typefaces, with optical sizing, softness, and wonk axes.", submittedBy: "thisisbremlo", family: "Fraunces" },
-  { name: "geist", displayName: "Geist", version: "1.7.2", category: "sans", designer: "Geist Type", license: "OFL-1.1", source: "https://github.com", variable: true, weights: [400, 500, 600, 700], styles: ["normal", "italic"], fallback: "sans-serif", previewText: "Design is the silent ambassador of your brand.", description: "A Swiss-inspired sans-serif built for legibility and precision for the modern web.", submittedBy: "thisisbremlo", family: "Geist" },
-  { name: "geist-mono", displayName: "Geist Mono", version: "1.7.2", category: "mono", designer: "Geist Type", license: "OFL-1.1", source: "https://github.com", variable: true, weights: [400, 500, 600, 700], styles: ["normal", "italic"], fallback: "monospace", previewText: "const font = await vinalin.add(\"geist-mono\")", description: "The monospace companion to Geist. Clean, precise, and made for code.", submittedBy: "thisisbremlo", family: "Geist Mono" },
+  { name: "fraunces", displayName: "Fraunces", version: "1.0", category: "serif", designer: "Undercase Type", license: "OFL-1.1", source: "https://github.com/undercasetype/Fraunces", variable: true, weights: [400,500,600,700,900], styles: ["normal","italic"], fallback: "serif", previewText: "A wonky, old-style soft serif.", description: "A display serif inspired by early 20th century typefaces, with optical sizing, softness, and wonk axes.", submittedBy: "thisisbremlo", family: "Fraunces" },
+  { name: "geist", displayName: "Geist", version: "1.7.2", category: "sans", designer: "Geist Type", license: "OFL-1.1", source: "https://github.com", variable: true, weights: [400,500,600,700], styles: ["normal","italic"], fallback: "sans-serif", previewText: "Design is the silent ambassador of your brand.", description: "A Swiss-inspired sans-serif built for legibility and precision for the modern web.", submittedBy: "thisisbremlo", family: "Geist" },
+  { name: "geist-mono", displayName: "Geist Mono", version: "1.7.2", category: "mono", designer: "Geist Type", license: "OFL-1.1", source: "https://github.com", variable: true, weights: [400,500,600,700], styles: ["normal","italic"], fallback: "monospace", previewText: "const font = await vinalin.add(\"geist-mono\")", description: "The monospace companion to Geist. Clean, precise, and made for code.", submittedBy: "thisisbremlo", family: "Geist Mono" },
   { name: "hs-lunaobscura", displayName: "HS LunaObscura", version: "1.0", category: "display", designer: "Headspace Agency", license: "OFL-1.1", source: "https://lunaobscura.headspace.ru", variable: false, weights: [400], styles: ["normal"], fallback: "sans-serif", previewText: "Signal found beyond the interface.", description: "An industrial display typeface for sci-fi, cyberpunk, dystopian interfaces, posters, navigation, and UI mockups.", submittedBy: "thisisbremlo", family: "HS LunaObscura" },
-  { name: "inter", displayName: "Inter", version: "4.1", category: "sans", designer: "Rasmus Andersson", license: "OFL-1.1", source: "https://github.com/rsms/inter", variable: true, weights: [400, 500, 600, 700], styles: ["normal", "italic"], fallback: "sans-serif", previewText: "Sphinx of black quartz, judge my vow.", description: "A typeface carefully crafted and designed for computer screens. The de-facto standard for product interfaces.", submittedBy: "thisisbremlo", family: "Inter" },
-  { name: "jetbrains-mono", displayName: "JetBrains Mono", version: "2.304", category: "mono", designer: "JetBrains", license: "OFL-1.1", source: "https://github.com/JetBrains/JetBrainsMono", variable: true, weights: [400, 500, 700, 800], styles: ["normal", "italic"], fallback: "monospace", previewText: "() => ({ ligatures: true, zero: \"0O\" })", description: "A typeface for developers. Increased x-height, code ligatures, and 145 languages supported.", submittedBy: "thisisbremlo", family: "JetBrains Mono" },
-  { name: "manrope", displayName: "Manrope", version: "3.0", category: "sans", designer: "Mikhail Sharanda", license: "OFL-1.1", source: "https://github.com/davelab6/manrope", variable: false, weights: [400, 500, 600, 700], styles: ["normal"], fallback: "sans-serif", previewText: "Modern, open, geometric grotesque.", description: "An open-source modern sans-serif. Geometric yet warm, great for both display and body text.", submittedBy: "thisisbremlo", family: "Manrope" },
+  { name: "inter", displayName: "Inter", version: "4.1", category: "sans", designer: "Rasmus Andersson", license: "OFL-1.1", source: "https://github.com/rsms/inter", variable: true, weights: [400,500,600,700], styles: ["normal","italic"], fallback: "sans-serif", previewText: "Sphinx of black quartz, judge my vow.", description: "A typeface carefully crafted and designed for computer screens. The de-facto standard for product interfaces.", submittedBy: "thisisbremlo", family: "Inter" },
+  { name: "jetbrains-mono", displayName: "JetBrains Mono", version: "2.304", category: "mono", designer: "JetBrains", license: "OFL-1.1", source: "https://github.com/JetBrains/JetBrainsMono", variable: true, weights: [400,500,700,800], styles: ["normal","italic"], fallback: "monospace", previewText: "() => ({ ligatures: true, zero: \"0O\" })", description: "A typeface for developers. Increased x-height, code ligatures, and 145 languages supported.", submittedBy: "thisisbremlo", family: "JetBrains Mono" },
+  { name: "manrope", displayName: "Manrope", version: "3.0", category: "sans", designer: "Mikhail Sharanda", license: "OFL-1.1", source: "https://github.com/davelab6/manrope", variable: false, weights: [400,500,600,700], styles: ["normal"], fallback: "sans-serif", previewText: "Modern, open, geometric grotesque.", description: "An open-source modern sans-serif. Geometric yet warm, great for both display and body text.", submittedBy: "thisisbremlo", family: "Manrope" },
   { name: "momo-signature", displayName: "Momo Signature", version: "1.0", category: "handwriting", designer: "M - N Associates", license: "OFL-1.1", source: "https://momo.vn", variable: false, weights: [400], styles: ["normal"], fallback: "cursive", previewText: "A personal mark inside digital trust.", description: "A handwritten signature-inspired typeface designed to add a personal, trusted, and individual tone.", submittedBy: "thisisbremlo", family: "Momo Signature" },
-  { name: "neutral-sans", displayName: "Neutral Sans", version: "1.1", category: "sans", designer: "Barry Shawn", license: "OFL-1.1", source: "https://github.com/BesignLab/Neutral-Sans", variable: true, weights: [400, 500, 700, 900], styles: ["normal"], fallback: "sans-serif", previewText: "Warm clarity for modern interfaces.", description: "A modern humanist sans-serif with rounded details, strong readability, variable weight support, and multilingual coverage.", submittedBy: "thisisbremlo", family: "Neutral Sans" },
-  { name: "parkinsans", displayName: "Parkinsans", version: "1.0", category: "sans", designer: "Red Stone", license: "OFL-1.1", source: "https://github.com/redstonedesign/parkinsans", variable: true, weights: [300, 400, 500, 600, 700, 800], styles: ["normal"], fallback: "sans-serif", previewText: "Accessible type with human energy.", description: "A geometric sans-serif designed for Parkinson's UK, balancing energetic display character with accessible short-form reading.", submittedBy: "thisisbremlo", family: "Parkinsans" },
-  { name: "space-grotesk", displayName: "Space Grotesk", version: "2.0.0", category: "display", designer: "Florian Karsten", license: "OFL-1.1", source: "https://github.com/floriankarsten/space-grotesk", variable: true, weights: [300, 400, 500, 600, 700], styles: ["normal"], fallback: "sans-serif", previewText: "Space is big. Really big.", description: "A proportional sans-serif derived from Space Mono, with retro-futuristic details that shine at display sizes.", submittedBy: "thisisbremlo", family: "Space Grotesk" },
+  { name: "neutral-sans", displayName: "Neutral Sans", version: "1.1", category: "sans", designer: "Barry Shawn", license: "OFL-1.1", source: "https://github.com/BesignLab/Neutral-Sans", variable: true, weights: [400,500,700,900], styles: ["normal"], fallback: "sans-serif", previewText: "Warm clarity for modern interfaces.", description: "A modern humanist sans-serif with rounded details, strong readability, variable weight support, and multilingual coverage.", submittedBy: "thisisbremlo", family: "Neutral Sans" },
+  { name: "parkinsans", displayName: "Parkinsans", version: "1.0", category: "sans", designer: "Red Stone", license: "OFL-1.1", source: "https://github.com/redstonedesign/parkinsans", variable: true, weights: [300,400,500,600,700,800], styles: ["normal"], fallback: "sans-serif", previewText: "Accessible type with human energy.", description: "A geometric sans-serif designed for Parkinson's UK, balancing energetic display character with accessible short-form reading.", submittedBy: "thisisbremlo", family: "Parkinsans" },
+  { name: "space-grotesk", displayName: "Space Grotesk", version: "2.0.0", category: "display", designer: "Florian Karsten", license: "OFL-1.1", source: "https://github.com/floriankarsten/space-grotesk", variable: true, weights: [300,400,500,600,700], styles: ["normal"], fallback: "sans-serif", previewText: "Space is big. Really big.", description: "A proportional sans-serif derived from Space Mono, with retro-futuristic details that shine at display sizes.", submittedBy: "thisisbremlo", family: "Space Grotesk" },
   { name: "tanker", displayName: "Tanker", version: "1.0", category: "display", designer: "Indian Type Foundry", license: "Fontshare Free Font License", source: "https://www.fontshare.com/fonts/tanker", variable: false, weights: [400], styles: ["normal"], fallback: "sans-serif", previewText: "Bold headlines that demand attention.", description: "A high-contrast, ultra-bold display sans-serif with tightly packed letterforms, built for impactful headlines and posters.", submittedBy: "thisisbremlo", family: "Tanker" },
-  { name: "tiktok-sans", displayName: "TikTok Sans", version: "1.0", category: "sans", designer: "TikTok Inc.", license: "OFL-1.1", source: "https://github.com/tiktok/TikTokSans", variable: true, weights: [400, 500, 600, 700, 800, 900], styles: ["normal"], fallback: "sans-serif", previewText: "A social rhythm for product type.", description: "A modern sans-serif typeface from TikTok, built for clear brand expression across digital interfaces and communication.", submittedBy: "thisisbremlo", family: "TikTok Sans" },
-  { name: "zalando-sans", displayName: "Zalando Sans", version: "1.0", category: "sans", designer: "Jakob Ekelund / KH Type", license: "OFL-1.1", source: "https://github.com/zalando/sans", variable: true, weights: [200, 300, 400, 500, 600, 700, 800, 900], styles: ["normal"], fallback: "sans-serif", previewText: "Bold systems can still feel welcoming.", description: "A flexible grotesque sans-serif developed for Zalando, combining clarity, expressive range, and brand personality through variable axes.", submittedBy: "thisisbremlo", family: "Zalando Sans" },
+  { name: "tiktok-sans", displayName: "TikTok Sans", version: "1.0", category: "sans", designer: "TikTok Inc.", license: "OFL-1.1", source: "https://github.com/tiktok/TikTokSans", variable: true, weights: [400,500,600,700,800,900], styles: ["normal"], fallback: "sans-serif", previewText: "A social rhythm for product type.", description: "A modern sans-serif typeface from TikTok, built for clear brand expression across digital interfaces and communication.", submittedBy: "thisisbremlo", family: "TikTok Sans" },
+  { name: "zalando-sans", displayName: "Zalando Sans", version: "1.0", category: "sans", designer: "Jakob Ekelund / KH Type", license: "OFL-1.1", source: "https://github.com/zalando/sans", variable: true, weights: [200,300,400,500,600,700,800,900], styles: ["normal"], fallback: "sans-serif", previewText: "Bold systems can still feel welcoming.", description: "A flexible grotesque sans-serif developed for Zalando, combining clarity, expressive range, and brand personality through variable axes.", submittedBy: "thisisbremlo", family: "Zalando Sans" }
 ];
+
+
+
 
 const app = document.querySelector("#app");
 const basicGlyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
@@ -331,14 +334,6 @@ function recommendPairing(current = {}) {
   return chosen;
 }
 
-function pairingWarnings(pair) {
-  const warnings = [];
-  if (pair.headline.category === pair.body.category && pair.headline.category !== "serif") warnings.push("Headline and body are very close; make the size or weight contrast obvious.");
-  if (pair.headline.category === "display" && pair.accent.category === "display") warnings.push("Two display voices can compete. Keep the accent short.");
-  if (pair.body.category === "display" || pair.body.category === "handwriting") warnings.push("Body text may be hard to read. Use this only for short passages.");
-  if (pair.headline.name === pair.body.name) warnings.push("Same-family systems can work well; use clear hierarchy.");
-  return warnings;
-}
 
 
 function pagePath() {
@@ -510,14 +505,6 @@ function fontCard(font) {
     </article>`;
 }
 
-function homeHotList() {
-  return popularFonts(10).map((font, index) => `
-    <a href="/fonts/${font.name}" data-local-link data-track-font="${font.name}" data-track-event="click">
-      <span>${index + 1}</span>
-      <strong>${font.displayName}</strong>
-    </a>`).join("");
-}
-
 function popularFontStrip() {
   const data = readFontTracking();
   return fonts
@@ -535,11 +522,24 @@ function popularFontStrip() {
     </li>`).join("");
 }
 
-function foundryCard(font) {
+function foundryCard(entry, index) {
+  const [designer, familyFonts] = entry;
+  const primary = familyFonts[0];
+  const categories = [...new Set(familyFonts.map((f) => f.category === "sans" ? "Sans Serif" : prettyCategory(f.category)))];
+  const fontNames = familyFonts.map((f) => f.displayName).join(" \u00b7 ");
   return `
-    <a class="foundry-card" href="/fonts/${font.name}" data-local-link data-track-font="${font.name}" data-track-event="click">
-      <span>${font.category === "sans" ? "Sans Serif" : prettyCategory(font.category)}</span>
-      <strong>${font.designer}</strong>
+    <a class="foundry-card" href="/fonts/${primary.name}" data-local-link data-track-font="${primary.name}" data-track-event="click">
+      <div class="foundry-card-index"><span>${String(index + 1).padStart(2, "0")}</span></div>
+      <div class="foundry-card-body">
+        <div class="foundry-card-head">
+          <strong>${designer}</strong>
+          <span>${categories.join(" / ")} \u00b7 ${familyFonts.length} ${familyFonts.length === 1 ? "family" : "families"}</span>
+        </div>
+        <div class="foundry-card-fonts">${fontNames}</div>
+      </div>
+      <div class="foundry-card-specimen">
+        <span>${primary.previewText}</span>
+      </div>
     </a>`;
 }
 
@@ -556,7 +556,14 @@ function renderHome() {
   const craftFont = fontByName("fraunces");
   const systemFont = fontByName("inter");
   const teamFont = fontByName("geist");
-  const foundries = [...new Map(fonts.map((font) => [font.designer, font])).values()].slice(0, 4);
+  const foundryMap = new Map();
+  fonts.forEach((font) => {
+    if (!foundryMap.has(font.designer)) foundryMap.set(font.designer, []);
+    foundryMap.get(font.designer).push(font);
+  });
+  const foundries = [...foundryMap.entries()]
+    .sort((a, b) => b[1].length - a[1].length)
+    .slice(0, 6);
   app.innerHTML = `
     <section class="report-hero" aria-labelledby="hero-title">
       <div class="report-hero-art" aria-hidden="true">
@@ -682,7 +689,7 @@ function renderHome() {
           <h2>Fresh foundries</h2>
           <a class="mini-link" href="/submit" data-local-link>Submit a font</a>
         </div>
-        <div class="foundry-grid">${foundries.map(foundryCard).join("")}</div>
+        <div class="foundry-grid">${foundries.map((entry, i) => foundryCard(entry, i)).join("")}</div>
       </div>
     </section>
     `;
@@ -1250,7 +1257,7 @@ function renderSubmit() {
       <div class="container submit-layout">
         <div class="step-list">
           <article><span>01</span><h2>Fork the registry</h2><p>The whole registry lives in <code>thisisbremlo/vinalin</code>. Fork it and create a branch for your font.</p></article>
-          <article><span>02</span><h2>Add your font folder</h2><p>Create <code>registry/fonts/&lt;slug&gt;/</code> with a <code>font.json</code>, the <code>.woff2</code> files under <code>files/</code>, and the license as <code>files/OFL.txt</code>.</p></article>
+          <article><span>02</span><h2>Add your font folder</h2><p>Add the font object to the <code>fonts</code> array in <code>app.js</code>, then create <code>registry/fonts/&lt;slug&gt;/files/</code> with the <code>.woff2</code> files and the license as <code>OFL.txt</code>.</p></article>
           <article><span>03</span><h2>Open a pull request</h2><p>Run <code>npm run build:registry</code> and <code>npm run validate:registry</code>. CI repeats those checks before the font ships.</p></article>
         </div>
         <aside class="requirements">
@@ -1264,27 +1271,23 @@ function renderSubmit() {
           </ul>
         </aside>
         <article class="prose schema">
-          <h2>font.json</h2>
+          <h2>Font object in app.js</h2>
           ${codeBlock(`{
-  "$schema": "../../schema.json",
-  "name": "your-font",
-  "displayName": "Your Font",
-  "version": "1.0",
-  "category": "sans",
-  "designer": "Jane Doe",
-  "license": { "type": "OFL-1.1", "url": "https://..." },
-  "source": "https://github.com/...",
-  "variable": true,
-  "axes": { "wght": [100, 900] },
-  "weights": [400, 500, 700],
-  "styles": ["normal", "italic"],
-  "fallback": "sans-serif",
-  "previewText": "Show it off in one line.",
-  "description": "One or two sentences about the typeface.",
-  "submittedBy": { "github": "your-handle" },
-  "files": [
-    { "path": "/r/fonts/your-font/YourFont.woff2", "weight": "100 900", "style": "normal" }
-  ]
+  name: "your-font",
+  displayName: "Your Font",
+  version: "1.0",
+  category: "sans",
+  designer: "Jane Doe",
+  license: "OFL-1.1",
+  source: "https://github.com/...",
+  variable: true,
+  weights: [400, 500, 700],
+  styles: ["normal", "italic"],
+  fallback: "sans-serif",
+  previewText: "Show it off in one line.",
+  description: "One or two sentences about the typeface.",
+  submittedBy: "your-handle",
+  family: "Your Font",
 }`)}
           <a class="primary-link" href="https://github.com/thisisbremlo/vinalin/compare" target="_blank" rel="noreferrer">Open a pull request</a>
         </article>
