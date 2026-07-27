@@ -2019,8 +2019,8 @@ function renderFontDetail(font) {
           <div class="tester-toolbar">
             <label><span>Size</span><input id="testerSize" type="range" min="32" max="140" value="72"><output id="testerSizeOut">72px</output></label>
             <label><span>Tracking</span><input id="testerTracking" type="range" min="-4" max="12" value="0"><output id="testerTrackingOut">0px</output></label>
-            <div class="button-field"><span>Weight</span><div class="button-row" id="testerWeight">${weights.map((w) => `<button type="button" class="${w === 400 ? "is-active" : ""}" data-weight="${w}">${w}</button>`).join("")}</div></div>
-            ${font.styles.length > 1 ? `<div class="button-field"><span>Style</span><div class="button-row" id="testerStyle">${font.styles.map((s) => `<button type="button" class="${s === "normal" ? "is-active" : ""}" data-style="${s}">${s === "normal" ? "roman" : s}</button>`).join("")}</div></div>` : ""}
+            <div class="button-field"><span>Weight</span><div class="button-row" id="testerWeight">${weights.map((w) => `<button type="button" class="${w === 400 ? "is-active" : ""}" data-weight="${w}" aria-pressed="${w === 400}">${w}</button>`).join("")}</div></div>
+            ${font.styles.length > 1 ? `<div class="button-field"><span>Style</span><div class="button-row" id="testerStyle">${font.styles.map((s) => `<button type="button" class="${s === "normal" ? "is-active" : ""}" data-style="${s}" aria-pressed="${s === "normal"}">${s === "normal" ? "roman" : s}</button>`).join("")}</div></div>` : ""}
             <button class="reset-button" id="testerReset" type="button">reset</button>
           </div>
           <textarea class="tester-text" id="testerText" spellcheck="false" aria-label="Type tester text" style="font-family: ${fontStack(font)};">${font.previewText}</textarea>
@@ -2102,16 +2102,18 @@ function bindTester() {
   });
   weightButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      weightButtons.forEach((item) => item.classList.remove("is-active"));
+      weightButtons.forEach((item) => { item.classList.remove("is-active"); item.setAttribute("aria-pressed", "false"); });
       button.classList.add("is-active");
+      button.setAttribute("aria-pressed", "true");
       weight = button.dataset.weight;
       update();
     });
   });
   styleButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      styleButtons.forEach((item) => item.classList.remove("is-active"));
+      styleButtons.forEach((item) => { item.classList.remove("is-active"); item.setAttribute("aria-pressed", "false"); });
       button.classList.add("is-active");
+      button.setAttribute("aria-pressed", "true");
       style = button.dataset.style;
       update();
     });
@@ -2121,8 +2123,8 @@ function bindTester() {
     tracking.value = 0;
     weight = "400";
     style = "normal";
-    weightButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.weight === weight));
-    styleButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.style === style));
+    weightButtons.forEach((button) => { button.classList.toggle("is-active", button.dataset.weight === weight); button.setAttribute("aria-pressed", String(button.dataset.weight === weight)); });
+    styleButtons.forEach((button) => { button.classList.toggle("is-active", button.dataset.style === style); button.setAttribute("aria-pressed", String(button.dataset.style === style)); });
     text.value = original;
     update();
   });
