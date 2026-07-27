@@ -13841,7 +13841,7 @@ body .form-row textarea {
   font-size: 14px;
   padding: 10px 12px;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 6px;
+  border-radius: 0;
   background: var(--bg);
   color: var(--fg);
   transition: border-color 0.15s;
@@ -13865,7 +13865,7 @@ body .report-form .submit-button {
   text-transform: uppercase;
   padding: 10px 20px;
   border: 1px solid #070707;
-  border-radius: 6px;
+  border-radius: 0;
   background: #070707;
   color: #ffffe3;
   cursor: pointer;

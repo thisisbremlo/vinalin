@@ -1864,8 +1864,12 @@ function bindCopyrightReportForm() {
       btn.disabled = true;
       btn.textContent = "Submitting...";
       try {
-        const data = new FormData(form);
-        const res = await fetch(form.action, { method: "POST", body: data });
+        const data = new URLSearchParams(new FormData(form));
+        const res = await fetch(form.action, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: data,
+        });
         if (res.ok) {
           form.hidden = true;
           success.hidden = false;
@@ -1873,7 +1877,8 @@ function bindCopyrightReportForm() {
           btn.disabled = false;
           btn.textContent = "Submit Report";
         }
-      } catch {
+      } catch (err) {
+        console.error("Form submission failed:", err);
         btn.disabled = false;
         btn.textContent = "Submit Report";
       }
