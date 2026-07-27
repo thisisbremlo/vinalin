@@ -8506,7 +8506,7 @@ body[data-page="home"] .catalog {
 }
 
 body[data-page="home"] .catalog .section-title-row {
-  padding-top: clamp(90px, 12vw, 180px) !important;
+  padding-top: clamp(12px, 2vw, 28px) !important;
 }
 
 @media (max-width: 720px) {
@@ -8521,11 +8521,11 @@ body[data-page="home"] .catalog .section-title-row {
   }
 
   body[data-page="home"] .catalog {
-    padding-top: 88px !important;
+    padding-top: 4px !important;
   }
 
   body[data-page="home"] .catalog .section-title-row {
-    padding-top: 72px !important;
+    padding-top: 16px !important;
   }
 }
 
@@ -11065,12 +11065,12 @@ body[data-page="home"] .chapter-stack .chapter-teams {
 }
 
 body[data-page="home"] .catalog {
-  padding-top: clamp(12px, 2.4vw, 36px) !important;
+  padding-top: clamp(4px, 1vw, 16px) !important;
 }
 
 body[data-page="home"] .catalog .section-title-row {
-  padding-top: clamp(28px, 4vw, 62px) !important;
-  padding-bottom: clamp(18px, 2.4vw, 32px) !important;
+  padding-top: clamp(12px, 2vw, 28px) !important;
+  padding-bottom: clamp(10px, 1.6vw, 20px) !important;
 }
 
 @media (max-width: 720px) {
@@ -11087,11 +11087,11 @@ body[data-page="home"] .catalog .section-title-row {
   }
 
   body[data-page="home"] .catalog {
-    padding-top: 8px !important;
+    padding-top: 4px !important;
   }
 
   body[data-page="home"] .catalog .section-title-row {
-    padding-top: 34px !important;
+    padding-top: 16px !important;
   }
 }
 
