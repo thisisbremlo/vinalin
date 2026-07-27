@@ -690,7 +690,7 @@ function renderHome() {
       ${renderCatalogToolbar()}
       <div class="container">
         <div class="catalog-results-head">
-          <p class="result-count" id="resultCount">${fonts.length} fonts</p>
+          <p class="result-count" id="resultCount" aria-live="polite">${fonts.length} fonts</p>
           <div class="view-toggle" aria-label="Catalog view">
             <button class="is-active" type="button" data-view="list" aria-pressed="true">List</button>
             <button type="button" data-view="grid" aria-pressed="false">Grid</button>
